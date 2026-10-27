@@ -75,7 +75,10 @@ Za opis videa ali nogo strani zadostuje:
 
 Angleška različica je na glasu Cori, zato zanjo zadostuje navedba
 „angleški glas: Piper, zbirka LibriVox (javna domena)"; ker gre za javno
-domeno, navedba ni pravna obveznost, ampak vljudnost. Izvožene datoteke:
-`rka-60-sl-*`, `rka-30-sl-*` (mojster in splet) ter `rka-60-en-splet`,
-`rka-30-en-splet`. Vseh šest je izmerjenih iz same datoteke, nobena ne
-sme biti objavljena brez tega dokumenta.
+domeno, navedba ni pravna obveznost, ampak vljudnost. Izmerjene zvočne datoteke so
+`master-{60,30}-{sl,en}-{mojster,splet,druzbeno}.m4a` — **dvanajst**, vsaka izmerjena iz
+same datoteke, meritve v `namera-{60,30}-{sl,en}.json`. Od njih se v video izdelke
+vgradi **enajst**: `rka-mux.py:26` za angleščino ne pozna namena *mojster*, zato
+`master-60-en-mojster.m4a` in `master-30-en-mojster.m4a` ostaneta izmerjena, a ne
+dobavljena. Izdelkov je **štirinajst**, ker družbeni zvok postreže tudi pokončnim platnom
+(`rka-mux.py:31`). Nobena od teh datotek ne sme biti objavljena brez tega dokumenta.

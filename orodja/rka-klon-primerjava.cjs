@@ -3,6 +3,15 @@ const fs = require("fs");
 const crypto = require("crypto");
 const REPO = "C:/Users/admin/Downloads/sssdf/rka-onepage";
 const KLON = process.env.TEMP + "/rka-klon";
+/* Klon je del dokaza, ne predpogoj, ki si ga mora kdo zapomniti: ce ga ni (Temp se
+   pocisti), ga orodje naredi samo. Brez tega izpise "razlicnih: VSE" in pade na
+   manjkajocem delovnem imeniku — kar izgleda kot okvara repozitorija, je samo
+   manjkajoc korak. */
+if (!fs.existsSync(KLON + "/.git")) {
+  fs.rmSync(KLON, { recursive: true, force: true });
+  execFileSync("git", ["clone", "--quiet", "--no-hardlinks", REPO, KLON], { encoding: "utf8" });
+  console.log("klon narejen: " + KLON);
+}
 const seznam = execFileSync("git", ["ls-tree", "-r", "--name-only", "HEAD"],
   { cwd: REPO, encoding: "utf8" }).split("\n").filter(Boolean);
 const vs = (p) => crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex").slice(0, 16);

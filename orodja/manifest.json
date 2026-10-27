@@ -2,7 +2,7 @@
   "ustvarjeno": "2026-10-27",
   "vir": "%TEMP%",
   "opomba": "Kopiji sta nespremenjeni; skripti imajo absolutne poti te stroja (rka-onepage, rka-reklama, %TEMP%).",
-  "kopiranih": 76,
+  "kopiranih": 79,
   "izvzeto": {
     "rka-pregled.cjs": "nadomeščeno: samo trije pogledi namesto matrike 5×6",
     "rka-meri3.cjs": "nadomeščeno: šteje 'slabih pogledov: N/18' preozko",
@@ -131,7 +131,7 @@
     "rka-gib-sonda.cjs": {
       "sha256": "1a311f9f02f40d1fab2f1c8ef47626c89f8a24de54ef2e03886817c0ed1c18b2",
       "bajti": 28069,
-      "vloga": "vrata žive plasti: sedem trditev (ROB, PORIV, PRESLIKAVA, KONČNE, UTRIP, DETERMINIZEM, ŽIVA STRAN)"
+      "vloga": "vrata žive plasti: osem trditev (ROB, PORIV, PRESLIKAVA, KONC, UTRIP, DETERMINIZEM, ŽIVA STRAN, SMER)"
     },
     "rka-glas.py": {
       "sha256": "65b56e5ba1fc33b5f21234438a1c364341421a66337d41ba64ef3de1242d7a3d",
@@ -174,8 +174,8 @@
       "vloga": "falsifikacija dokaza o klonu: ena razlika in izhod 1, nato obnovljeno"
     },
     "rka-klon-primerjava.cjs": {
-      "sha256": "d88ef65202283a635be67a99308399b4bc67678deea4292003ebd7f41b92725e",
-      "bajti": 1302,
+      "sha256": "a0ba18cd53f9fb77f7eda2e2870d45cc306c011e05b195be7dc8869b02132561",
+      "bajti": 1801,
       "vloga": "dokaz: klon repozitorija je bajtsko enak disku"
     },
     "rka-mux.py": {
@@ -184,9 +184,14 @@
       "vloga": "zloži izvožena platna z izmerjenimi zvočnimi masterji v 14 izdelkov"
     },
     "rka-orodja-kopiraj.cjs": {
-      "sha256": "1f19ad555db1a49e727479dd1891ec757d44c3d31ef970a830cdf387d56b0523",
-      "bajti": 9689,
+      "sha256": "815e19c7139d211927c610a6a66bd448327a6c2890c4ee0015f04d93a3021fef",
+      "bajti": 10181,
       "vloga": "uvoznik orodij iz %TEMP% v mapo orodja, s sha256 in manifestom"
+    },
+    "rka-orodja-sintaksa.cjs": {
+      "sha256": "113b481f4c05293c62a7b584d9e1fea19a321138ee6ce60ab858770fa04f7e5f",
+      "bajti": 1187,
+      "vloga": "pregled sintakse vseh orodij (node --check, py_compile) nad poljubno mapo"
     },
     "rka-ozadje-casovnica.cjs": {
       "sha256": "8c77e458f0d6f7cbececcdebeecfb5f994815e6c3aecfd20c377d427f4fc143a",
@@ -241,7 +246,7 @@
     "rka-podnapisi-strani-preveri.cjs": {
       "sha256": "ef24a1d30c26fa9efc107f535c9c3809aca3df8025dbf23c7dfdeaf5ff240556",
       "bajti": 15794,
-      "vloga": "vrata: deset datotek .vtt priklopljenih na zgodba.html"
+      "vloga": "vrata: štiri .vtt (2 reza × 2 jezik) priklopljeni na zgodba.html; trdi štiri stvari"
     },
     "rka-podnapisi.py": {
       "sha256": "cba16af5bf8f227d83ef6b74833700c3a480426a349e945a712777209fa0a0e9",
@@ -256,12 +261,12 @@
     "rka-pokonci-preveri.cjs": {
       "sha256": "fd88aac79ae4c2156dd3394c10a9e619f12abf2a91656a85e7accec3e244a130",
       "bajti": 20642,
-      "vloga": "zgodnja vrata pokončnega reza; danes ga krije rka-pokonci-sonda.cjs"
+      "vloga": "vrata pokončnega reza 9×16: sedem trditev, njihov dokaz je rka-pokonci-mutacija.py"
     },
     "rka-pokonci-sonda.cjs": {
       "sha256": "41f0d3adbfd6a826fbb58895e3a994b8a14059e574a103c96692a7948068355d",
       "bajti": 8612,
-      "vloga": "vrata pokončnega reza 9×16"
+      "vloga": "raziskovalna sonda 9×16 (meri, kaj se zgodi; ne razsodja — razsodja rka-pokonci-preveri.cjs)"
     },
     "rka-posnetki-izvozi.cjs": {
       "sha256": "8aee02f9038bcccee9c7d55ef845d5c3b21015973bb3983cecb02bd4e08a0e9d",
@@ -288,6 +293,11 @@
       "bajti": 553,
       "vloga": "byte-range pregledovalni strežnik 4185 za video in zvok"
     },
+    "rka-pred-objavo-scan.cjs": {
+      "sha256": "f0a0db6fe5c98f1271eb49b597501cef52ddda3c50db04fca6a1914ae937bd0a",
+      "bajti": 1864,
+      "vloga": "pred objavo: iskanje žetonov in skrivnosti v drevesu, ki ga bo git oddal"
+    },
     "rka-pregled-harness.ps1": {
       "sha256": "ad607a6f8aaeb7fa4705a19b61b4d4d986edc7ba4e3d5ed8700aa777e4e58894",
       "bajti": 722,
@@ -297,6 +307,11 @@
       "sha256": "32690735f6764fa5d2007183db72da339080faa2f20548d9000678ac0e4e0f1b",
       "bajti": 7184,
       "vloga": "detektor prekrivanja naslikanih pravokotnikov (upšteva overflow in prosojnost)"
+    },
+    "rka-ps1-preveri.ps1": {
+      "sha256": "77003cbc3516c020342e43a9f3decfbe9312936b5312cfa83ca28420e7faba9a",
+      "bajti": 632,
+      "vloga": "analiza vseh .ps1 prek PowerShell Parserja (samo branje)"
     },
     "rka-razlika.py": {
       "sha256": "10654eb443e6dc96ee09481e106b79bc790a2af94a2982872067c5a0320b4565",
@@ -346,7 +361,7 @@
     "rka-slikovni-ab.py": {
       "sha256": "e0636324edd6f5495e191894b9dc37d0dad25a3666f41246ef6dc12e27588db8",
       "bajti": 8733,
-      "vloga": "A/B s pikslovno razliko: živa plast proti varovani kopiji na 14 izdelkih"
+      "vloga": "A/B s pikslovno razliko: živa plast proti varovani kopiji na 8 platnih × 12 točk (96 parov)"
     },
     "rka-sonda-crno.cjs": {
       "sha256": "da0c4158d3414908ba1dfcb9a207d3b3690b2be0afe3f166dad283cdcaf9f54e",
@@ -391,7 +406,7 @@
     "rka-vednost-preveri.py": {
       "sha256": "059735d0fb80b5f670cf8e684f168fcc3964b6ee2b1400f8f12a4d097f353167",
       "bajti": 1150,
-      "vloga": "vrata: trditve na strani proti virom"
+      "vloga": "vrata: nobena sled mutacij ne sme ostati v virih (izvirnik natanko enkrat, mutacija odsotna)"
     },
     "rka-zgodba-mutacija.cjs": {
       "sha256": "d39cd6a4af4411aa26f3368a566355bf844f4ddf6f264b077160cced6fc75b20",
