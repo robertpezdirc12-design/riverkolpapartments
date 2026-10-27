@@ -36,7 +36,7 @@ dokaz ne obstaja, piše **NEZAJETO** in ne domneva.
 
 ## Kaj je v repozitoriju
 
-**242 sledenih datotek, 32,0 MB.** Številka datotek je iz `git ls-files`; velikost je iz
+**242 sledenih datotek, 33,58 MB (32,0 MiB).** Številka datotek je iz `git ls-files`; velikost je iz
 velikosti na disku. Točna vsota bajtov se spreminja skupaj s tem README-jem, zato je ni
 smisel navajati kot obljubo — ponovno jo izračunajte z:
 
