@@ -488,6 +488,9 @@ Pošten seznam omejitev, da bralec ne računa na dokaz, ki ne obstaja:
 - **Brez falsifikatorja so tri vrata:** `rka-bit-preveri.py`, `rka-posnetki-proveri.py`,
   `rka-svetlost.py`. Njihove trditve so preverjene samo toliko, kolikor jih je preveril
   ročni pregled ob nastanku.
+- **Klon-dokaz pozna samo sledene datoteke.** `rka-klon-primerjava.cjs` primerja
+  `git ls-tree -r HEAD` z delovno kopijo: datoteke, ki niso sledene, ne more videti (izpiše
+  jih samo na število), seznam razlik pa je odrezan pri 12 — in takrat to tudi reče.
 - **Geometrijo izvoza sme brati samo `rka-izvoz-okvir.cjs` + `rka-izvoz-okvir.py`**
   (izriše okvir z `izris(t)` in ga primerja z istim okvirjem, izločenim iz MP4). Dve števili,
   ki sem ju nekoč izračunal iz CSS odstotkov, sta bili napačni.
