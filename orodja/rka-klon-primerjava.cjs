@@ -33,8 +33,15 @@ for (const f of seznam) {
 }
 console.log("preverjenih: " + seznam.length + " | razlicnih: " + razlike.length);
 razlike.slice(0, 12).forEach((r) => console.log("  RAZLIKA " + r));
+if (razlike.length > 12) console.log("  (prikazanih 12 od " + razlike.length + " — seznam je odrezan)");
+/* Trditev te vrat je "vse SLEDENE datoteke so enake". Datoteke, ki niso sledene,
+   se ne primerjajo in jih primerjava ne more videti — tu so vsaj na stevcu, da
+   "V REDU" ne pomeni vec, kot je merjeno. */
+const nesledene = execFileSync("git", ["ls-files", "--others", "--exclude-standard"],
+  { cwd: REPO, encoding: "utf8" }).split("\n").filter(Boolean);
+console.log("nesledenih v delovni kopiji (teh dokaz ne pokriva): " + nesledene.length);
 const ignorirane = execFileSync("git", ["status", "--ignored", "--porcelain"],
   { cwd: KLON, encoding: "utf8" }).split("\n").filter((v) => v.startsWith("!!"));
 console.log("v klonu ignorirano: " + (ignorirane.join(" ") || "nic"));
-console.log(razlike.length === 0 ? "V REDU: klon je bajtsko enak disku na vseh datotekah." : "NI V REDU.");
+console.log(razlike.length === 0 ? "V REDU: vseh " + seznam.length + " sledenih datotek je bajtsko enakih klonu HEAD." : "NI V REDU.");
 process.exit(razlike.length === 0 ? 0 : 1);

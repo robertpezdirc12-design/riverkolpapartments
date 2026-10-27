@@ -310,7 +310,7 @@ JS), zadnjič 2026-10-27.
 | `rka-jezik-preveri.py` | jezikovna skladnost (sl/en) | `rka-jezik-mutacija.py` — 15 |
 | `rka-slikovni-ab.py` | da je živa plast prišla **do pikslov**: 8 platn × 12 časovnih točk (96 parov) `blend=difference → signalstats YAVG` proti varovani kopiji, plus identitetske kontrole istega platna | `rka-slikovni-ab-mutacija.py` — 4 |
 | `rka-ab-sonda.cjs` | 21 funkcionalnih prever slušalne A/B strani | `rka-ab-mutacija.py` — 7 |
-| `rka-klon-primerjava.cjs` | klon repozitorija je bajtsko enak disku (SHA256 po `git ls-tree -r HEAD`) | `rka-klon-mutacija.cjs` — 1 (izhod 1, nato obnovljeno) |
+| `rka-klon-primerjava.cjs` | delovna kopija je bajtsko enaka HEADu (SHA256 po `git ls-tree -r HEAD`; klon se pred primerjavo resetne na HEAD vira) | `rka-klon-mutacija.cjs` — 7 pogojev: na čistem drevesu izhodišče 0 → mutacija **1** (prav `zvok/60-sl/seznam.json`, izhod 1) → obnova 0 in izvirnik bajtsko enak |
 | `rka-vednost-preveri.py` | nobena sled mutacij ne sme ostati v virih: izvirnik natanko enkrat, mutacija odsotna | — (to je **sama kontrola** falsifikatorjev) |
 | `rka-bit-preveri.py` | reži se ujemata z utripno mapo | **NEZAJETO** — falsifikator ne obstaja |
 | `rka-posnetki-proveri.py` | inventura posnetkov | **NEZAJETO** — falsifikator ne obstaja |
@@ -444,10 +444,13 @@ Te so lastnikove, ne tehnične. V kodi so zato vidno **odprte**, ne rešene na p
 - **Dokaz o klonu:** `node orodja/rka-klon-primerjava.cjs` (primerja SHA256 diska in klona,
   izpiše `preverjenih: N | razlicnih: 0`). Klon si naredi sam, če ga ni, in ga **vedno
   pripelje na HEAD vira** pred primerjavo — dokaz je bil popravljen prav zato, ker je
-  obstoječi klon po vsakem commitu javljal razlike, ki jih v repozitoriju ni. Falsifikator:
-  ena dodana vrstica v `podnapisi/rka-60-sl-splet.vtt` → `razlicnih: 1` in izhodna koda 1;
-  izvirnik vrnjen, znova `razlicnih: 0`. `git archive` za ta dokaz **ni veljaven**, ker pri
-  izvozu sam pretvori končne znake.
+  obstoječi klon po vsakem commitu javljal razlike, ki jih v repozitoriju ni. Falsifikator
+  `rka-klon-mutacija.cjs` preverja sedem pogojev in meri **prirast** razlik, ne absolutnega
+  števila, zato deluje tudi na umazanem delovnem drevesu: na čistem je izhodišče
+  `razlicnih: 0`, mutacija `zvok/60-sl/seznam.json` da `razlicnih: 1` z izhodno kodo 1,
+  obnova vrne `razlicnih: 0`, izvirnik je bajtsko enak. Neodvisna mutacija (dodana vrstica
+  v `podnapisi/rka-60-sl-splet.vtt`) je dala enako: natanko eno razliko. `git archive` za
+  ta dokaz **ni veljaven**, ker pri izvozu sam pretvori končne znake.
 - **Potis** na `robertpezdirc8-prog/riverkolpapartments` (javni repo) gre čez žeton za
   enkratno uporabo, tako da žeton ne pristane v ukazni vrstici, URL-u ali `.git/config`:
   ```bash
