@@ -1,0 +1,427 @@
+{
+  "ustvarjeno": "2026-10-27",
+  "vir": "%TEMP%",
+  "opomba": "Kopiji sta nespremenjeni; skripti imajo absolutne poti te stroja (rka-onepage, rka-reklama, %TEMP%).",
+  "kopiranih": 76,
+  "izvzeto": {
+    "rka-pregled.cjs": "nadomeščeno: samo trije pogledi namesto matrike 5×6",
+    "rka-meri3.cjs": "nadomeščeno: šteje 'slabih pogledov: N/18' preozko",
+    "rka-meritve.cjs": "ne za razsodbe: meri z --window-size, 1440×900 da viewport 805 px",
+    "rka-pv-zivjo-ubij.ps1": "ubija procese — ne spada v gradnik",
+    "rka-pid-poisci.ps1": "enkratni iskalnik PID",
+    "rka-cisti-harness.ps1": "enkratno čiščenje",
+    "rka-oba-sintaksa.ps1": "enkraten preizkus sintakse",
+    "rka-rezja-sintaksa.ps1": "enkraten preizkus sintakse",
+    "rka-pokonci-poisci.ps1": "enkraten iskalnik",
+    "rka-pokonci-primerjaj.py": "enkratna primerjava, nadomeščena s sondo",
+    "rka-eol-diagnoza.cjs": "enkraten diagnostični izpis koncev vrstic",
+    "rka-diff-preizkus.cjs": "enkraten preizkus diff atributa",
+    "rka-drs-diagnoza.cjs": "enkraten vzorec 12 odčitkov; zaključek je v sondi in njeni mutaciji",
+    "rka-ab-debug.cjs": "enkraten razhroščevalni izpis",
+    "rka-oracle-proba.cjs": "poskus z orakljem, nikoli merilo",
+    "rka-kaj.cjs": "zgodnji raziskovalni izpis",
+    "rka-kaj2.cjs": "zgodnji raziskovalni izpis",
+    "rka-zakaj.cjs": "zgodnji raziskovalni izpis",
+    "rka-zakaj2.cjs": "zgodnji raziskovalni izpis",
+    "rka-odstik.cjs": "zgodnji raziskovalni izpis",
+    "rka-odstik2.cjs": "zgodnji raziskovalni izpis",
+    "rka-meri2.cjs": "zgodnji raziskovalni izpis",
+    "rka-sonda.cjs": "zgodnji raziskovalni izpis",
+    "rka-sonda2.cjs": "zgodnji raziskovalni izpis",
+    "rka-mutacija.cjs": "nadomeščeno z rka-drsenje-mutacija.cjs",
+    "rka-mutacija2.cjs": "nadomeščeno z rka-drsenje-mutacija.cjs",
+    "rka-gal-sonda.cjs": "enkraten pregled galerije",
+    "rka-gal2.cjs": "enkraten pregled galerije",
+    "rka-sonda-dekod.cjs": "enkraten dekoderski izpis",
+    "rka-sonda-info.cjs": "enkraten izpis ffprobe",
+    "rka-sonda-vir.cjs": "enkraten izvirniški izpis",
+    "rka-pokonci-slike.cjs": "slikovni pripomoček za mero, ki jo je kasneje nadomestila sonda",
+    "rka-yt.cjs": "zgodnji YouTube raziskovalni izpis",
+    "rka-ytposlus.cjs": "zgodnji YouTube raziskovalni izpis",
+    "rka-konkurenca.cjs": "poskus s konkurenco, ne merilo tega projekta",
+    "rka-pasove.py": "enkraten izpis pasov",
+    "rka-glaspi-proveri.py": "droben preizkus glasbe"
+  },
+  "datoteke": {
+    "rka-320-slika.cjs": {
+      "sha256": "fbe41da5911d6c84c59415a8144eb0f2ddbaaba7f5048ce7512169d66b6d1042",
+      "bajti": 3008,
+      "vloga": "zaslonske slike najhujših primerov gostote postavitve"
+    },
+    "rka-ab-mutacija.py": {
+      "sha256": "bfa219fa7d2e990d10278a81c334200d154aba7a9e91ecbdcf8d98220bb37947",
+      "bajti": 3170,
+      "vloga": "falsifikacija slušalne A/B strani: sedem mutacij"
+    },
+    "rka-ab-naredi.py": {
+      "sha256": "2e63f450f10b537e9906818da2fe6ddb10992987a70228f8a4cdaa73ed941e02",
+      "bajti": 13942,
+      "vloga": "zgradi slušalno A/B stran"
+    },
+    "rka-ab-opazovalec.ps1": {
+      "sha256": "9ed70ed44d6470dce84fd6280949eb3c6d77c8c629906b86b9e4f3814680ac01",
+      "bajti": 2165,
+      "vloga": "opazovalec slušalne A/B verige"
+    },
+    "rka-ab-sonda.cjs": {
+      "sha256": "52fef5626013187eab51c4d5eb059784de7e7ed7f90d7b5d551ec5d87e1cc403",
+      "bajti": 9647,
+      "vloga": "slušalna A/B stran: enaindvajset funkcionalnih prever"
+    },
+    "rka-ab-streznik.py": {
+      "sha256": "f5164bf577c89eaf3fa77442a23504f67cbcf358e1d2605bf735b02a4684e6bc",
+      "bajti": 3977,
+      "vloga": "byte-range strežnik 4188 za slušalno A/B stran"
+    },
+    "rka-ab-zaganjalo.ps1": {
+      "sha256": "ebd00522a3bb8a8eeed4cc15d3aece904dc1240c8002abd7c47263009f3f0c4c",
+      "bajti": 714,
+      "vloga": "zaganjalo slušalne A/B verige"
+    },
+    "rka-baz-naredi.cjs": {
+      "sha256": "b66d403d3e67d9acde02b3d1aca34456d5b4344bca4c655994039f7b8382afc3",
+      "bajti": 2069,
+      "vloga": "zgradi seznam kadrov"
+    },
+    "rka-bit-preveri.py": {
+      "sha256": "6129d6c8e6634bf569a614541655b805b1f769e8f8850ce82f72fa03f1724519",
+      "bajti": 2760,
+      "vloga": "vrata: rez se ujema z utripno mapo"
+    },
+    "rka-deljena-mutacija.py": {
+      "sha256": "d1abfefc5a26c2bf6f1130626d9c6ac4e82ba1c93396d24302f052564161d505",
+      "bajti": 14054,
+      "vloga": "falsifikacija deljenih vrat: devetinštirideset mutacij"
+    },
+    "rka-deljena-preveri.py": {
+      "sha256": "318b103097c13489bf3bb04eb6858df173ef833af9c326dae39261dfb672c51e",
+      "bajti": 18157,
+      "vloga": "vrata delitvene slike in JSON-LD: vsak podatek mora biti iz vira"
+    },
+    "rka-drsenje-mutacija.cjs": {
+      "sha256": "5d28c67980d23212c54f7d77b58d7bcd8b637c1d93a655d0c26eca016602dadd",
+      "bajti": 9579,
+      "vloga": "falsifikacija vrat drsenja; sondo bere iz sonde, da mera obstaja enkrat"
+    },
+    "rka-drsenje-sonda.cjs": {
+      "sha256": "47903210946a1f4f3fd47cfced5ff38907c4b243b79f034d244970f915a22a77",
+      "bajti": 6003,
+      "vloga": "vrata: matrika pet zaslonov × šest pregledov, dvojno vzorčena"
+    },
+    "rka-drsenje.cjs": {
+      "sha256": "7cd4d7b4d36caf0b781326b4e3711c0c2884747e3af11335fc470ddfd9f3fb9c",
+      "bajti": 7522,
+      "vloga": "zgodnja mera drsenja; razsodbe nosi rka-drsenje-sonda.cjs"
+    },
+    "rka-efekti-mera.py": {
+      "sha256": "3f4b7eef43cdd9aaacec8f8a1f54616c7e8381403bf8f18978da40980ef7eb89",
+      "bajti": 5242,
+      "vloga": "izmere na verigi FX"
+    },
+    "rka-efekti-naredi.py": {
+      "sha256": "97e9aff1d1c52e9492c400784b1b5abb0cc0ebd456681b6d1402e5d2ac5143f0",
+      "bajti": 9320,
+      "vloga": "regenerira FX iz namera-*.json"
+    },
+    "rka-gib-mutacija.py": {
+      "sha256": "30c077f6f9e20f07003f9aa57c400b90e9ad165dff02383c19c3edf2fe378af3",
+      "bajti": 11953,
+      "vloga": "falsifikacija gibčnih vrat: osem virovno vezanih mutacij"
+    },
+    "rka-gib-sonda.cjs": {
+      "sha256": "1a311f9f02f40d1fab2f1c8ef47626c89f8a24de54ef2e03886817c0ed1c18b2",
+      "bajti": 28069,
+      "vloga": "vrata žive plasti: sedem trditev (ROB, PORIV, PRESLIKAVA, KONČNE, UTRIP, DETERMINIZEM, ŽIVA STRAN)"
+    },
+    "rka-glas.py": {
+      "sha256": "65b56e5ba1fc33b5f21234438a1c364341421a66337d41ba64ef3de1242d7a3d",
+      "bajti": 7620,
+      "vloga": "generira pripoved po kadrih"
+    },
+    "rka-izvoz-mutacija.py": {
+      "sha256": "ea165a9b827e49378c6badb5e70f76c959ed9f7babff292c2f37b0039c7ffe28",
+      "bajti": 7844,
+      "vloga": "falsifikacija izvoznih vrat"
+    },
+    "rka-izvoz-okvir.cjs": {
+      "sha256": "61d78be79989e28328f7dcbb3f6ad33afdc60118763bbf3d8845080507233d92",
+      "bajti": 7986,
+      "vloga": "edini legitimni način geometrije izvoza: izris(t) + okvir iz mp4 + iskanje odmika"
+    },
+    "rka-izvoz-okvir.py": {
+      "sha256": "1596c32d6217717d227bc06efa7e94c387b01b51ce063c67acb94500e5013a6f",
+      "bajti": 3999,
+      "vloga": "spremljevalec okvirne meritve"
+    },
+    "rka-izvoz-preveri.py": {
+      "sha256": "d7e68fdbe07ce062b637fdc9796852f386b6c1edf07e4f464bd3ba9f62c497b2",
+      "bajti": 11959,
+      "vloga": "vrata: 14 izdelkov (geometrija, zvok, črni okvirji)"
+    },
+    "rka-jezik-mutacija.py": {
+      "sha256": "5cf852050523d705214f22beebfa958eb121d17a513871de40c58dcbc3ba9803",
+      "bajti": 5484,
+      "vloga": "falsifikacija jezikovnih vrat"
+    },
+    "rka-jezik-preveri.py": {
+      "sha256": "9256534a433421b18158546dd6c895bb8f1d5fd7f5b1f4d2b003cb808cf8f62c",
+      "bajti": 10992,
+      "vloga": "vrata: jezikovna skladnost (sl/en)"
+    },
+    "rka-klon-mutacija.cjs": {
+      "sha256": "b4f4b0af55d745aba720de1b5d2e2d4fa604f73f19f906ed298f88a3b401841c",
+      "bajti": 881,
+      "vloga": "falsifikacija dokaza o klonu: ena razlika in izhod 1, nato obnovljeno"
+    },
+    "rka-klon-primerjava.cjs": {
+      "sha256": "d88ef65202283a635be67a99308399b4bc67678deea4292003ebd7f41b92725e",
+      "bajti": 1302,
+      "vloga": "dokaz: klon repozitorija je bajtsko enak disku"
+    },
+    "rka-mux.py": {
+      "sha256": "41e2c765c4376a0eee4bd96bfcb59b639668719f974348f6db03963fbd4be144",
+      "bajti": 5023,
+      "vloga": "zloži izvožena platna z izmerjenimi zvočnimi masterji v 14 izdelkov"
+    },
+    "rka-orodja-kopiraj.cjs": {
+      "sha256": "1f19ad555db1a49e727479dd1891ec757d44c3d31ef970a830cdf387d56b0523",
+      "bajti": 9689,
+      "vloga": "uvoznik orodij iz %TEMP% v mapo orodja, s sha256 in manifestom"
+    },
+    "rka-ozadje-casovnica.cjs": {
+      "sha256": "8c77e458f0d6f7cbececcdebeecfb5f994815e6c3aecfd20c377d427f4fc143a",
+      "bajti": 6875,
+      "vloga": "časovnica ozadja v heroju (kdaj mora biti viden)"
+    },
+    "rka-ozadje-mutacija.py": {
+      "sha256": "2cff7601d0adec3ef07c1e7eda1d90aaf7e2b855ee57fa50fd69cabdcaa2df27",
+      "bajti": 4575,
+      "vloga": "falsifikacija vrat ozadja"
+    },
+    "rka-ozadje-proveri.cjs": {
+      "sha256": "0dc904cf32ac8bfa13b944a77e6524af15e512cf6881c8b61e2abe4626b3045c",
+      "bajti": 15901,
+      "vloga": "vrata ozadja v heroju"
+    },
+    "rka-pilot-gib.py": {
+      "sha256": "6e3b0d7027c32bf7607911f4faf54917954ea6464608225fd565aa9d707e1525",
+      "bajti": 6483,
+      "vloga": "dvanajstsekundni pilot žive plasti"
+    },
+    "rka-pilot-zvok.py": {
+      "sha256": "0a309d3f582ceae06f2d569597e5fd46b61b7815bbfcdaf6e67e7f22856c4985",
+      "bajti": 2868,
+      "vloga": "zvočni pilot"
+    },
+    "rka-pisava-sonda.cjs": {
+      "sha256": "f51806ec1a57adbcb81863784912301fe3be4e7ace2d468fd3b2c7b2320afb87",
+      "bajti": 7286,
+      "vloga": "sonda pisav in berljivosti"
+    },
+    "rka-podlaga-mera.py": {
+      "sha256": "7718e86c9771e97b6d9bf92735d6b2919aae8cadaef366c7f667d7b8768c437f",
+      "bajti": 4610,
+      "vloga": "mera glasbene podlage"
+    },
+    "rka-podnapisi-mutacija.py": {
+      "sha256": "042510e8b92381952eaeda5f2aa8d344e890af2592b983baeddbaf0b543c885b",
+      "bajti": 4850,
+      "vloga": "falsifikacija podnapisnih vrat"
+    },
+    "rka-podnapisi-preveri.py": {
+      "sha256": "648e64d5398cb5e5daa0fdb11e77315982870cd651ff4b410a5d4b2fae4b837c",
+      "bajti": 6390,
+      "vloga": "vrata: podnapisi v mp4"
+    },
+    "rka-podnapisi-strani-mutacija.py": {
+      "sha256": "532df01e97f75f7859068809fb1102e9fc331d43a082833584d6f15137140b8f",
+      "bajti": 5380,
+      "vloga": "falsifikacija stranih podnapisnih vrat"
+    },
+    "rka-podnapisi-strani-preveri.cjs": {
+      "sha256": "ef24a1d30c26fa9efc107f535c9c3809aca3df8025dbf23c7dfdeaf5ff240556",
+      "bajti": 15794,
+      "vloga": "vrata: deset datotek .vtt priklopljenih na zgodba.html"
+    },
+    "rka-podnapisi.py": {
+      "sha256": "cba16af5bf8f227d83ef6b74833700c3a480426a349e945a712777209fa0a0e9",
+      "bajti": 2865,
+      "vloga": "zgradi podnapise .vtt"
+    },
+    "rka-pokonci-mutacija.py": {
+      "sha256": "5154edbc7f7e921b533322d4d5a68699e40975aad3eb9081478e624d899ffc96",
+      "bajti": 6806,
+      "vloga": "falsifikacija pokončnih vrat: sedem mutacij"
+    },
+    "rka-pokonci-preveri.cjs": {
+      "sha256": "fd88aac79ae4c2156dd3394c10a9e619f12abf2a91656a85e7accec3e244a130",
+      "bajti": 20642,
+      "vloga": "zgodnja vrata pokončnega reza; danes ga krije rka-pokonci-sonda.cjs"
+    },
+    "rka-pokonci-sonda.cjs": {
+      "sha256": "41f0d3adbfd6a826fbb58895e3a994b8a14059e574a103c96692a7948068355d",
+      "bajti": 8612,
+      "vloga": "vrata pokončnega reza 9×16"
+    },
+    "rka-posnetki-izvozi.cjs": {
+      "sha256": "8aee02f9038bcccee9c7d55ef845d5c3b21015973bb3983cecb02bd4e08a0e9d",
+      "bajti": 2261,
+      "vloga": "izvoz inventure posnetkov"
+    },
+    "rka-posnetki-proveri.py": {
+      "sha256": "43923215b5364adb5780915fc05087983ae96cb811fa79824cd8b7554105decf",
+      "bajti": 2488,
+      "vloga": "vrata inventure posnetkov"
+    },
+    "rka-posnetki.cjs": {
+      "sha256": "41b23baa4f4243dc8440cf13200176333d958868f6101541f096a63d3fd7ef31",
+      "bajti": 12122,
+      "vloga": "inventura posnetkov"
+    },
+    "rka-postavi-osnovo.cjs": {
+      "sha256": "737f7923da7ca0bce58ccba6f231d5770cba001623568b76e1828e0e57fd1608",
+      "bajti": 7025,
+      "vloga": "prepisovalnik javne osnovne URL (--base=… --zapisi)"
+    },
+    "rka-postrezi-predogled.cjs": {
+      "sha256": "5c34cf4de09fa6aa1b2ba387f371c55e3cc9cd8640ca58b7f4a8f076962e5455",
+      "bajti": 553,
+      "vloga": "byte-range pregledovalni strežnik 4185 za video in zvok"
+    },
+    "rka-pregled-harness.ps1": {
+      "sha256": "ad607a6f8aaeb7fa4705a19b61b4d4d986edc7ba4e3d5ed8700aa777e4e58894",
+      "bajti": 722,
+      "vloga": "pregled stanja merilnih skriptov"
+    },
+    "rka-prekryv.cjs": {
+      "sha256": "32690735f6764fa5d2007183db72da339080faa2f20548d9000678ac0e4e0f1b",
+      "bajti": 7184,
+      "vloga": "detektor prekrivanja naslikanih pravokotnikov (upšteva overflow in prosojnost)"
+    },
+    "rka-razlika.py": {
+      "sha256": "10654eb443e6dc96ee09481e106b79bc790a2af94a2982872067c5a0320b4565",
+      "bajti": 2331,
+      "vloga": "pomožna mera pikslovne razlike"
+    },
+    "rka-render.cjs": {
+      "sha256": "91208fb9a157657330f4eb0bc2a54a8435c68d4d4929dfb1869515c0a586527b",
+      "bajti": 17457,
+      "vloga": "izvoznik: 8 platn prek CDP v mp4 (60/30, sl/en, 16×9 in 9×16)"
+    },
+    "rka-rezja-veriga.ps1": {
+      "sha256": "1a95d273783abb3515b2754c810e882543bcbadcf43497a9dba66a1729108a4d",
+      "bajti": 3572,
+      "vloga": "veriga celotne rezje"
+    },
+    "rka-rezja-zaganjalo.ps1": {
+      "sha256": "ff73b41f9e1f6c94520ca79adc8b64d921e2547a75820728140f524655230939",
+      "bajti": 597,
+      "vloga": "zaganjalo rezje"
+    },
+    "rka-ritem-kontrola.py": {
+      "sha256": "c709a9f25f226c51dcc4d631a958c866ebe10c105e371487dc77564c0d1f88ae",
+      "bajti": 2875,
+      "vloga": "kontrola utripne mape proti oknom"
+    },
+    "rka-ritem-list.py": {
+      "sha256": "ff4817bc4384ee93f2004e16824a5d3d0f6a910747f557222b56ff660d0dbc1d",
+      "bajti": 4008,
+      "vloga": "izpiše časovni list"
+    },
+    "rka-ritem.py": {
+      "sha256": "496066567ef68a505d05dc5b325aeec579de371b3f83f56662789369db8ce5c9",
+      "bajti": 3796,
+      "vloga": "izdela utripno mapo iz 128 BPM"
+    },
+    "rka-slike-brez-js.cjs": {
+      "sha256": "8ffce509ad84745fe53605d7103ee77399d065a72cc8eeccafd5df151156abcc",
+      "bajti": 5924,
+      "vloga": "edini način videti stanje brez JavaScripta: skripti izklopljeni pred navigacijo"
+    },
+    "rka-slikovni-ab-mutacija.py": {
+      "sha256": "697ba056089abebb565b2e73f3ffec77a3801c736800196ed23ecf12917c2b1a",
+      "bajti": 3497,
+      "vloga": "falsifikacija slikovnega A/B: štiri mutacije"
+    },
+    "rka-slikovni-ab.py": {
+      "sha256": "e0636324edd6f5495e191894b9dc37d0dad25a3666f41246ef6dc12e27588db8",
+      "bajti": 8733,
+      "vloga": "A/B s pikslovno razliko: živa plast proti varovani kopiji na 14 izdelkih"
+    },
+    "rka-sonda-crno.cjs": {
+      "sha256": "da0c4158d3414908ba1dfcb9a207d3b3690b2be0afe3f166dad283cdcaf9f54e",
+      "bajti": 5255,
+      "vloga": "sonda črnih okvirjev"
+    },
+    "rka-sonda-odrin.cjs": {
+      "sha256": "0e587ede6946af9c2ef7bcd60a52efd39f94dc84c41da6fed05256eaec38658c",
+      "bajti": 4814,
+      "vloga": "geometrijska sonda po posameznem otroku"
+    },
+    "rka-spot-jezik.py": {
+      "sha256": "7585516a0085473010fe0b2e10d6aa7b9f198f959dcfd6e148af1c52a1914ad6",
+      "bajti": 2553,
+      "vloga": "zamenja jezik pripovedi v času spota"
+    },
+    "rka-streznik.cjs": {
+      "sha256": "70e7ebac771ec5d24f85e3d05f32e6f3f069237461e352e39f4a767f1780e92c",
+      "bajti": 3175,
+      "vloga": "statični strežnik z odzivom 206, ki ga sonde same zaženejo na 4194–4197"
+    },
+    "rka-sumniki-sonda.cjs": {
+      "sha256": "7e7f82a78070bf8775567dc788b78408e7a2a5860116f1a61289e95d68448f0d",
+      "bajti": 7175,
+      "vloga": "sonda ločil in presledkov v besedilu"
+    },
+    "rka-svetlost.cjs": {
+      "sha256": "607c0328b7940fd68fe0134b173f2cf85ea9f7e7c7fe15687c865030e709a27d",
+      "bajti": 10953,
+      "vloga": "mera svetlosti (zgodnja verzija)"
+    },
+    "rka-svetlost.py": {
+      "sha256": "10a5af263653313413ac2e0a492c4c9f3e4e09819c5ec3795fb9610a832f29b2",
+      "bajti": 4300,
+      "vloga": "vrata luminance slik"
+    },
+    "rka-tempo.py": {
+      "sha256": "70369bf8273204126b071a63c25fe57032f70c4df2e930f631abbc6bccf17621",
+      "bajti": 2943,
+      "vloga": "mera tempa rezov"
+    },
+    "rka-vednost-preveri.py": {
+      "sha256": "059735d0fb80b5f670cf8e684f168fcc3964b6ee2b1400f8f12a4d097f353167",
+      "bajti": 1150,
+      "vloga": "vrata: trditve na strani proti virom"
+    },
+    "rka-zgodba-mutacija.cjs": {
+      "sha256": "d39cd6a4af4411aa26f3368a566355bf844f4ddf6f264b077160cced6fc75b20",
+      "bajti": 18522,
+      "vloga": "falsifikacija vrat strani zgodba.html: trinajst mutacij"
+    },
+    "rka-zgodba-sonda-mutacija.py": {
+      "sha256": "edacc4be7428fb280993c24061bdb590d7f544031433996186ef0aafcbe0e7c9",
+      "bajti": 4359,
+      "vloga": "falsifikacija trditve zavrtja do dna v pomirjeni postavitvi"
+    },
+    "rka-zgodba-sonda.cjs": {
+      "sha256": "b8f706d6f280a13999b5df5d0180c3e87201731a134993971f283a077c02be84",
+      "bajti": 22398,
+      "vloga": "vrata strani zgodba.html: 272 meritev (pet zaslonov × dva jezika in dve izvozni okni)"
+    },
+    "rka-zivjo-sliki.cjs": {
+      "sha256": "755bd798ced87085e5430b229960ad15c2db1b8e1706de74af1265e5643263cb",
+      "bajti": 4982,
+      "vloga": "preverba strani primerjava-zivjo.html v pravem brskalniku (posnetek in napake)"
+    },
+    "rka-zivost-meri.py": {
+      "sha256": "769f612b807955fd6010aae3fe69dd837ab2d4e4ebb56bc815bbfa42f0b7ab95",
+      "bajti": 6100,
+      "vloga": "analiza živosti referenčnih reklam — osnova naročila"
+    },
+    "rka-zvok.py": {
+      "sha256": "871a7c29976504cb8282b796ab8ce8f3c56dbdbbd477dffc672772254ee5687a",
+      "bajti": 27857,
+      "vloga": "zgradi zvočne masterje (veriga FX in meritve LUFS/TP/LRA)"
+    }
+  }
+}

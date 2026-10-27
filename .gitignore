@@ -1,2 +1,4 @@
 # glasbena podlaga je licenciran prevzem tretje osebe — ne spada v zgodovino repozitorija
 zvok/glasba/
+# stranski produkt preizkusa sintakse python kopij
+orodja/__pycache__/
