@@ -1,0 +1,91 @@
+{
+ "rez": "30",
+ "jezik": "sl",
+ "glas": "sl_SI-artur-medium",
+ "raister": 1.0,
+ "enota": 30.0,
+ "zasedenost": 63.9,
+ "govor_skupaj": 19.16,
+ "linie": [
+  {
+   "kader": "k01",
+   "okno": 3.36,
+   "govor": 2.183,
+   "rob": 0.88,
+   "besedilo": "Jutro se začne ob reki Kolpi.",
+   "datoteka": "zvok/30-sl/k01.wav"
+  },
+  {
+   "kader": "k03",
+   "okno": 1.8,
+   "govor": 1.033,
+   "rob": 0.47,
+   "besedilo": "in si v reki.",
+   "datoteka": "zvok/30-sl/k03.wav"
+  },
+  {
+   "kader": "k06",
+   "okno": 1.86,
+   "govor": 1.068,
+   "rob": 0.49,
+   "besedilo": "Kolpa se ne mudi.",
+   "datoteka": "zvok/30-sl/k06.wav"
+  },
+  {
+   "kader": "k07",
+   "okno": 3.66,
+   "govor": 2.403,
+   "rob": 0.96,
+   "besedilo": "Dve hiši, dva naslova v Gribljah.",
+   "datoteka": "zvok/30-sl/k07.wav"
+  },
+  {
+   "kader": "k08",
+   "okno": 2.98,
+   "govor": 1.904,
+   "rob": 0.78,
+   "besedilo": "Štirje samostojni apartmaji.",
+   "datoteka": "zvok/30-sl/k08.wav"
+  },
+  {
+   "kader": "k12",
+   "okno": 2.86,
+   "govor": 1.811,
+   "rob": 0.75,
+   "besedilo": "Terasa, jacuzzi, vrt.",
+   "datoteka": "zvok/30-sl/k12.wav"
+  },
+  {
+   "kader": "k15",
+   "okno": 2.57,
+   "govor": 1.602,
+   "rob": 0.67,
+   "besedilo": "Otrokom cel travnik.",
+   "datoteka": "zvok/30-sl/k15.wav"
+  },
+  {
+   "kader": "k19",
+   "okno": 3.91,
+   "govor": 2.589,
+   "rob": 1.02,
+   "besedilo": "Gostje rečejo: popolna zasebnost.",
+   "datoteka": "zvok/30-sl/k19.wav"
+  },
+  {
+   "kader": "k21",
+   "okno": 2.49,
+   "govor": 1.544,
+   "rob": 0.65,
+   "besedilo": "in luči, ko se stemni.",
+   "datoteka": "zvok/30-sl/k21.wav"
+  },
+  {
+   "kader": "k22",
+   "okno": 4.51,
+   "govor": 3.019,
+   "rob": 1.19,
+   "besedilo": "River Kolpa Apartments. Pokličite Majdo.",
+   "datoteka": "zvok/30-sl/k22.wav"
+  }
+ ]
+}

@@ -1,0 +1,428 @@
+/* River Kolpa Apartments — enozonska stran. Brez drsenja: vsebina je vedno na 1 zaslonu. */
+
+:root{
+  --ink:#07160f; --pine:#0f2a24; --moss:#16382e;
+  --sage:#7f9b85; --sand:#e0b287; --paper:#f4efe6;
+  --tx:#f4efe6; --tx-dim:rgba(244,239,230,.94); --tx-faint:rgba(244,239,230,.82);
+  --sand-bright:#f6d5ab;  /* pesek za majhno pisavo čez svetlo vodo */
+  --sand-hi:#f7dcb8;      /* isti pesek, a dovolj svetel za AA čez fotografijo */
+  --line:rgba(224,178,135,.24); --line-soft:rgba(244,239,230,.12);
+  --g:1;            /* gostota: nastavi jo JS, da vsebina pride na zaslon */
+  --r:14px;
+  --pad:calc(clamp(14px,2.1vw,30px) * var(--g));
+  --gap:calc(clamp(10px,1.3vw,18px) * var(--g));
+  --shadow:0 18px 44px rgba(0,0,0,.42);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+html{overflow:hidden}
+body{
+  margin:0; background:var(--ink); color:var(--tx);
+  font:400 clamp(13.5px,.92vw,16px)/1.5 Manrope,"Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow:hidden; overscroll-behavior:none;
+}
+img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+.skip{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.skip:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;clip-path:none;z-index:99;
+  background:var(--sand);color:#14251d;padding:10px 16px;border-radius:99px;font-weight:700}
+:focus-visible{outline:2px solid var(--sand);outline-offset:3px;border-radius:8px}
+
+/* Fall back brez JavaScripta. Razred se izriše SAMO z izklopljenim JS
+   (noscript), zato ga ne more zatipati nobena gostota ali sonda — tu velja
+   navaden dokument, ne enozonski plakati. */
+.bez-js{max-width:64ch;padding:28px clamp(16px,4vw,40px) 8px;color:var(--tx-dim);
+  font-size:clamp(14px,.98vw,16px);line-height:1.65}
+.bez-js h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;
+  font-size:clamp(22px,2.6vw,32px);letter-spacing:-.015em;color:var(--tx);margin-bottom:14px}
+.bez-js p{margin:0 0 14px}
+.bez-js ul{display:grid;gap:10px;margin:0 0 16px;padding-left:1.15em;list-style:disc}
+.bez-js li{color:var(--tx-faint)}
+.bez-js li b{color:var(--tx)}
+.bez-js a{color:var(--sand);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- ozadje ----------
+   Pravilo: vel sme zatemniti samo toliko, kolikor ga potrebuje besedilo.
+   Voda in jasla morata ostati vidna — stran prodaja reko, ne temno sobo. */
+.bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  opacity:0;transition:opacity 1.1s ease;filter:saturate(1.06) brightness(1.05)}
+.bg.on{opacity:.90}
+/* Prava zanka reke je njun posnetek na YouTube-u; lokalni mp4 ostane takojšen
+   poster in rezerva, kadar Google ni dosegljiv ali kadar obiskovalec noče gibanja.
+   Plast je dekoracija: ne ujame klika in ne dobi fokusa. */
+.bg-yt{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+  opacity:0;transition:opacity 1.1s ease;filter:saturate(1.06) brightness(1.05)}
+body[data-bg="video"] .bg-yt.nalozen{opacity:.90}
+.bg-yt iframe{position:absolute;top:50%;left:50%;translate:-50% -50%;border:0;
+  width:max(100vw,177.78vh);height:max(100vh,56.25vw)}
+body.yt[data-bg="video"] .bg{opacity:0}
+.veil{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(122% 92% at 78% 4%,rgba(15,42,36,0) 0%,rgba(7,22,15,.14) 56%,rgba(7,22,15,.42) 100%),
+    linear-gradient(96deg,rgba(7,22,15,.82) 0%,rgba(7,22,15,.62) 26%,rgba(7,22,15,.44) 44%,rgba(7,22,15,.22) 58%,rgba(7,22,15,.06) 70%,rgba(7,22,15,0) 78%),
+    linear-gradient(180deg,rgba(7,22,15,.66) 0%,rgba(7,22,15,.40) 10%,rgba(7,22,15,0) 22%),
+    linear-gradient(0deg,rgba(7,22,15,.62) 0%,rgba(7,22,15,0) 15%)}
+.grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- lupina ---------- */
+.shell{position:relative;z-index:3;display:grid;grid-template-rows:auto minmax(0,1fr) auto;
+  height:100dvh;height:100svh;padding:0 var(--pad);
+  opacity:0;transition:opacity .5s ease}
+html.pripravljen .shell{opacity:1}
+
+/* ---------- vrhnja vrstica ---------- */
+.topbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;
+  gap:var(--gap);padding:calc(14px*var(--g)) 0}
+.brand{display:flex;align-items:center;gap:11px;text-align:left}
+.brand-mark{width:36px;height:36px;color:var(--sand);flex:none}
+.brand-mark svg{width:100%;height:100%}
+.brand-txt{display:grid;line-height:1.15}
+.brand-txt b{font-weight:700;letter-spacing:-.015em;font-size:1.02em}
+.brand-txt i{font-style:normal;color:var(--tx-faint);font-size:.76em;letter-spacing:.10em;text-transform:uppercase}
+
+.nav{display:flex;justify-content:center;gap:2px;flex-wrap:wrap}
+.nav a{position:relative;padding:9px 13px;border-radius:99px;font-size:.80em;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--tx);
+  transition:color .2s,background .2s;white-space:nowrap}
+.nav a:hover{background:rgba(9,26,20,.5)}
+.nav a[aria-current="page"]{color:var(--ink);background:var(--sand)}
+/* Ločena stran, ne pogled: robovna oznaka prepreči, da bi jo zamenjali za meni. */
+.nav a.nav-film{margin-left:6px;border:1px solid var(--line);color:var(--tx-dim)}
+.nav a.nav-film::before{content:"";display:inline-block;width:0;height:0;margin-right:7px;
+  vertical-align:1px;border-left:6px solid currentColor;
+  border-top:3.6px solid transparent;border-bottom:3.6px solid transparent}
+.nav a.nav-film:hover{color:var(--sand-hi);border-color:var(--sand)}
+
+.top-actions{display:flex;align-items:center;gap:9px}
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;
+  padding:calc(11px*var(--g)) calc(18px*var(--g));border-radius:99px;
+  font-size:.84em;font-weight:700;letter-spacing:.02em;white-space:nowrap;
+  transition:transform .18s cubic-bezier(.2,.8,.3,1),background .2s,border-color .2s,color .2s}
+.btn:active{transform:translateY(1px)}
+.btn-solid{background:var(--sand);color:#14251d;box-shadow:0 8px 22px rgba(224,178,135,.20)}
+.btn-solid:hover{background:#eec79c}
+.btn-ghost{border:1px solid var(--line);color:var(--tx);background:rgba(9,26,20,.58);backdrop-filter:blur(5px)}
+.btn-ghost:hover{border-color:var(--sand);background:rgba(9,26,20,.72)}
+.btn.majhen{padding:6px 12px;font-size:.78em}
+.back{display:inline-flex;align-items:center;gap:5px;color:var(--tx-dim);font-size:.82em;font-weight:600;
+  padding:8px 12px 8px 8px;border-radius:99px;border:1px solid var(--line-soft)}
+.back[hidden]{display:none}
+.back:hover{color:var(--tx);border-color:var(--line)}
+.back svg{width:17px;height:17px}
+
+/* ---------- oder ---------- */
+.stage{min-height:0;overflow:hidden;display:grid}
+.view{min-height:0;display:grid;overflow:clip;animation:vstop .5s cubic-bezier(.2,.8,.3,1) both}
+@keyframes vstop{from{opacity:0;transform:translateY(calc(14px*var(--g)))}to{opacity:1;transform:none}}
+
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--sand-bright);
+  font-size:.78em;font-weight:700;letter-spacing:.20em;text-transform:uppercase}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--sand);opacity:.6;flex:none}
+.display{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;letter-spacing:-.018em;
+  line-height:.98;font-size:clamp(34px,5.6vw,84px)}
+.display em{font-style:italic;color:var(--sand)}
+.h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;letter-spacing:-.015em;
+  line-height:1.02;font-size:clamp(26px,3.3vw,50px)}
+.h2 em{font-style:italic;color:var(--sand)}
+.lede{color:var(--tx-dim);font-size:clamp(.9em,1.02vw,1.1em);line-height:1.6;max-width:54ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:calc(4px*var(--g))}
+
+/* ---------- DOMOV ---------- */
+.domov{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:calc(28px*var(--g));align-items:center}
+.hero{position:relative;display:grid;gap:calc(15px*var(--g));align-content:center;min-width:0}
+/* Lokalna senca samo za besedilnim stolpcem. Robova ni: navpično bledijo barve,
+   vodoravno maska — produkt obeh je mehka pravokotna podlaga. Radialna maska
+   je puščala viden rob, ker se je njeno bledenje končalo šele za robovi škatle. */
+.hero::before{content:"";position:absolute;z-index:-1;inset:-12% -20% -12% -34%;
+  background:linear-gradient(180deg,transparent,rgba(7,22,15,.56) 14%,rgba(7,22,15,.50) 60%,rgba(7,22,15,.44) 86%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 16%,#000 78%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 16%,#000 78%,transparent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:99px;
+  border:1px solid var(--line-soft);background:rgba(22,56,46,.42);
+  font-size:.76em;font-weight:600;color:var(--tx-dim);backdrop-filter:blur(6px)}
+.chip b{color:var(--sand-bright);font-weight:800}
+.host{display:flex;align-items:center;gap:11px;margin-top:calc(2px*var(--g));
+  padding-top:calc(14px*var(--g));border-top:1px solid var(--line-soft)}
+.host-av{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--sand),#b9825a);color:#182a20;font-weight:800;font-size:.9em}
+.host p{font-size:.86em;color:var(--tx-dim);line-height:1.45}
+.host p b{color:var(--tx);font-weight:700}
+.mnenje{display:grid;gap:7px;margin-top:calc(2px*var(--g));padding:calc(14px*var(--g)) 16px;
+  border-left:2px solid var(--sand);border-radius:0 12px 12px 0;
+  background:linear-gradient(96deg,rgba(9,26,20,.58),rgba(9,26,20,.22) 68%,rgba(9,26,20,0))}
+.mnenje q{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.06em,1.5vw,1.42em);
+  font-style:italic;line-height:1.35;quotes:"„" "“";color:var(--paper)}
+.mnenje cite{font-style:normal;font-size:.74em;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--tx-faint)}
+.mnenje cite b{color:var(--sand-hi)}
+
+.enote{display:grid;gap:calc(15px*var(--g));align-content:center;min-width:0}
+.skup{display:grid;gap:9px}
+/* Naslov skupine je plošča v jeziku kartice: kartice so neprosojne, zato bi bil
+   plavajoč napis nad njimi edini element brez podlage — in prvi, ki zmanjka
+   kontrasta, ko sonca udari v vodo. */
+.skup-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:calc(10px*var(--g)) 14px;border:1px solid var(--line-soft);border-radius:12px;
+  background:linear-gradient(120deg,rgba(18,52,42,.92),rgba(10,28,22,.88))}
+.skup-h h3{font-size:.74em;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--tx-dim)}
+.skup-h a{font-size:.74em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sand-hi)}
+.skup-h a:hover{text-decoration:underline}
+.kart{display:grid;gap:calc(11px*var(--g))}
+.karta{position:relative;display:grid;grid-template-columns:clamp(84px,9vw,124px) minmax(0,1fr);
+  gap:calc(13px*var(--g));align-items:center;text-align:left;width:100%;
+  padding:calc(11px*var(--g));border:1px solid var(--line-soft);border-radius:var(--r);
+  background:linear-gradient(120deg,rgba(18,52,42,.92),rgba(10,28,22,.88));
+  backdrop-filter:blur(9px);box-shadow:var(--shadow);
+  transition:border-color .22s,transform .22s cubic-bezier(.2,.8,.3,1)}
+.karta:hover{border-color:var(--sand);transform:translateY(calc(-3px*var(--g)))}
+.karta img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:9px}
+.k-b{display:grid;min-width:0;padding-right:12px}
+.karta .k-t{display:block;font-weight:700;font-size:1.0em;letter-spacing:-.012em}
+.karta .k-m{display:block;color:var(--sand);font-size:.80em;font-weight:700;margin-top:3px}
+.karta .k-x{display:block;color:var(--tx-faint);font-size:.80em;line-height:1.45;margin-top:5px}
+.karta::after{content:"›";position:absolute;right:12px;top:50%;translate:0 -50%;
+  color:var(--sand);font-size:1.5em;line-height:0;opacity:.45;transition:opacity .2s,translate .2s}
+.karta:hover::after{opacity:1;translate:3px -50%}
+
+/* ---------- POGLED LOKACIJE ---------- */
+.lok{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:calc(26px*var(--g));align-items:center}
+.gal-loc{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:9px;min-height:0}
+.glavna-btn{position:relative;display:block;width:100%;height:100%;min-height:0;overflow:hidden;
+  border-radius:calc(var(--r) + 4px);border:1px solid var(--line-soft);box-shadow:var(--shadow)}
+.glavna-btn img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.3,1)}
+.glavna-btn:hover img{transform:scale(1.035)}
+.smini{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.smini button{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line-soft);
+  aspect-ratio:16/10;transition:border-color .2s,transform .2s}
+.smini button:hover{border-color:var(--sand);transform:translateY(-2px)}
+.smini img{width:100%;height:100%;object-fit:cover}
+.lok-info{display:grid;gap:calc(13px*var(--g));align-content:center;min-width:0}
+.naslov{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--tx-dim);font-size:.9em}
+.naslov svg{width:16px;height:16px;color:var(--sand);flex:none}
+.fakti{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:9px}
+.fakt{padding:calc(11px*var(--g)) 12px;border:1px solid var(--line-soft);border-radius:12px;
+  background:rgba(22,56,46,.40)}
+.fakt b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.42em;
+  font-weight:600;color:var(--sand);line-height:1.05}
+.fakt span{display:block;font-size:.72em;color:var(--tx-faint);letter-spacing:.05em;
+  text-transform:uppercase;margin-top:4px;line-height:1.3}
+.enote-info{display:grid;gap:9px}
+.enota{display:grid;gap:4px;padding:calc(12px*var(--g)) 14px;border-left:2px solid var(--sand);
+  background:linear-gradient(90deg,rgba(224,178,135,.10),transparent 70%);border-radius:0 11px 11px 0}
+.enota b{font-size:.98em;font-weight:700}
+.enota span{font-size:.84em;color:var(--tx-dim)}
+.opombe{display:grid;gap:7px}
+.opombe li{display:flex;gap:9px;align-items:flex-start;font-size:.85em;color:var(--tx-dim)}
+.opombe svg{width:15px;height:15px;color:var(--sage);flex:none;margin-top:3px}
+
+/* ---------- REKA ---------- */
+.reka{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:calc(26px*var(--g));align-items:center}
+.stek{position:relative;display:block;width:100%;height:100%;min-height:0;overflow:hidden;
+  border-radius:calc(var(--r) + 4px);border:1px solid var(--line-soft);box-shadow:var(--shadow)}
+.stek img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.3,1)}
+.stek:hover img{transform:scale(1.035)}
+.stek figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 13px;text-align:left;
+  background:linear-gradient(transparent,rgba(7,22,15,.92));
+  font-size:.80em;color:var(--tx-dim);letter-spacing:.02em}
+.reka .lok-info,.lok .lok-info{position:relative}
+/* Vel zatemnjuje levo platno, besedilo teh pogledov pa sedi desno — zato stolpec
+   vzame svojo mehko podlago, po istem receptu kot na domov. */
+.reka .lok-info::before,.lok .lok-info::before{content:"";position:absolute;z-index:-1;
+  inset:-10% -26% -10% -18%;
+  background:linear-gradient(180deg,transparent,rgba(7,22,15,.54) 12%,rgba(7,22,15,.48) 62%,rgba(7,22,15,.40) 88%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+.reka-list{display:grid;gap:calc(11px*var(--g))}
+.rl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;
+  padding:calc(11px*var(--g)) 13px;border:1px solid var(--line-soft);border-radius:12px;
+  background:linear-gradient(120deg,rgba(18,52,42,.90),rgba(10,28,22,.86))}
+.rl .ico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(224,178,135,.14);color:var(--sand)}
+.rl .ico svg{width:18px;height:18px}
+.rl-b{display:grid;min-width:0}
+.rl b{font-size:.92em}
+.rl-b span{font-size:.82em;color:var(--tx-faint);line-height:1.5;margin-top:2px}
+
+/* ---------- GALERIJA ---------- */
+.gal{grid-template-rows:auto minmax(0,1fr);gap:calc(13px*var(--g));min-height:0}
+.filtri{display:flex;gap:7px;flex-wrap:wrap}
+.filter{padding:7px 14px;border-radius:99px;border:1px solid var(--line-soft);
+  font-size:.76em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-dim)}
+.filter:hover{border-color:var(--sand);color:var(--tx)}
+.filter[aria-pressed="true"]{background:var(--sand);border-color:var(--sand);color:#14251d}
+.mreza{display:grid;gap:9px;min-height:0;grid-auto-flow:dense}
+.mreza button{position:relative;overflow:hidden;border-radius:11px;border:1px solid var(--line-soft);
+  height:100%;min-height:0;background:var(--moss)}
+.mreza img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.3,1),filter .3s}
+.mreza button:hover img{transform:scale(1.06);filter:brightness(1.06)}
+.mreza figcaption{position:absolute;inset:auto 0 0 0;padding:22px 10px 8px;font-size:.70em;
+  color:var(--tx-dim);text-align:left;background:linear-gradient(transparent,rgba(7,22,15,.92));
+  opacity:0;transition:opacity .25s}
+.mreza button:hover figcaption{opacity:1}
+.mreza .vec{display:grid;place-content:center;gap:2px;text-align:center;
+  background:rgba(224,178,135,.10);border-color:var(--sand);transition:background .25s,border-color .25s}
+.mreza .vec:hover{background:rgba(224,178,135,.2)}
+.mreza .vec span{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;
+  font-size:1.5em;line-height:1;color:var(--sand)}
+.mreza .vec small{font-size:.66em;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-dim)}
+
+/* ---------- TERMINI ---------- */
+.term{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:calc(26px*var(--g));align-items:center}
+.stik{display:grid;gap:calc(11px*var(--g))}
+.stik-a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:13px;align-items:center;
+  padding:calc(13px*var(--g)) 15px;border:1px solid var(--line);border-radius:13px;
+  background:linear-gradient(120deg,rgba(18,52,42,.90),rgba(10,28,22,.86));
+  transition:border-color .2s,transform .2s}
+.stik-a:hover{border-color:var(--sand);transform:translateY(-2px)}
+.stik-a .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+  background:var(--sand);color:#14251d}
+.stik-a .ico svg{width:18px;height:18px}
+.stik-b{display:grid;min-width:0}
+.stik-b i{font-style:normal;font-size:.72em;letter-spacing:.14em;text-transform:uppercase;color:var(--tx-faint)}
+.stik-b b{font-size:1.06em;letter-spacing:-.01em;overflow-wrap:anywhere}
+.pravila{display:grid;grid-template-columns:repeat(auto-fit,minmax(206px,1fr));gap:calc(12px*var(--g))}
+.pravila>div{padding:calc(13px*var(--g)) 15px;border:1px solid var(--line-soft);border-radius:13px;
+  background:rgba(22,56,46,.34);display:grid;gap:8px;align-content:start}
+.pravila h3{font-size:.74em;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sand)}
+.pravila li{font-size:.83em;color:var(--tx-dim);line-height:1.5;display:flex;gap:8px}
+.pravila li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--sage);
+  flex:none;margin-top:8px}
+
+/* ---------- noga ---------- */
+.foot{display:flex;align-items:center;justify-content:space-between;gap:var(--gap);
+  padding:calc(12px*var(--g)) 0 calc(13px*var(--g));border-top:1px solid var(--line-soft);flex-wrap:wrap}
+.foot p{font-size:.74em;color:var(--tx-faint);letter-spacing:.02em}
+.trail{color:var(--tx-dim)!important;font-weight:600}
+.trail b{color:var(--sand-hi);font-weight:700}
+.soc a{color:var(--tx-dim)}
+.soc a:hover{color:var(--sand)}
+.soc span{margin:0 6px;opacity:.5}
+
+/* ---------- svetlobna okna ---------- */
+.lightbox{width:min(94vw,1240px);height:min(90dvh,860px);padding:0;border:0;background:transparent;
+  color:var(--tx);overflow:visible}
+.lightbox::backdrop{background:rgba(4,12,8,.90);backdrop-filter:blur(5px)}
+.lb-body{position:relative;width:100%;height:100%;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:10px}
+.lb-body img{width:100%;height:100%;object-fit:contain;border-radius:var(--r)}
+.lb-body figcaption{font-size:.84em;color:var(--tx-dim);text-align:center}
+.lb-x,.lb-nav{position:absolute;color:var(--tx);background:rgba(22,56,46,.78);
+  border:1px solid var(--line-soft);border-radius:50%;display:grid;place-items:center;
+  z-index:2;transition:.2s;width:46px;height:46px;line-height:0}
+.lb-x{top:2px;right:2px;font-size:1.5em}
+.lb-nav{top:50%;translate:0 -50%}
+.lb-nav.prev{left:-14px}.lb-nav.next{right:-14px}
+.lb-x:hover,.lb-nav:hover{background:var(--sand);color:#14251d;border-color:var(--sand)}
+
+/* ---------- ozadje glede na pogled ---------- */
+/* Hiša: kadar iz posnetka ostane v ozadju, a umirjen in mehko zamegljen, da
+   ne tekmuje z fotografijami in besedilom v vsebini. */
+body[data-bg="slika"] .bg.on{opacity:.42;filter:saturate(.86) brightness(1.02) blur(4px)}
+body[data-bg="mir"] .bg{opacity:0!important}
+body[data-bg="mir"] .shell{background:
+  radial-gradient(90% 70% at 12% 0%,rgba(22,56,46,.95),transparent 60%),
+  linear-gradient(160deg,var(--pine),var(--ink) 70%)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  /* Brez gibanja ne pomeni brez svetlobe: mirni kader je enako svetel kot zanka. */
+  .bg.on{opacity:.88!important}
+}
+
+/* ---------- ozki zasloni ---------- */
+@media (max-width:1080px){
+  .domov,.lok,.reka,.term{grid-template-columns:minmax(0,1fr)}
+  .domov{align-content:center;gap:calc(18px*var(--g))}
+  .nav{display:none}
+  /* Kopje je tu čez celotno širino, zato vel preusmerimo navpično: zgoraj
+     dovolj temno za berljivost, spodaj reka ostane svetla. */
+  .veil{background:
+    radial-gradient(130% 78% at 50% 0%,rgba(15,42,36,.06) 0%,rgba(7,22,15,.22) 60%,rgba(7,22,15,.40) 100%),
+    linear-gradient(180deg,rgba(7,22,15,.80) 0%,rgba(7,22,15,.62) 30%,rgba(7,22,15,.30) 56%,rgba(7,22,15,.06) 76%,rgba(7,22,15,0) 86%),
+    linear-gradient(0deg,rgba(7,22,15,.84) 0%,rgba(7,22,15,.58) 8%,rgba(7,22,15,0) 18%)}
+  .hero::before{inset:-8% -8% -8% -8%;
+    background:linear-gradient(180deg,transparent,rgba(7,22,15,.50) 8%,rgba(7,22,15,.44) 78%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .lok,.reka{align-content:start;gap:calc(14px*var(--g))}
+  /* Fiksni vrstici: sicer samodejna vrstica raztegne fotografijo čez svojo
+     površino, ta pa nato prekriva besedilo pod njo. */
+  .lok{grid-template-rows:minmax(0,26dvh) minmax(0,1fr);align-content:stretch;align-items:stretch}
+  .gal-loc{height:100%;grid-template-rows:minmax(0,1fr) auto}
+  .lok-info{align-content:safe center}
+  .stek{min-height:32dvh}
+}
+/* Na majhnem zaslonu raje izpusti podrobnost, kot da drobiš pisavo ali drsi:
+   prioritetna vrstica je (1) kaj je to, (2) dva naslova, (3) kako rezerviraš. */
+@media (max-width:620px){
+  .brand-txt i{display:none}
+  .brand-txt b{font-size:.94em}
+  .tel{display:none}
+  .top-actions .btn-solid{display:none}
+  .back{padding:8px}
+  .back span{display:none}
+  .foot{justify-content:center;text-align:center}
+  .foot .legal{order:3;flex-basis:100%}
+  .mnenje,.host{display:none}
+  .karta .k-x{display:none}
+  .karta{padding:9px}
+  .fakti{display:none}
+  /* Hiša na telefonu: ena velika fotografija, naslov in dejstva. Sličice in
+     uvod izpustimo, ker ju pokaže že svetlobno okno in domači pogled. */
+  .lok{grid-template-rows:minmax(0,26dvh) minmax(0,1fr)}
+  .smini{display:none}
+  .lok .eyebrow,.lok .lede{display:none}
+  .lok .opombe li:nth-child(n+4){display:none}
+  .lok .cta{gap:8px}
+  .lok .cta .btn{flex:1 1 auto;justify-content:center;padding-inline:14px}
+  .reka .lede{display:none}
+  .reka-list .rl:nth-child(n+4){display:none}
+  .stek{min-height:30dvh}
+  .term .lede{display:none}
+  .term .cta{display:none}
+  .pravila{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:400px){
+  .display{font-size:clamp(28px,9.4vw,44px)}
+  .karta{grid-template-columns:clamp(62px,20vw,86px) minmax(0,1fr)}
+  .pravila{grid-template-columns:minmax(0,1fr)}
+  .pravila li:nth-child(n+3){display:none}
+  .lb-nav.prev{left:2px}.lb-nav.next{right:2px}
+}
+/* Ležeči telefon: še enkrat manj prostora po višini. */
+@media (max-height:560px){
+  .mnenje,.host,.fakti,.opombe{display:none}
+  .term .lede,.reka .lede{display:none}
+  .gal-loc,.stek{min-height:0}
+  .chips{display:none}
+}
+
+/* ---------- olajšave, ki jih sprosti šele oder ---------- */
+/* Media query ne ve, kje zmanjka prostora: odvisno je od višine, širine in
+   dolžine besedila hkrati. Zato prilepi() najprej pusti gostost, nato pa
+   sprosti stopnjo a in b šele, ko tudi najmanjša gostost ne zadošča. Padeta
+   lahko samo podrobnost in krajša fotografija — nikoli naslov, gumb ali
+   drsenje. Manjši telefon tako ne izgubi vsebine, ki bi jo še videl. */
+[data-olajsave="a"] .karta img{aspect-ratio:16/9}
+[data-olajsave="b"] .karta img{aspect-ratio:16/9}
+[data-olajsave="b"] .karta .k-m{display:none}
+[data-olajsave="b"] .lok .enote-info{display:none}
+[data-olajsave="b"] .lok .opombe li:nth-child(n+4){display:none}
+/* Zadnja stopnja: tu že gre za odločitev, kaj ostane, zato sme pasti samo
+   ponovitev. Oznake ugodnosti na domačem pogledu ponavljajo stavek nad njimi
+   in JSON-LD (numberOfRooms, naslova, amenityFeature), zato z njimi ne izgine
+   nobena trditev. Edina izjema je ocena 10/10 · 8 mnenj: tiste že obstoječa
+   media po 620 px vrže, tukaj jo vrže šele ta stopnja — v strukturiranih
+   podatkih je ni, ker samopohvalne ocene Google ne upošteva. V naboru trideset
+   merjenih kombinacij stopnja izbere samo eno: domov pri 320 px.
+   Past mora cel sloj a in b, ker selektorji niso kumulativni. */
+[data-olajsave="c"] .karta img{aspect-ratio:16/9}
+[data-olajsave="c"] .karta .k-m{display:none}
+[data-olajsave="c"] .lok .enote-info{display:none}
+[data-olajsave="c"] .lok .opombe li:nth-child(n+4){display:none}
+[data-olajsave="c"] .domov .chips{display:none}

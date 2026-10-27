@@ -1,0 +1,243 @@
+{
+ "rez": "30",
+ "jezik": "en",
+ "enota": 30,
+ "glas": "en_GB-cori-high",
+ "pripoved_skupaj": 18.09,
+ "miks_pred_poravnavo": {
+  "input_i": "-15.88",
+  "input_tp": "-2.15",
+  "input_lra": "2.10",
+  "input_thresh": "-26.15",
+  "output_i": "-23.39",
+  "output_tp": "-9.68",
+  "output_lra": "1.80",
+  "output_thresh": "-33.54",
+  "normalization_type": "dynamic",
+  "target_offset": "0.39",
+  "kontrola_ebur128": "I=-15.9 LUFS  LRA=2.0 LU  TP=-2.2 dBFS",
+  "kontrola": {
+   "I": "-15.9 LUFS",
+   "LRA": "2.0 LU",
+   "TP": "-2.2 dBFS"
+  },
+  "as_meitve": 2.8
+ },
+ "vrstice": [
+  {
+   "kader": "k01",
+   "zac": 0.518,
+   "govor": 1.8,
+   "konec": 2.318,
+   "kader_konec": 3.281,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k01.wav",
+   "besedilo": "Morning begins at the river Kolpa."
+  },
+  {
+   "kader": "k03",
+   "zac": 3.448,
+   "govor": 0.929,
+   "konec": 4.377,
+   "kader_konec": 4.688,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k03.wav",
+   "besedilo": "and you are in."
+  },
+  {
+   "kader": "k06",
+   "zac": 4.852,
+   "govor": 1.405,
+   "konec": 6.257,
+   "kader_konec": 6.562,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k06.wav",
+   "besedilo": "The Kolpa never hurries."
+  },
+  {
+   "kader": "k07",
+   "zac": 6.967,
+   "govor": 2.125,
+   "konec": 9.092,
+   "kader_konec": 9.844,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k07.wav",
+   "besedilo": "Two houses, two addresses in Griblje."
+  },
+  {
+   "kader": "k08",
+   "zac": 10.207,
+   "govor": 1.776,
+   "konec": 11.983,
+   "kader_konec": 12.656,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k08.wav",
+   "besedilo": "Four self-contained apartments."
+  },
+  {
+   "kader": "k12",
+   "zac": 13.079,
+   "govor": 2.543,
+   "konec": 15.622,
+   "kader_konec": 16.406,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k12.wav",
+   "besedilo": "A terrace, a hot tub, a garden."
+  },
+  {
+   "kader": "k15",
+   "zac": 16.834,
+   "govor": 1.591,
+   "konec": 18.425,
+   "kader_konec": 19.219,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k15.wav",
+   "besedilo": "and a whole meadow for the children."
+  },
+  {
+   "kader": "k19",
+   "zac": 19.869,
+   "govor": 1.892,
+   "konec": 21.761,
+   "kader_konec": 22.969,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k19.wav",
+   "besedilo": "Guests say: complete privacy."
+  },
+  {
+   "kader": "k21",
+   "zac": 23.433,
+   "govor": 1.486,
+   "konec": 24.919,
+   "kader_konec": 25.781,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k21.wav",
+   "besedilo": "and lights after dark."
+  },
+  {
+   "kader": "k22",
+   "zac": 26.368,
+   "govor": 2.543,
+   "konec": 28.911,
+   "kader_konec": 30.0,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\30-en\\k22.wav",
+   "besedilo": "River Kolpa Apartments. Call Majda."
+  }
+ ],
+ "efekti": {
+  "datoteka": "efekti-30-en.wav",
+  "vrh_dbfs": -9.0,
+  "po_vrsti": {
+   "kitla": 5,
+   "udarec": 4,
+   "dvig": 1
+  },
+  "glasnosti": {
+   "kitla": -13.0,
+   "kitla_pod_govorom": -19.0,
+   "udarec": -9.0,
+   "udarec_pod_govorom": -15.0,
+   "dvig": -17.0,
+   "dvig_pod_govorom": -23.0
+  }
+ },
+ "izvozi": {
+  "mojster": {
+   "datoteka": "zvok/master-30-en-mojster.m4a",
+   "cilj": {
+    "I": -23.0,
+    "TP": -1.5,
+    "LRA": 11.0
+   },
+   "izmerjeno": {
+    "I": "-23.0 LUFS",
+    "LRA": "2.0 LU",
+    "TP": "-9.2 dBFS"
+   },
+   "trajanje": 30.0,
+   "odstopanje": null,
+   "meritev": {
+    "input_i": "-23.02",
+    "input_tp": "-9.24",
+    "input_lra": "2.10",
+    "input_thresh": "-33.29",
+    "output_i": "-23.39",
+    "output_tp": "-9.64",
+    "output_lra": "1.80",
+    "output_thresh": "-33.54",
+    "normalization_type": "dynamic",
+    "target_offset": "0.39",
+    "kontrola_ebur128": "I=-23.0 LUFS  LRA=2.0 LU  TP=-9.2 dBFS",
+    "kontrola": {
+     "I": "-23.0 LUFS",
+     "LRA": "2.0 LU",
+     "TP": "-9.2 dBFS"
+    },
+    "as_meitve": 3.5
+   },
+   "omejevalnik": null
+  },
+  "splet": {
+   "datoteka": "zvok/master-30-en-splet.m4a",
+   "cilj": {
+    "I": -16.0,
+    "TP": -1.5,
+    "LRA": 11.0
+   },
+   "izmerjeno": {
+    "I": "-16.0 LUFS",
+    "LRA": "2.0 LU",
+    "TP": "-2.4 dBFS"
+   },
+   "trajanje": 30.0,
+   "odstopanje": null,
+   "meritev": {
+    "input_i": "-16.02",
+    "input_tp": "-2.42",
+    "input_lra": "2.10",
+    "input_thresh": "-26.29",
+    "output_i": "-23.39",
+    "output_tp": "-9.67",
+    "output_lra": "1.90",
+    "output_thresh": "-33.54",
+    "normalization_type": "dynamic",
+    "target_offset": "0.39",
+    "kontrola_ebur128": "I=-16.0 LUFS  LRA=2.0 LU  TP=-2.4 dBFS",
+    "kontrola": {
+     "I": "-16.0 LUFS",
+     "LRA": "2.0 LU",
+     "TP": "-2.4 dBFS"
+    },
+    "as_meitve": 2.6
+   },
+   "omejevalnik": null
+  },
+  "druzbeno": {
+   "datoteka": "zvok/master-30-en-druzbeno.m4a",
+   "cilj": {
+    "I": -14.0,
+    "TP": -1.5,
+    "LRA": 11.0,
+    "meja": -3.0
+   },
+   "izmerjeno": {
+    "I": "-14.0 LUFS",
+    "LRA": "1.9 LU",
+    "TP": "-2.2 dBFS"
+   },
+   "trajanje": 30.0,
+   "odstopanje": null,
+   "meritev": {
+    "input_i": "-14.01",
+    "input_tp": "-2.15",
+    "input_lra": "2.10",
+    "input_thresh": "-24.27",
+    "output_i": "-23.36",
+    "output_tp": "-11.24",
+    "output_lra": "1.70",
+    "output_thresh": "-33.52",
+    "normalization_type": "dynamic",
+    "target_offset": "0.36",
+    "kontrola_ebur128": "I=-14.0 LUFS  LRA=1.9 LU  TP=-2.2 dBFS",
+    "kontrola": {
+     "I": "-14.0 LUFS",
+     "LRA": "1.9 LU",
+     "TP": "-2.2 dBFS"
+    },
+    "as_meitve": 2.7
+   },
+   "omejevalnik": -4.5
+  }
+ }
+}

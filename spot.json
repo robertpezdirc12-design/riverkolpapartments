@@ -1,0 +1,577 @@
+{
+ "oznaka": "rka-spot",
+ "naslov": "River Kolpa Apartments — filmska zgodba in TV-reklama",
+ "opomba": "Časovni list je edini vir resnice: stran ga predvaja, render ga izreže v MP4, sinteza pa iz njega bere pripoved. `kadri` je sklad vseh posnetkov; `rezi` so TV enote (:60 reklamna minuta in :30 reklama) iz istega sklada. Vsi podatki so resnični in prevzeti iz PODATKI/HISE v app.js; kjer podatka ni, list nič ne trdi.",
+ "sirina": 1920,
+ "visina": 1080,
+ "sricje": 30,
+ "zvok": {
+  "pripoved_sl": {
+   "gon": "piper",
+   "glas": "sl_SI-artur-medium",
+   "vzorec": 22050,
+   "izhod": 48000,
+   "licenca": "CC-BY-4.0 (zbirka Artur, ppisljar / HuggingFace)",
+   "model": "VITS — nevronski glas snetega govorca, ne robotski sintetizator"
+  },
+  "pripoved_en": {
+   "gon": "piper",
+   "glas": "en_GB-cori-high",
+   "vzorec": 22050,
+   "izhod": 48000,
+   "licenca": "javna domena (zbirka LibriVox)",
+   "opomba": "en_US-ryan-high je bil odsvetovan: njegova zbirka RyanSpeech je CC BY-NC-SA 4.0, pripona NC pa ne dopusca komercialne rabe — reklama je komercialna raba."
+  },
+  "podlaga": {
+   "vir": "Swale.ogg — posnetek tekoče reke, 31,0 s, 48 kHz mono",
+   "licenca": "CC0 (avtor Ksd5, Wikimedia Commons; navedba ni zahtevana)",
+   "opomba": "Ni dobesedni posnetek Kolpe: uporabljen je kot splošna zvočna podlaga vode, da pripoved ne stoji nad tišino."
+  },
+  "glasnost": {
+   "televizija": "I=-23 LUFS, TP=-1,5 dBTP, LRA=11 (EBU R128)",
+   "splet": "I=-16 LUFS, TP=-1,5 dBTP",
+   "podlaga_pod_pripovedjo": "dušenje −8 dB, med kadri razpad 400 ms"
+  }
+ },
+ "poglavja": [
+  {
+   "id": "voda",
+   "naslov": "Voda"
+  },
+  {
+   "id": "his",
+   "naslov": "Dve hiši"
+  },
+  {
+   "id": "vrt",
+   "naslov": "Vrt"
+  },
+  {
+   "id": "vecer",
+   "naslov": "Večer"
+  },
+  {
+   "id": "konec",
+   "naslov": "Zaključek"
+  }
+ ],
+ "kadri": [
+  {
+   "id": "k01",
+   "pog": "voda",
+   "vrsta": "video",
+   "pot": "assets/kolpa-ozadje.mp4",
+   "poster": "assets/poster.webp",
+   "gib": "ni",
+   "sidro": "spodaj-levo",
+   "eb": "Griblje · Bela krajina",
+   "beso": "Jutro se začne ob vodi.",
+   "pod": "River Kolpa Apartments",
+   "govorSl": "Jutro se začne ob reki Kolpi.",
+   "govorEn": "Morning begins at the river Kolpa."
+  },
+  {
+   "id": "k02",
+   "pog": "voda",
+   "vrsta": "slika",
+   "pot": "assets/reka-01.webp",
+   "gib": "push",
+   "sidro": "spodaj-levo",
+   "beso": "Deset minut hoje,",
+   "pod": "do naravnega kopališča na Kolpi",
+   "govorSl": "Deset minut hoje,",
+   "govorEn": "Ten minutes on foot,",
+   "podEn": "to the natural bathing spot on the Kolpa"
+  },
+  {
+   "id": "k03",
+   "pog": "voda",
+   "vrsta": "slika",
+   "pot": "assets/reka-05.webp",
+   "gib": "panL",
+   "sidro": "spodaj-desno",
+   "beso": "in si v reki.",
+   "govorSl": "in si v reki.",
+   "govorEn": "and you are in."
+  },
+  {
+   "id": "k04",
+   "pog": "voda",
+   "vrsta": "slika",
+   "pot": "assets/reka-02.webp",
+   "gib": "pull",
+   "sidro": "spodaj-levo",
+   "beso": "Kopanje, ki se ga ne naveličaš.",
+   "govorSl": "Kopanje, ki se ga ne naveličaš.",
+   "govorEn": "Swimming you never tire of."
+  },
+  {
+   "id": "k05",
+   "pog": "voda",
+   "vrsta": "slika",
+   "pot": "assets/reka-07.webp",
+   "gib": "push",
+   "sidro": "spodaj-levo",
+   "beso": "Naravni tobogan,",
+   "govorSl": "Naravni tobogan,",
+   "govorEn": "A natural waterslide,"
+  },
+  {
+   "id": "k06",
+   "pog": "voda",
+   "vrsta": "slika",
+   "pot": "assets/reka-06.webp",
+   "gib": "panR",
+   "sidro": "spodaj-levo",
+   "beso": "plitvina do pasu.",
+   "govorSl": "in plitvina do pasu.",
+   "govorEn": "and a shallow that reaches your waist."
+  },
+  {
+   "id": "k07",
+   "pog": "his",
+   "vrsta": "slika",
+   "pot": "assets/zunanjost-30b.webp",
+   "gib": "push",
+   "sidro": "spodaj-levo",
+   "eb": "Dve hiši, ena reka",
+   "beso": "Griblje 70 in Griblje 30 b.",
+   "znacke": [
+    "SI-8332 Gradac"
+   ],
+   "govorSl": "Dve hiši, dva naslova v Gribljah.",
+   "govorEn": "Two houses, two addresses in Griblje.",
+   "ebEn": "Two houses, one river"
+  },
+  {
+   "id": "k08",
+   "pog": "his",
+   "vrsta": "slika",
+   "pot": "assets/noter-01.webp",
+   "gib": "panR",
+   "sidro": "spodaj-levo",
+   "beso": "Štirje samostojni apartmaji.",
+   "znacke": [
+    "apartma za 7 oseb",
+    "studio za 5 oseb"
+   ],
+   "govorSl": "Štirje samostojni apartmaji.",
+   "govorEn": "Four self-contained apartments.",
+   "znackeEn": [
+    "apartment for 7 guests",
+    "studio for 5 guests"
+   ]
+  },
+  {
+   "id": "k09",
+   "pog": "his",
+   "vrsta": "slika",
+   "pot": "assets/soba-main.webp",
+   "gib": "push",
+   "sidro": "spodaj-desno",
+   "beso": "Sedem ležišč, dve spalnici.",
+   "govorSl": "Sedem ležišč v dveh spalnicah,",
+   "govorEn": "Seven beds in two bedrooms,"
+  },
+  {
+   "id": "k10",
+   "pog": "his",
+   "vrsta": "slika",
+   "pot": "assets/soba-otroci.webp",
+   "gib": "panL",
+   "sidro": "spodaj-levo",
+   "beso": "in nadstavna postelja za otroke.",
+   "govorSl": "in nadstavna postelja za otroke.",
+   "govorEn": "and bunk beds for the children."
+  },
+  {
+   "id": "k11",
+   "pog": "his",
+   "vrsta": "slika",
+   "pot": "assets/kuhinja-30b.webp",
+   "gib": "pull",
+   "sidro": "spodaj-levo",
+   "beso": "Kuhinje, opremljene do podrobnosti.",
+   "znacke": [
+    "pečica in štedilnik",
+    "pralni stroj"
+   ],
+   "govorSl": "Kuhinje, opremljene do podrobnosti.",
+   "govorEn": "Kitchens equipped down to the detail.",
+   "znackeEn": [
+    "oven and stove",
+    "washing machine"
+   ]
+  },
+  {
+   "id": "k12",
+   "pog": "vrt",
+   "vrsta": "slika",
+   "pot": "assets/terasa-studio.webp",
+   "gib": "push",
+   "sidro": "spodaj-levo",
+   "beso": "Terasa, jacuzzi in urejen vrt.",
+   "pod": "Vsaka hiša svojo",
+   "govorSl": "Vsaka hiša svojo teraso in vrt.",
+   "govorEn": "Each house with its own terrace and garden.",
+   "podRez": "30",
+   "podEn": "Every house has its own"
+  },
+  {
+   "id": "k13",
+   "pog": "vrt",
+   "vrsta": "slika",
+   "pot": "assets/letna-kuhinja.webp",
+   "gib": "panR",
+   "sidro": "spodaj-desno",
+   "beso": "Letna kuhinja",
+   "govorSl": "letno kuhinjo,",
+   "govorEn": "a summer kitchen,"
+  },
+  {
+   "id": "k14",
+   "pog": "vrt",
+   "vrsta": "slika",
+   "pot": "assets/pergola-vrt.webp",
+   "gib": "panL",
+   "sidro": "spodaj-levo",
+   "beso": "in pergola v senci.",
+   "govorSl": "in pergolo v senci.",
+   "govorEn": "and a pergola in the shade."
+  },
+  {
+   "id": "k15",
+   "pog": "vrt",
+   "vrsta": "slika",
+   "pot": "assets/travnik-30b.webp",
+   "gib": "push",
+   "sidro": "spodaj-levo",
+   "beso": "Travnik z nogometnimi vrati.",
+   "znacke": [
+    "ograjeno"
+   ],
+   "govorSl": "Otrokom travnik z vrati,",
+   "govorEn": "For the children a meadow with goals,",
+   "znackeEn": [
+    "fenced"
+   ]
+  },
+  {
+   "id": "k16",
+   "pog": "vrt",
+   "vrsta": "slika",
+   "pot": "assets/izkus-01.webp",
+   "gib": "pull",
+   "sidro": "spodaj-desno",
+   "beso": "Domača pogača iz lastne peči.",
+   "govorSl": "in pogača iz lastne peči.",
+   "govorEn": "and pastry from their own oven."
+  },
+  {
+   "id": "k17",
+   "pog": "vecer",
+   "vrsta": "slika",
+   "pot": "assets/uta-dan.webp",
+   "gib": "push",
+   "sidro": "spodaj-levo",
+   "beso": "Jacuzzi na vrtu.",
+   "govorSl": "Topla voda kar zunaj,",
+   "govorEn": "Warm water right outside,"
+  },
+  {
+   "id": "k18",
+   "pog": "vecer",
+   "vrsta": "slika",
+   "pot": "assets/vrt-pregled.webp",
+   "gib": "panR",
+   "sidro": "spodaj-levo",
+   "beso": "Ograjen vrt, zasebnost.",
+   "govorSl": "in vrt, ki je ves vaš.",
+   "govorEn": "and a garden that is entirely yours."
+  },
+  {
+   "id": "k19",
+   "pog": "vecer",
+   "vrsta": "slika",
+   "pot": "assets/masazna-kad.webp",
+   "gib": "push",
+   "sidro": "spodaj-desno",
+   "beso": "Mehurčki pod visečimi cvetlicami.",
+   "govorSl": "Mehurčki pod visečimi cvetlicami.",
+   "govorEn": "Bubbles under hanging flowers."
+  },
+  {
+   "id": "k20",
+   "pog": "vecer",
+   "vrsta": "slika",
+   "pot": "assets/uta-noc.webp",
+   "gib": "panL",
+   "sidro": "spodaj-levo",
+   "beso": "In ko se stemni,",
+   "govorSl": "In ko se stemni,",
+   "govorEn": "And when evening falls,"
+  },
+  {
+   "id": "k21",
+   "pog": "vecer",
+   "vrsta": "slika",
+   "pot": "assets/noc.webp",
+   "gib": "pull",
+   "sidro": "spodaj-levo",
+   "beso": "čez vrt steče vrsta luči.",
+   "znacke": [
+    "10 / 10 · 8 mnenj"
+   ],
+   "govorSl": "čez vrt steče vrsta luči.",
+   "govorEn": "a line of lights runs across the garden.",
+   "znackeEn": [
+    "10 / 10 · 8 reviews"
+   ]
+  },
+  {
+   "id": "k22",
+   "pog": "konec",
+   "vrsta": "zakljucek",
+   "pot": "",
+   "gib": "ni",
+   "sidro": "sredini",
+   "eb": "River Kolpa Apartments",
+   "beso": "040 858 732",
+   "pod": "Griblje 70 · Griblje 30 b · Bela krajina",
+   "znacke": [
+    "majda.pezdirc@gmail.com",
+    "Booking.com — brez provizije",
+    "10/10 · 8 mnenj"
+   ],
+   "govorSl": "River Kolpa Apartments, Griblje. Pokličite Majdo.",
+   "govorEn": "River Kolpa Apartments, Griblje. Call Majda.",
+   "znackeEn": [
+    "majda.pezdirc@gmail.com",
+    "Booking.com — no commission",
+    "10/10 · 8 reviews"
+   ]
+  }
+ ],
+ "rezi": {
+  "30": {
+   "naslov": "TV reklama — trideset sekund",
+   "dolzina": 30,
+   "niz": [
+    [
+     "k01",
+     3.28125
+    ],
+    [
+     "k03",
+     1.40625
+    ],
+    [
+     "k06",
+     1.875
+    ],
+    [
+     "k07",
+     3.28125
+    ],
+    [
+     "k08",
+     2.8125
+    ],
+    [
+     "k12",
+     3.75
+    ],
+    [
+     "k15",
+     2.8125
+    ],
+    [
+     "k19",
+     3.75
+    ],
+    [
+     "k21",
+     2.8125
+    ],
+    [
+     "k22",
+     4.21875
+    ]
+   ],
+   "govorSl30": {
+    "k03": "in si v reki.",
+    "k06": "Kolpa se ne mudi.",
+    "k12": "Terasa, jacuzzi, vrt.",
+    "k15": "Otrokom cel travnik.",
+    "k19": "Gostje rečejo: popolna zasebnost.",
+    "k21": "in luči, ko se stemni.",
+    "k22": "River Kolpa Apartments. Pokličite Majdo."
+   },
+   "govorEn30": {
+    "k03": "and you are in.",
+    "k06": "The Kolpa never hurries.",
+    "k12": "A terrace, a hot tub, a garden.",
+    "k15": "and a whole meadow for the children.",
+    "k19": "Guests say: complete privacy.",
+    "k21": "and lights after dark.",
+    "k22": "River Kolpa Apartments. Call Majda."
+   },
+   "bit": {
+    "bpm": 128.0,
+    "utrip_ms": 468.8,
+    "utripovi": {
+     "k01": 7,
+     "k03": 3,
+     "k06": 4,
+     "k07": 7,
+     "k08": 6,
+     "k12": 8,
+     "k15": 6,
+     "k19": 8,
+     "k21": 6,
+     "k22": 9
+    }
+   }
+  },
+  "60": {
+   "naslov": "Enominutna reklama — filmska zgodba",
+   "dolzina": 60,
+   "niz": [
+    [
+     "k01",
+     3.28125
+    ],
+    [
+     "k02",
+     1.875
+    ],
+    [
+     "k03",
+     1.40625
+    ],
+    [
+     "k04",
+     2.8125
+    ],
+    [
+     "k05",
+     1.875
+    ],
+    [
+     "k06",
+     1.875
+    ],
+    [
+     "k07",
+     3.75
+    ],
+    [
+     "k08",
+     2.8125
+    ],
+    [
+     "k09",
+     3.28125
+    ],
+    [
+     "k10",
+     3.28125
+    ],
+    [
+     "k11",
+     3.75
+    ],
+    [
+     "k12",
+     3.28125
+    ],
+    [
+     "k13",
+     1.875
+    ],
+    [
+     "k14",
+     2.34375
+    ],
+    [
+     "k15",
+     2.8125
+    ],
+    [
+     "k16",
+     2.8125
+    ],
+    [
+     "k17",
+     2.8125
+    ],
+    [
+     "k18",
+     1.875
+    ],
+    [
+     "k19",
+     3.28125
+    ],
+    [
+     "k20",
+     1.40625
+    ],
+    [
+     "k21",
+     2.8125
+    ],
+    [
+     "k22",
+     4.6875
+    ]
+   ],
+   "govorEn60": {
+    "k05": "A natural slide,",
+    "k06": "shallow enough to stand.",
+    "k18": "and a garden all yours.",
+    "k20": "At dusk,",
+    "k21": "a line of lights across the garden."
+   },
+   "bit": {
+    "bpm": 128.0,
+    "utrip_ms": 468.8,
+    "utripovi": {
+     "k01": 7,
+     "k02": 4,
+     "k03": 3,
+     "k04": 6,
+     "k05": 4,
+     "k06": 4,
+     "k07": 8,
+     "k08": 6,
+     "k09": 7,
+     "k10": 7,
+     "k11": 8,
+     "k12": 7,
+     "k13": 4,
+     "k14": 5,
+     "k15": 6,
+     "k16": 6,
+     "k17": 6,
+     "k18": 4,
+     "k19": 7,
+     "k20": 3,
+     "k21": 6,
+     "k22": 10
+    }
+   }
+  }
+ },
+ "zakljucek": {
+  "blagovna": "River Kolpa Apartments",
+  "kraj": "Griblje · Bela krajina · Slovenija",
+  "tel": "+38640858732",
+  "telPrikaz": "040 858 732",
+  "mail": "majda.pezdirc@gmail.com",
+  "booking": "https://www.booking.com/hotel/si/holiday-house-kolpa.sl.html",
+  "nastanitev": "Štirje samostojni apartmaji na dveh naslovih: Griblje 70 in Griblje 30 b. Vsaka hiša ima teraso, jacuzzi in urejen vrt; do naravnega kopališča na Kolpi je deset minut hoje.",
+  "ocena": "10 / 10 · 8 mnenj",
+  "vodi": "Vodi jo Majda Pezdirc — odgovor v nekaj urah, tudi v soboto."
+ }
+}

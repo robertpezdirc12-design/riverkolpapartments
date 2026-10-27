@@ -1,0 +1,351 @@
+{
+ "rez": "60",
+ "jezik": "sl",
+ "enota": 60,
+ "glas": "sl_SI-artur-medium",
+ "pripoved_skupaj": 40.845000000000006,
+ "miks_pred_poravnavo": {
+  "input_i": "-15.92",
+  "input_tp": "-1.44",
+  "input_lra": "1.80",
+  "input_thresh": "-26.04",
+  "output_i": "-22.89",
+  "output_tp": "-8.42",
+  "output_lra": "1.80",
+  "output_thresh": "-32.96",
+  "normalization_type": "dynamic",
+  "target_offset": "-0.11",
+  "kontrola_ebur128": "I=-15.9 LUFS  LRA=1.9 LU  TP=-1.4 dBFS",
+  "kontrola": {
+   "I": "-15.9 LUFS",
+   "LRA": "1.9 LU",
+   "TP": "-1.4 dBFS"
+  },
+  "as_meitve": 7.5
+ },
+ "vrstice": [
+  {
+   "kader": "k01",
+   "zac": 0.433,
+   "govor": 2.043,
+   "konec": 2.476,
+   "kader_konec": 3.281,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k01.wav",
+   "besedilo": "Jutro se začne ob reki Kolpi."
+  },
+  {
+   "kader": "k02",
+   "zac": 3.405,
+   "govor": 1.521,
+   "konec": 4.926,
+   "kader_konec": 5.156,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k02.wav",
+   "besedilo": "Deset minut hoje,"
+  },
+  {
+   "kader": "k03",
+   "zac": 5.307,
+   "govor": 0.975,
+   "konec": 6.282,
+   "kader_konec": 6.562,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k03.wav",
+   "besedilo": "in si v reki."
+  },
+  {
+   "kader": "k04",
+   "zac": 6.864,
+   "govor": 1.95,
+   "konec": 8.814,
+   "kader_konec": 9.375,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k04.wav",
+   "besedilo": "Kopanje, ki se ga ne naveličaš."
+  },
+  {
+   "kader": "k05",
+   "zac": 9.641,
+   "govor": 1.115,
+   "konec": 10.756,
+   "kader_konec": 11.25,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k05.wav",
+   "besedilo": "Naravni tobogan,"
+  },
+  {
+   "kader": "k06",
+   "zac": 11.386,
+   "govor": 1.486,
+   "konec": 12.872,
+   "kader_konec": 13.125,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k06.wav",
+   "besedilo": "in plitvina do pasu."
+  },
+  {
+   "kader": "k07",
+   "zac": 13.56,
+   "govor": 2.508,
+   "konec": 16.068,
+   "kader_konec": 16.875,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k07.wav",
+   "besedilo": "Dve hiši, dva naslova v Gribljah."
+  },
+  {
+   "kader": "k08",
+   "zac": 17.205,
+   "govor": 1.869,
+   "konec": 19.074,
+   "kader_konec": 19.688,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k08.wav",
+   "besedilo": "Štirje samostojni apartmaji."
+  },
+  {
+   "kader": "k09",
+   "zac": 20.101,
+   "govor": 2.101,
+   "konec": 22.202,
+   "kader_konec": 22.969,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k09.wav",
+   "besedilo": "Sedem ležišč v dveh spalnicah,"
+  },
+  {
+   "kader": "k10",
+   "zac": 23.365,
+   "govor": 2.148,
+   "konec": 25.513,
+   "kader_konec": 26.25,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k10.wav",
+   "besedilo": "in nadstavna postelja za otroke."
+  },
+  {
+   "kader": "k11",
+   "zac": 26.697,
+   "govor": 2.473,
+   "konec": 29.17,
+   "kader_konec": 30.0,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k11.wav",
+   "besedilo": "Kuhinje, opremljene do podrobnosti."
+  },
+  {
+   "kader": "k12",
+   "zac": 30.311,
+   "govor": 2.392,
+   "konec": 32.703,
+   "kader_konec": 33.281,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k12.wav",
+   "besedilo": "Vsaka hiša svojo teraso in vrt."
+  },
+  {
+   "kader": "k13",
+   "zac": 33.478,
+   "govor": 1.312,
+   "konec": 34.79,
+   "kader_konec": 35.156,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k13.wav",
+   "besedilo": "letno kuhinjo,"
+  },
+  {
+   "kader": "k14",
+   "zac": 35.452,
+   "govor": 1.498,
+   "konec": 36.95,
+   "kader_konec": 37.5,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k14.wav",
+   "besedilo": "in pergolo v senci."
+  },
+  {
+   "kader": "k15",
+   "zac": 37.854,
+   "govor": 1.8,
+   "konec": 39.654,
+   "kader_konec": 40.312,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k15.wav",
+   "besedilo": "Otrokom travnik z vrati,"
+  },
+  {
+   "kader": "k16",
+   "zac": 40.626,
+   "govor": 1.916,
+   "konec": 42.542,
+   "kader_konec": 43.125,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k16.wav",
+   "besedilo": "in pogača iz lastne peči."
+  },
+  {
+   "kader": "k17",
+   "zac": 43.532,
+   "govor": 1.649,
+   "konec": 45.181,
+   "kader_konec": 45.938,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k17.wav",
+   "besedilo": "Topla voda kar zunaj,"
+  },
+  {
+   "kader": "k18",
+   "zac": 46.102,
+   "govor": 1.405,
+   "konec": 47.507,
+   "kader_konec": 47.812,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k18.wav",
+   "besedilo": "in vrt, ki je ves vaš."
+  },
+  {
+   "kader": "k19",
+   "zac": 48.148,
+   "govor": 2.322,
+   "konec": 50.47,
+   "kader_konec": 51.094,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k19.wav",
+   "besedilo": "Mehurčki pod visečimi cvetlicami."
+  },
+  {
+   "kader": "k20",
+   "zac": 51.224,
+   "govor": 1.033,
+   "konec": 52.257,
+   "kader_konec": 52.5,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k20.wav",
+   "besedilo": "In ko se stemni,"
+  },
+  {
+   "kader": "k21",
+   "zac": 52.846,
+   "govor": 1.823,
+   "konec": 54.669,
+   "kader_konec": 55.312,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k21.wav",
+   "besedilo": "čez vrt steče vrsta luči."
+  },
+  {
+   "kader": "k22",
+   "zac": 55.726,
+   "govor": 3.506,
+   "konec": 59.232,
+   "kader_konec": 60.0,
+   "wav": "C:\\Users\\admin\\Downloads\\sssdf\\rka-onepage\\zvok\\60-sl\\k22.wav",
+   "besedilo": "River Kolpa Apartments, Griblje. Pokličite Majdo."
+  }
+ ],
+ "efekti": {
+  "datoteka": "efekti-60-sl.wav",
+  "vrh_dbfs": -13.0,
+  "po_vrsti": {
+   "kitla": 17,
+   "udarec": 4,
+   "dvig": 1
+  },
+  "glasnosti": {
+   "kitla": -13.0,
+   "kitla_pod_govorom": -19.0,
+   "udarec": -9.0,
+   "udarec_pod_govorom": -15.0,
+   "dvig": -17.0,
+   "dvig_pod_govorom": -23.0
+  }
+ },
+ "izvozi": {
+  "mojster": {
+   "datoteka": "zvok/master-60-sl-mojster.m4a",
+   "cilj": {
+    "I": -23.0,
+    "TP": -1.5,
+    "LRA": 11.0
+   },
+   "izmerjeno": {
+    "I": "-23.0 LUFS",
+    "LRA": "1.9 LU",
+    "TP": "-8.6 dBFS"
+   },
+   "trajanje": 60.0,
+   "odstopanje": null,
+   "meritev": {
+    "input_i": "-23.02",
+    "input_tp": "-8.56",
+    "input_lra": "1.80",
+    "input_thresh": "-33.15",
+    "output_i": "-22.90",
+    "output_tp": "-8.43",
+    "output_lra": "1.80",
+    "output_thresh": "-32.97",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.10",
+    "kontrola_ebur128": "I=-23.0 LUFS  LRA=1.9 LU  TP=-8.6 dBFS",
+    "kontrola": {
+     "I": "-23.0 LUFS",
+     "LRA": "1.9 LU",
+     "TP": "-8.6 dBFS"
+    },
+    "as_meitve": 6.5
+   },
+   "omejevalnik": null
+  },
+  "splet": {
+   "datoteka": "zvok/master-60-sl-splet.m4a",
+   "cilj": {
+    "I": -16.0,
+    "TP": -1.5,
+    "LRA": 11.0
+   },
+   "izmerjeno": {
+    "I": "-16.0 LUFS",
+    "LRA": "1.9 LU",
+    "TP": "-1.5 dBFS"
+   },
+   "trajanje": 60.0,
+   "odstopanje": null,
+   "meritev": {
+    "input_i": "-16.02",
+    "input_tp": "-1.55",
+    "input_lra": "1.80",
+    "input_thresh": "-26.15",
+    "output_i": "-22.89",
+    "output_tp": "-8.42",
+    "output_lra": "1.80",
+    "output_thresh": "-32.97",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.11",
+    "kontrola_ebur128": "I=-16.0 LUFS  LRA=1.9 LU  TP=-1.5 dBFS",
+    "kontrola": {
+     "I": "-16.0 LUFS",
+     "LRA": "1.9 LU",
+     "TP": "-1.5 dBFS"
+    },
+    "as_meitve": 5.2
+   },
+   "omejevalnik": null
+  },
+  "druzbeno": {
+   "datoteka": "zvok/master-60-sl-druzbeno.m4a",
+   "cilj": {
+    "I": -14.0,
+    "TP": -1.5,
+    "LRA": 11.0,
+    "meja": -3.0
+   },
+   "izmerjeno": {
+    "I": "-14.0 LUFS",
+    "LRA": "1.9 LU",
+    "TP": "-1.9 dBFS"
+   },
+   "trajanje": 60.0,
+   "odstopanje": null,
+   "meritev": {
+    "input_i": "-14.02",
+    "input_tp": "-1.93",
+    "input_lra": "1.80",
+    "input_thresh": "-24.15",
+    "output_i": "-22.94",
+    "output_tp": "-10.29",
+    "output_lra": "1.70",
+    "output_thresh": "-33.01",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.06",
+    "kontrola_ebur128": "I=-14.0 LUFS  LRA=1.9 LU  TP=-1.9 dBFS",
+    "kontrola": {
+     "I": "-14.0 LUFS",
+     "LRA": "1.9 LU",
+     "TP": "-1.9 dBFS"
+    },
+    "as_meitve": 8.6
+   },
+   "omejevalnik": -4.5
+  }
+ }
+}

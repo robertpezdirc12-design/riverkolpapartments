@@ -1,0 +1,91 @@
+{
+ "rez": "30",
+ "jezik": "en",
+ "glas": "en_GB-cori-high",
+ "raister": 1.0,
+ "enota": 30,
+ "zasedenost": 60.3,
+ "govor_skupaj": 18.09,
+ "linie": [
+  {
+   "kader": "k01",
+   "okno": 3.36,
+   "govor": 1.8,
+   "rob": 1.26,
+   "besedilo": "Morning begins at the river Kolpa.",
+   "datoteka": "zvok/30-en/k01.wav"
+  },
+  {
+   "kader": "k03",
+   "okno": 1.8,
+   "govor": 0.929,
+   "rob": 0.57,
+   "besedilo": "and you are in.",
+   "datoteka": "zvok/30-en/k03.wav"
+  },
+  {
+   "kader": "k06",
+   "okno": 1.86,
+   "govor": 1.405,
+   "rob": 0.16,
+   "besedilo": "The Kolpa never hurries.",
+   "datoteka": "zvok/30-en/k06.wav"
+  },
+  {
+   "kader": "k07",
+   "okno": 3.66,
+   "govor": 2.125,
+   "rob": 1.24,
+   "besedilo": "Two houses, two addresses in Griblje.",
+   "datoteka": "zvok/30-en/k07.wav"
+  },
+  {
+   "kader": "k08",
+   "okno": 2.98,
+   "govor": 1.776,
+   "rob": 0.9,
+   "besedilo": "Four self-contained apartments.",
+   "datoteka": "zvok/30-en/k08.wav"
+  },
+  {
+   "kader": "k12",
+   "okno": 2.86,
+   "govor": 2.543,
+   "rob": 0.02,
+   "besedilo": "A terrace, a hot tub, a garden.",
+   "datoteka": "zvok/30-en/k12.wav"
+  },
+  {
+   "kader": "k15",
+   "okno": 2.57,
+   "govor": 1.591,
+   "rob": 0.68,
+   "besedilo": "and a whole meadow for the children.",
+   "datoteka": "zvok/30-en/k15.wav"
+  },
+  {
+   "kader": "k19",
+   "okno": 3.91,
+   "govor": 1.892,
+   "rob": 1.72,
+   "besedilo": "Guests say: complete privacy.",
+   "datoteka": "zvok/30-en/k19.wav"
+  },
+  {
+   "kader": "k21",
+   "okno": 2.49,
+   "govor": 1.486,
+   "rob": 0.7,
+   "besedilo": "and lights after dark.",
+   "datoteka": "zvok/30-en/k21.wav"
+  },
+  {
+   "kader": "k22",
+   "okno": 4.51,
+   "govor": 2.543,
+   "rob": 1.67,
+   "besedilo": "River Kolpa Apartments. Call Majda.",
+   "datoteka": "zvok/30-en/k22.wav"
+  }
+ ]
+}

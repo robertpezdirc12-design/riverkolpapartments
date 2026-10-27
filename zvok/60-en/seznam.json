@@ -1,0 +1,187 @@
+{
+ "rez": "60",
+ "jezik": "en",
+ "glas": "en_GB-cori-high",
+ "raister": 1.0,
+ "enota": 60,
+ "zasedenost": 61.2,
+ "govor_skupaj": 36.75,
+ "linie": [
+  {
+   "kader": "k01",
+   "okno": 2.96,
+   "govor": 1.8,
+   "rob": 0.86,
+   "besedilo": "Morning begins at the river Kolpa.",
+   "datoteka": "zvok/60-en/k01.wav"
+  },
+  {
+   "kader": "k02",
+   "okno": 2.3,
+   "govor": 1.265,
+   "rob": 0.73,
+   "besedilo": "Ten minutes on foot,",
+   "datoteka": "zvok/60-en/k02.wav"
+  },
+  {
+   "kader": "k03",
+   "okno": 1.61,
+   "govor": 0.929,
+   "rob": 0.38,
+   "besedilo": "and you are in.",
+   "datoteka": "zvok/60-en/k03.wav"
+  },
+  {
+   "kader": "k04",
+   "okno": 2.85,
+   "govor": 1.556,
+   "rob": 0.99,
+   "besedilo": "Swimming you never tire of.",
+   "datoteka": "zvok/60-en/k04.wav"
+  },
+  {
+   "kader": "k05",
+   "okno": 1.79,
+   "govor": 1.3,
+   "rob": 0.19,
+   "besedilo": "A natural slide,",
+   "datoteka": "zvok/60-en/k05.wav"
+  },
+  {
+   "kader": "k06",
+   "okno": 2.26,
+   "govor": 1.521,
+   "rob": 0.44,
+   "besedilo": "shallow enough to stand.",
+   "datoteka": "zvok/60-en/k06.wav"
+  },
+  {
+   "kader": "k07",
+   "okno": 3.55,
+   "govor": 2.125,
+   "rob": 1.12,
+   "besedilo": "Two houses, two addresses in Griblje.",
+   "datoteka": "zvok/60-en/k07.wav"
+  },
+  {
+   "kader": "k08",
+   "okno": 2.74,
+   "govor": 1.776,
+   "rob": 0.66,
+   "besedilo": "Four self-contained apartments.",
+   "datoteka": "zvok/60-en/k08.wav"
+  },
+  {
+   "kader": "k09",
+   "okno": 3.04,
+   "govor": 1.672,
+   "rob": 1.07,
+   "besedilo": "Seven beds in two bedrooms,",
+   "datoteka": "zvok/60-en/k09.wav"
+  },
+  {
+   "kader": "k10",
+   "okno": 3.1,
+   "govor": 1.521,
+   "rob": 1.28,
+   "besedilo": "and bunk beds for the children.",
+   "datoteka": "zvok/60-en/k10.wav"
+  },
+  {
+   "kader": "k11",
+   "okno": 3.5,
+   "govor": 1.974,
+   "rob": 1.23,
+   "besedilo": "Kitchens equipped down to the detail.",
+   "datoteka": "zvok/60-en/k11.wav"
+  },
+  {
+   "kader": "k12",
+   "okno": 3.4,
+   "govor": 2.218,
+   "rob": 0.88,
+   "besedilo": "Each house with its own terrace and garden.",
+   "datoteka": "zvok/60-en/k12.wav"
+  },
+  {
+   "kader": "k13",
+   "okno": 2.04,
+   "govor": 1.068,
+   "rob": 0.67,
+   "besedilo": "a summer kitchen,",
+   "datoteka": "zvok/60-en/k13.wav"
+  },
+  {
+   "kader": "k14",
+   "okno": 2.28,
+   "govor": 1.602,
+   "rob": 0.38,
+   "besedilo": "and a pergola in the shade.",
+   "datoteka": "zvok/60-en/k14.wav"
+  },
+  {
+   "kader": "k15",
+   "okno": 2.66,
+   "govor": 1.846,
+   "rob": 0.51,
+   "besedilo": "For the children a meadow with goals,",
+   "datoteka": "zvok/60-en/k15.wav"
+  },
+  {
+   "kader": "k16",
+   "okno": 2.81,
+   "govor": 1.614,
+   "rob": 0.9,
+   "besedilo": "and pastry from their own oven.",
+   "datoteka": "zvok/60-en/k16.wav"
+  },
+  {
+   "kader": "k17",
+   "okno": 2.47,
+   "govor": 1.707,
+   "rob": 0.46,
+   "besedilo": "Warm water right outside,",
+   "datoteka": "zvok/60-en/k17.wav"
+  },
+  {
+   "kader": "k18",
+   "okno": 2.16,
+   "govor": 1.393,
+   "rob": 0.47,
+   "besedilo": "and a garden all yours.",
+   "datoteka": "zvok/60-en/k18.wav"
+  },
+  {
+   "kader": "k19",
+   "okno": 3.31,
+   "govor": 1.707,
+   "rob": 1.3,
+   "besedilo": "Bubbles under hanging flowers.",
+   "datoteka": "zvok/60-en/k19.wav"
+  },
+  {
+   "kader": "k20",
+   "okno": 1.68,
+   "govor": 0.906,
+   "rob": 0.47,
+   "besedilo": "At dusk,",
+   "datoteka": "zvok/60-en/k20.wav"
+  },
+  {
+   "kader": "k21",
+   "okno": 2.68,
+   "govor": 1.939,
+   "rob": 0.44,
+   "besedilo": "a line of lights across the garden.",
+   "datoteka": "zvok/60-en/k21.wav"
+  },
+  {
+   "kader": "k22",
+   "okno": 4.81,
+   "govor": 3.309,
+   "rob": 1.2,
+   "besedilo": "River Kolpa Apartments, Griblje. Call Majda.",
+   "datoteka": "zvok/60-en/k22.wav"
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>River Kolpa Apartments — reklama ob Kolpi</title>
+<meta name="description" content="Filmska reklama z glasovno pripovedjo: dve hiši v Gribljah, štirje samostojni apartmaji in reka Kolpa. Predvaja se iz istega časovnega lista kot izreženi MP4.">
+<meta name="theme-color" content="#040d09">
+<meta name="color-scheme" content="dark">
+<meta name="author" content="Majda Pezdirc">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="River Kolpa Apartments">
+<meta property="og:locale" content="sl_SI">
+<meta property="og:title" content="Reklama ob Kolpi — dve hiši, štirje apartmaji">
+<meta property="og:description" content="Filmska reklama z glasovno pripovedjo, usklajena kadar za kadrom. Isti časovni list kot izreženi MP4.">
+<meta property="og:image" content="/assets/deljena-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Travnik z lesenimi ležalniki pred hišo v Gribljah, v ozadju bregovi Bele krajine.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23040d09'/%3E%3Cpath d='M4 20c4-4 6 2 10-2s6 2 10-2 4 2 4 0' stroke='%23e0b287' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M4 26c4-4 6 2 10-2s6 2 10-2 4 2 4 0' stroke='%237f9b85' stroke-width='2.4' fill='none' stroke-linecap='round'/%3e%3c/svg%3E">
+<link rel="preload" href="fonts/manrope-latin-938c6e80.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-c47ff128.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/poster.webp" fetchpriority="high">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="zgodba.css">
+</head>
+<body>
+<a class="skip" href="#transport">Preskoči na upravljanje predvajanja</a>
+
+<!-- PLATNO: vsi kadri ene enote so zloženi drug nad drugim; ura jih razkriva z rezom. -->
+<div class="platno" id="platno" aria-hidden="true"></div>
+
+<div class="zrno" id="zrno" aria-hidden="true"></div>
+<div class="crni" id="crni" aria-hidden="true"></div>
+<div class="reznica" id="reznica" aria-hidden="true">
+  <svg viewBox="0 0 22 44" preserveAspectRatio="none" focusable="false">
+    <path d="M11 0v44" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+    <path d="M11 8c-5 3-5 7 0 10s5 7 0 10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- VARNOSTNE ČRTICE: kot na monitorski mizi — naslovna in akcijska varna cona. -->
+<div class="varnost" id="varnost" aria-hidden="true">
+  <span class="v-naslov"></span><span class="v-akcija"></span>
+  <b class="v-oznaka v-z">naslovna cona</b><b class="v-oznaka v-s">akcijska cona</b>
+</div>
+
+<header class="klapa" id="klapa">
+  <span class="klapa-značka" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none"><path d="M2 21c4-4 6 2 10-2s6 2 10-2 6 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M2 27c4-4 6 2 10-2s6 2 10-2 6 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".5"/><path d="M16 3l4.5 9h-9L16 3z" fill="currentColor" opacity=".9"/></svg>
+  </span>
+  <span class="klapa-t">RKA · <i id="klapa-delo">reklama ob Kolpi</i></span>
+  <span class="klapa-meta"><b id="klapa-kader">k01</b><span id="klapa-stevec">/22</span> · <b id="klapa-pog">Voda</b> · <span id="klapa-ura">00:00:00:00</span></span>
+  <a class="klapa-dom" href="index.html">‹ Na spletno stran</a>
+</header>
+
+<main class="napisi" id="napisi" aria-live="off"></main>
+
+<!-- Pripoved je zvočna, naslovi pa jezikovno slepi. Zato je tu pravi
+     <track kind="captions"> iz istih datotek .vtt, iz katerih je podnapis zapečen v
+     izvožene spotte. Vidna crta riše iste cue-je, a le, kadar si jo obiskovalec
+     zaželi. -->
+<p class="podnapis" id="podnapis" aria-live="polite" aria-atomic="true"></p>
+<audio id="zvok" preload="auto">
+  <track id="podnapisSled" kind="captions" label="Slovenščina" srclang="sl">
+</audio>
+
+<nav class="transport" id="transport" aria-label="Upravljanje predvajanja">
+  <div class="tp-skupina">
+    <button class="tp tp-gl" id="gumbUstavi" aria-label="Ustavi predvajanje">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor"/></svg>
+    </button>
+    <button class="tp" id="gumbNazaj" aria-label="Prejšnji kader"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6l-8 6 8 6V6zM7 6v12" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
+    <button class="tp" id="gumbNaprej" aria-label="Naslednji kader"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l8 6-8 6V6zM17 6v12" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
+  </div>
+
+  <div class="trak" id="trak" role="slider" tabindex="0" aria-label="Časovna premica"
+       aria-valuemin="0" aria-valuemax="60" aria-valuenow="0" aria-valuetext="0 sekund od 60">
+    <div class="trak-polje"><i class="trak-zapolni" id="trakZapolni"></i><i class="trak-kaza" id="trakKaza"></i></div>
+    <div class="trak-zobi" id="trakZobi" aria-hidden="true"></div>
+  </div>
+
+  <span class="tp-cas" id="tpCas">00:00 / 01:00</span>
+
+  <div class="tp-skupina" role="group" aria-label="Različica spota">
+    <button class="tp tp-izb" id="gumb60" aria-pressed="true">:60</button>
+    <button class="tp tp-izb" id="gumb30" aria-pressed="false">:30</button>
+    <button class="tp tp-izb" id="gumbJezik" aria-pressed="true" title="Jezik pripovedi">SL</button>
+    <button class="tp tp-izb" id="gumbZvuk" aria-pressed="true" title="Pripoved in zvočna podlaga">Zvok</button>
+  </div>
+
+  <div class="tp-skupina" role="group" aria-label="Pogled">
+    <button class="tp tp-bes" id="gumbTekst">Besedilo</button>
+    <button class="tp tp-bes" id="gumbPodnapisi" aria-pressed="false">Podnapisi</button>
+    <button class="tp tp-bes" id="gumbVarnost" aria-pressed="false">Varna cona</button>
+    <button class="tp tp-bes" id="gumbCelost" aria-label="Celozaslonski način">Cel zaslon</button>
+  </div>
+</nav>
+
+<p class="tipka" id="tipka" aria-hidden="true">presledek predvajaj · ← → kader · , . enota · F cel zaslon · T besedilo · P podnapisi · V varna cona</p>
+
+<!-- VRATA: brskalnik prepove samodejno predvajanje s zvokom, zato se film začne na dotik. -->
+<section class="vrata" id="vrata">
+  <div class="v-notranji">
+    <p class="vr-eyebrow">Griblje · Bela krajina · Slovenija</p>
+    <h1 class="vr-naslov">Reklama ob <em>Kolpi</em></h1>
+    <p class="vr-lede">Dve hiši, štirje samostojni apartmaji in deset minut hoje do reke.
+      Pripoved je generirana iz pravega posnetega govorca, usklajena kadar za kadrom.</p>
+    <div class="vr-izb">
+      <div class="vr-skupina" role="group" aria-label="Dolžina reklame">
+        <span class="vr-oznaka">Enota</span>
+        <button class="vr-gumb" id="v60" aria-pressed="true"><b>:60</b><i>Enominutna</i></button>
+        <button class="vr-gumb" id="v30" aria-pressed="false"><b>:30</b><i>Trideset sekund</i></button>
+      </div>
+      <div class="vr-skupina" role="group" aria-label="Jezik pripovedi">
+        <span class="vr-oznaka">Pripoved</span>
+        <button class="vr-gumb" id="vSl" aria-pressed="true"><b>SL</b><i>Slovenščina</i></button>
+        <button class="vr-gumb" id="vEn" aria-pressed="false"><b>EN</b><i>Angleščina</i></button>
+      </div>
+    </div>
+    <div class="vr-ukazi">
+      <button class="gumb gumb-polni" id="vPredvajaj">Predvajaj reklamo</button>
+      <button class="gumb" id="vBrezZvoka">Predvajaj brez zvoka</button>
+      <a class="gumb" href="index.html">Povprašaj za termin</a>
+    </div>
+    <!-- Kadri, ura in zvok pridejo iz zgodba.js: brez JavaScripta gumbi molčijo.
+         To je treba povedati, sicer stran deluje kot pokvarjena, ne kot nedostopna. -->
+    <noscript><p class="vr-opomba">Reklamo zažene JavaScript, zato gumbi brez njega
+      ne odzivajo. Podatki o hišah in kontakt so na
+      <a href="index.html">glavni strani</a>.</p></noscript>
+    <p class="vr-opomba" id="vOpomba">Pripoved: nevronski glas Artur (slovenščina) pod licenco CC-BY-4.0,
+      zvočna podlaga reke pod licenco CC0 — podrobnosti v besedilu spota.</p>
+  </div>
+</section>
+
+<!-- BESEDILO: filmski list v berljivi obliki — zamenja celoten pogled, ne leži čez njega. -->
+<section class="besedilo" id="besedilo" hidden>
+  <button class="back" id="gumbNazajFilm">‹ Nazaj na film</button>
+  <div class="bes-notranji" id="besNotranji"></div>
+</section>
+
+<!-- ZAKLJUČEK: ko se enota konča, film zamenja končna plošča — ostane številka. -->
+<section class="konec" id="konec" hidden>
+  <div class="k-notranji">
+    <p class="k-one" id="kOne">Konec enominutne reklame. Ostane številka.</p>
+    <p class="k-blagovna">River Kolpa Apartments</p>
+    <a class="k-tel" id="kTel" href="tel:+38640858732">040 858 732</a>
+    <p class="k-pod">Griblje 70 · Griblje 30 b · neposredno brez provizije</p>
+    <div class="k-cta">
+      <button class="gumb gumb-polni" id="kPonovi">Predvajaj znova</button>
+      <a class="gumb" href="index.html">Povprašaj za termin</a>
+      <button class="gumb" id="kBesedilo">Besedilo spota</button>
+    </div>
+  </div>
+</section>
+
+<script src="zgodba.js"></script>
+</body>
+</html>

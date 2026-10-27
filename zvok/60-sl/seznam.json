@@ -1,0 +1,187 @@
+{
+ "rez": "60",
+ "jezik": "sl",
+ "glas": "sl_SI-artur-medium",
+ "raister": 1.0,
+ "enota": 60.0,
+ "zasedenost": 68.1,
+ "govor_skupaj": 40.85,
+ "linie": [
+  {
+   "kader": "k01",
+   "okno": 2.96,
+   "govor": 2.043,
+   "rob": 0.62,
+   "besedilo": "Jutro se začne ob reki Kolpi.",
+   "datoteka": "zvok/60-sl/k01.wav"
+  },
+  {
+   "kader": "k02",
+   "okno": 2.3,
+   "govor": 1.521,
+   "rob": 0.48,
+   "besedilo": "Deset minut hoje,",
+   "datoteka": "zvok/60-sl/k02.wav"
+  },
+  {
+   "kader": "k03",
+   "okno": 1.61,
+   "govor": 0.975,
+   "rob": 0.34,
+   "besedilo": "in si v reki.",
+   "datoteka": "zvok/60-sl/k03.wav"
+  },
+  {
+   "kader": "k04",
+   "okno": 2.85,
+   "govor": 1.95,
+   "rob": 0.6,
+   "besedilo": "Kopanje, ki se ga ne naveličaš.",
+   "datoteka": "zvok/60-sl/k04.wav"
+  },
+  {
+   "kader": "k05",
+   "okno": 1.79,
+   "govor": 1.115,
+   "rob": 0.38,
+   "besedilo": "Naravni tobogan,",
+   "datoteka": "zvok/60-sl/k05.wav"
+  },
+  {
+   "kader": "k06",
+   "okno": 2.26,
+   "govor": 1.486,
+   "rob": 0.47,
+   "besedilo": "in plitvina do pasu.",
+   "datoteka": "zvok/60-sl/k06.wav"
+  },
+  {
+   "kader": "k07",
+   "okno": 3.55,
+   "govor": 2.508,
+   "rob": 0.74,
+   "besedilo": "Dve hiši, dva naslova v Gribljah.",
+   "datoteka": "zvok/60-sl/k07.wav"
+  },
+  {
+   "kader": "k08",
+   "okno": 2.74,
+   "govor": 1.869,
+   "rob": 0.57,
+   "besedilo": "Štirje samostojni apartmaji.",
+   "datoteka": "zvok/60-sl/k08.wav"
+  },
+  {
+   "kader": "k09",
+   "okno": 3.04,
+   "govor": 2.101,
+   "rob": 0.64,
+   "besedilo": "Sedem ležišč v dveh spalnicah,",
+   "datoteka": "zvok/60-sl/k09.wav"
+  },
+  {
+   "kader": "k10",
+   "okno": 3.1,
+   "govor": 2.148,
+   "rob": 0.65,
+   "besedilo": "in nadstavna postelja za otroke.",
+   "datoteka": "zvok/60-sl/k10.wav"
+  },
+  {
+   "kader": "k11",
+   "okno": 3.5,
+   "govor": 2.473,
+   "rob": 0.73,
+   "besedilo": "Kuhinje, opremljene do podrobnosti.",
+   "datoteka": "zvok/60-sl/k11.wav"
+  },
+  {
+   "kader": "k12",
+   "okno": 3.4,
+   "govor": 2.392,
+   "rob": 0.71,
+   "besedilo": "Vsaka hiša svojo teraso in vrt.",
+   "datoteka": "zvok/60-sl/k12.wav"
+  },
+  {
+   "kader": "k13",
+   "okno": 2.04,
+   "govor": 1.312,
+   "rob": 0.43,
+   "besedilo": "letno kuhinjo,",
+   "datoteka": "zvok/60-sl/k13.wav"
+  },
+  {
+   "kader": "k14",
+   "okno": 2.28,
+   "govor": 1.498,
+   "rob": 0.48,
+   "besedilo": "in pergolo v senci.",
+   "datoteka": "zvok/60-sl/k14.wav"
+  },
+  {
+   "kader": "k15",
+   "okno": 2.66,
+   "govor": 1.8,
+   "rob": 0.56,
+   "besedilo": "Otrokom travnik z vrati,",
+   "datoteka": "zvok/60-sl/k15.wav"
+  },
+  {
+   "kader": "k16",
+   "okno": 2.81,
+   "govor": 1.916,
+   "rob": 0.59,
+   "besedilo": "in pogača iz lastne peči.",
+   "datoteka": "zvok/60-sl/k16.wav"
+  },
+  {
+   "kader": "k17",
+   "okno": 2.47,
+   "govor": 1.649,
+   "rob": 0.52,
+   "besedilo": "Topla voda kar zunaj,",
+   "datoteka": "zvok/60-sl/k17.wav"
+  },
+  {
+   "kader": "k18",
+   "okno": 2.16,
+   "govor": 1.405,
+   "rob": 0.46,
+   "besedilo": "in vrt, ki je ves vaš.",
+   "datoteka": "zvok/60-sl/k18.wav"
+  },
+  {
+   "kader": "k19",
+   "okno": 3.31,
+   "govor": 2.322,
+   "rob": 0.69,
+   "besedilo": "Mehurčki pod visečimi cvetlicami.",
+   "datoteka": "zvok/60-sl/k19.wav"
+  },
+  {
+   "kader": "k20",
+   "okno": 1.68,
+   "govor": 1.033,
+   "rob": 0.35,
+   "besedilo": "In ko se stemni,",
+   "datoteka": "zvok/60-sl/k20.wav"
+  },
+  {
+   "kader": "k21",
+   "okno": 2.68,
+   "govor": 1.823,
+   "rob": 0.56,
+   "besedilo": "čez vrt steče vrsta luči.",
+   "datoteka": "zvok/60-sl/k21.wav"
+  },
+  {
+   "kader": "k22",
+   "okno": 4.81,
+   "govor": 3.506,
+   "rob": 1.0,
+   "besedilo": "River Kolpa Apartments, Griblje. Pokličite Majdo.",
+   "datoteka": "zvok/60-sl/k22.wav"
+  }
+ ]
+}

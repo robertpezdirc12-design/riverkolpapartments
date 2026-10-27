@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<title>Delitvena slika — River Kolpa Apartments</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  /* Platno za izvoz: 1200×630, razmerje, ki ga zahtevajo Facebook, LinkedIn in iMessage.
+     Slika je narejena iz lastne fotografije in lastnih pisav strani; zrcali paleto iz styles.css.
+     Pravilo je isto kot na strani: zatemnitev sme biti samo tolikšna, kolikor jo potrebuje besedilo. */
+  :root{
+    --ink:#07160f; --pine:#0f2a24; --sage:#7f9b85; --sand:#e0b287;
+    --sand-hi:#f7dcb8; --paper:#f4efe6;
+  }
+  html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:var(--ink)}
+  .platno{position:relative;width:1200px;height:630px;overflow:hidden;isolation:isolate}
+  .foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+        transform:scale(1.18);transform-origin:74% 62%;
+        filter:saturate(1.05) brightness(1.03)}
+  .vel{position:absolute;inset:0;
+       background:linear-gradient(102deg,
+         rgba(7,22,15,.95) 0%, rgba(7,22,15,.90) 30%,
+         rgba(7,22,15,.52) 52%, rgba(7,22,15,0) 74%)}
+  .rob{position:absolute;inset:0;border:1px solid rgba(224,178,135,.20);pointer-events:none}
+  .besedilo{position:absolute;left:64px;right:640px;top:0;bottom:0;
+            display:flex;flex-direction:column;justify-content:center;gap:22px}
+  .znak{width:44px;height:44px;color:var(--sand)}
+  .ozna{font:700 19px/1 Manrope,"Segoe UI",system-ui,sans-serif;
+        letter-spacing:.19em;color:var(--sage);text-transform:uppercase}
+  h1{margin:0;font:italic 600 88px/.94 "Cormorant Garamond",Georgia,serif;
+     color:var(--paper);letter-spacing:-.012em}
+  .crta{width:72px;height:2px;background:var(--sand);opacity:.85}
+  p{margin:0;max-width:470px;font:400 24px/1.45 Manrope,"Segoe UI",system-ui,sans-serif;
+    color:var(--sand-hi)}
+</style>
+</head>
+<body>
+<div class="platno">
+  <img class="foto" src="assets/travnik-30b.webp" alt="">
+  <div class="vel"></div>
+  <div class="rob"></div>
+  <div class="besedilo">
+    <svg class="znak" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M2 21c4-4 6 2 10-2s6 2 10-2 6 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M2 27c4-4 6 2 10-2s6 2 10-2 6 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+      <path d="M16 3l4.5 9h-9L16 3z" fill="currentColor" opacity=".9"/>
+    </svg>
+    <p class="ozna">Griblje · Bela krajina</p>
+    <h1>River Kolpa<br>Apartments</h1>
+    <div class="crta"></div>
+    <p>Štirje samostojni apartmaji v dveh hišah, deset minut hoje do naravnega kopališča na Kolpi.</p>
+  </div>
+</div>
+</body>
+</html>
