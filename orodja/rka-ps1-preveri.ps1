@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$dir = 'C:\Users\admin\Downloads\sssdf\rka-onepage\orodja'
+$dir = if ($args.Count -gt 0) { $args[0] } else { 'C:\Users\admin\Downloads\sssdf\rka-onepage\orodja' }
 $napake = 0
 $stevec = 0
 foreach ($f in (Get-ChildItem -Path $dir -Filter *.ps1 | Sort-Object Name)) {

@@ -355,13 +355,22 @@ ne dobi, zato vrne `NI V REDU` — kar podre celotno verigo. Vsak zagon za seboj
 - `rka-vednost-preveri.py` bere `%TEMP%\rka-gib-mutacija.py`; na stroju brez teh izvirnikov
   ne more trditi ničesar.
 
-Tri samokontrole, ki veljajo za celotno mapo:
+Tri samokontrole pokrijejo celotno mapo brez vrzeli: 74 pregledanih = 34 `.cjs` + 39 `.py`
++ `manifest.json`, šest `.ps1` pa ima svoj parser — skupaj 80, nobena datoteka ne uide.
+Vsaka sprejme cilj kot argument, zato jo lahko pognete tudi nad poskusno mapo:
 
 ```bash
-node orodja/rka-orodja-sintaksa.cjs orodja   # node --check + py_compile
-powershell -NoProfile -ExecutionPolicy Bypass -File orodja/rka-ps1-preveri.ps1   # samo branje
-node orodja/rka-pred-objavo-scan.cjs         # 8 vzorcev skrivnosti po drevesu, ki bi šlo ven
+node orodja/rka-orodja-sintaksa.cjs [mapa]   # node --check + py_compile + JSON
+powershell -NoProfile -ExecutionPolicy Bypass -File orodja/rka-ps1-preveri.ps1 [mapa]
+node orodja/rka-pred-objavo-scan.cjs [repo]  # 8 vzorcev skrivnosti po git drevesu
 ```
+
+Vse tri so bile videne pasti na namensko pokvarjenih kopijah (2026-10-27 v `%TEMP%`, ne v
+repozitoriju): sintaksa je javila `SINTAKSA NE` za pokvarjena `.cjs` in `.py`
+(`pregledanih: 2 | sintakticnih napak: 2`), ps1-parser `PARSING FAILED` za nedokončan
+niz (`parsing errors: 1`) in sken je na posajenem lažnem `ghp_` žetonu javil
+`zadetkov: 1 | NI V REDU`. Pri vseh treh je izhodna koda izmerjena **brez cevi** — `$?`
+za cevi je koda zadnjega `taila`, ne vrat; napačen cilj vrne 1, pravo drevo 0.
 
 ## Licence in navedbe
 
@@ -430,11 +439,15 @@ Te so lastnikove, ne tehnične. V kodi so zato vidno **odprte**, ne rešene na p
   (`rka-izvoz-preveri.py` proti mojstru, `rka-klon-primerjava.cjs`), zato git ne sme
   pretvarjati koncev vrstic. Globalno je `core.autocrlf=true`; brez te atributa bi bil vsak
   checkout CRLF in vsaka primerjava bajtov bi lažala. Datoteke, dodane **pred** atributom,
-  zahtevajo `git add --renormalize .` — navaden ponoven `add` zaradi stat predpomnilnika ne
-  stori ničesar.
+  zahtevajo `git add --renormalize .` — navaden ponoven `add` ne stori ničesar, ker git
+  pred razliko pogleda le velikost in čas datoteke in ju po predhodnem `add`-u že ujame.
 - **Dokaz o klonu:** `node orodja/rka-klon-primerjava.cjs` (primerja SHA256 diska in klona,
-  izpiše `preverjenih: N | razlicnih: 0`; klon si naredi sam, če ga ni). `git archive` za
-  ta dokaz **ni veljaven**, ker pri izvozu sam pretvori končne znake.
+  izpiše `preverjenih: N | razlicnih: 0`). Klon si naredi sam, če ga ni, in ga **vedno
+  pripelje na HEAD vira** pred primerjavo — dokaz je bil popravljen prav zato, ker je
+  obstoječi klon po vsakem commitu javljal razlike, ki jih v repozitoriju ni. Falsifikator:
+  ena dodana vrstica v `podnapisi/rka-60-sl-splet.vtt` → `razlicnih: 1` in izhodna koda 1;
+  izvirnik vrnjen, znova `razlicnih: 0`. `git archive` za ta dokaz **ni veljaven**, ker pri
+  izvozu sam pretvori končne znake.
 - **Potis** na `robertpezdirc8-prog/riverkolpapartments` (javni repo) gre čez žeton za
   enkratno uporabo, tako da žeton ne pristane v ukazni vrstici, URL-u ali `.git/config`:
   ```bash

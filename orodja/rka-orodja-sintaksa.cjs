@@ -19,6 +19,6 @@ for (const f of datoteke) {
   if (preizkus.status === 0) izvid.push(f + "  sintaksa OK");
   else { sl++; izvid.push(f + "  SINTAKSA NE: " + (preizkus.stderr || "").split("\n")[0]); }
 }
-console.log(izvid.filter((v) => v.includes("NE") || v.includes("NEVELJAVEN")).join("\n") || "vse sintakticno veljavno");
+console.log(izvid.filter((v) => v.includes("SINTAKSA NE") || v.includes("NEVELJAVEN")).join("\n") || "vse sintakticno veljavno");
 console.log("pregledanih datotek: " + izvid.length + " | sintakticnih napak: " + sl);
 process.exit(sl === 0 ? 0 : 1);

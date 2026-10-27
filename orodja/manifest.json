@@ -169,14 +169,14 @@
       "vloga": "vrata: jezikovna skladnost (sl/en)"
     },
     "rka-klon-mutacija.cjs": {
-      "sha256": "b4f4b0af55d745aba720de1b5d2e2d4fa604f73f19f906ed298f88a3b401841c",
-      "bajti": 881,
-      "vloga": "falsifikacija dokaza o klonu: ena razlika in izhod 1, nato obnovljeno"
+      "sha256": "0fefb2d97bdb861505bdc5fb7c6ae328dd95258401b1b7dcf9a584193c997522",
+      "bajti": 2707,
+      "vloga": "falsifikacija dokaza o klonu: mutacija delovne kopije doda natanko eno razliko, obnova pusti bajtsko enak izvirnik"
     },
     "rka-klon-primerjava.cjs": {
       "sha256": "90db9dd96593baff2e6119666167d39d2ef4a18e5dc3a5ef40a65c729546af95",
       "bajti": 2434,
-      "vloga": "dokaz: klon repozitorija je bajtsko enak disku"
+      "vloga": "dokaz: delovna kopija je bajtsko enak HEAD; klon se pred primerjavo vedno pripelje na HEAD vira"
     },
     "rka-mux.py": {
       "sha256": "41e2c765c4376a0eee4bd96bfcb59b639668719f974348f6db03963fbd4be144",
@@ -184,13 +184,13 @@
       "vloga": "zloži izvožena platna z izmerjenimi zvočnimi masterji v 14 izdelkov"
     },
     "rka-orodja-kopiraj.cjs": {
-      "sha256": "815e19c7139d211927c610a6a66bd448327a6c2890c4ee0015f04d93a3021fef",
-      "bajti": 10181,
+      "sha256": "c35b0ebd7bc6092f974cb57ed1e0d7c7fcccd2ef2faca078d12b9795fda1dbd2",
+      "bajti": 10275,
       "vloga": "uvoznik orodij iz %TEMP% v mapo orodja, s sha256 in manifestom"
     },
     "rka-orodja-sintaksa.cjs": {
-      "sha256": "113b481f4c05293c62a7b584d9e1fea19a321138ee6ce60ab858770fa04f7e5f",
-      "bajti": 1187,
+      "sha256": "2da8f7233e826cf2003e22bc6e508476ce48d35303bd0b18f7b86f79476c9cd0",
+      "bajti": 1196,
       "vloga": "pregled sintakse vseh orodij (node --check, py_compile) nad poljubno mapo"
     },
     "rka-ozadje-casovnica.cjs": {
@@ -309,8 +309,8 @@
       "vloga": "detektor prekrivanja naslikanih pravokotnikov (upšteva overflow in prosojnost)"
     },
     "rka-ps1-preveri.ps1": {
-      "sha256": "77003cbc3516c020342e43a9f3decfbe9312936b5312cfa83ca28420e7faba9a",
-      "bajti": 632,
+      "sha256": "c4a9e3fdb6f542fb6868efa1faecb3e5dbdf57b2358c78df2d4231aa866ecb41",
+      "bajti": 677,
       "vloga": "analiza vseh .ps1 prek PowerShell Parserja (samo branje)"
     },
     "rka-razlika.py": {
