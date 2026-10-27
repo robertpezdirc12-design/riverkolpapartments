@@ -5,9 +5,11 @@ občina Črnomelj). V repozitoriju je vse, kar je potrebno za stran in za oglaš
 spletna stran brez drsenja, filmska stran s podnapisi, časovni list spota, zvočni masterji
 z njihovimi meritvami in merilna orodja.
 
-Stran **še ni javno objavljena**. Javni naslov (osnovni URL) še ni določen, zato so
-metapodatki v stanju *brez osnove*: poti do slik so relativne, `canonical` in `og:url` pa
-manjkata. Izvoženih MP4-jev tu ni — so produkt, ne vir (glej [Kaj namenoma
+Stran je **javno postavljena** na GitHub Pages od 2026-10-27,
+`https://robertpezdirc8-prog.github.io/riverkolpapartments/`. Metapodatki so zato v stanju
+*z osnovo*: slike so absolutne, `canonical` in `og:url` nosita javni naslov — zakaj prav
+absolutne in ne relativne, piše v [Javna postavitev](#javna-postavitev). Izvoženih MP4-jev
+tu ni — so produkt, ne vir (glej [Kaj namenoma
 ni v repozitoriju](#kaj-namenoma-ni-v-repozitoriju)).
 
 Vsaka številka v tem dokumentu je bodisi prebrana iz datoteke v repozitoriju bodisi
@@ -29,6 +31,7 @@ dokaz ne obstaja, piše **NEZAJETO** in ne domneva.
 - [`orodja/` — posnetek instrumentov in njegove meje](#orodja--posnetek-instrumentov-in-njegove-meje)
 - [Licence in navedbe](#licence-in-navedbe)
 - [Kaj namenoma ni v repozitoriju](#kaj-namenoma-ni-v-repozitoriju)
+- [Javna postavitev](#javna-postavitev)
 - [Odprte odločitve](#odprte-odločitve)
 - [Git: identiteta, konci vrstic, potis](#git-identiteta-konci-vrstic-potis)
 - [Seznam pred predajo](#seznam-pred-predajo)
@@ -400,20 +403,47 @@ Posledica, ki jo je treba vedeti pred poskusom ponoviti gradnjo na drugem stroju
 `NEDOSTAJA GLASBA`) in izvozna mapa, ki je ne vidi nobena vrata, dokler ji ne pove
 `RKA_IZVOZ`.
 
+## Javna postavitev
+
+Stran je od **2026-10-27** javno postrežena iz GitHub Pages:
+`https://robertpezdirc8-prog.github.io/riverkolpapartments/`.
+
+Postreženo je neposredno iz veje `main` v korenu repozitorija (vir:
+`GET /repos/robertpezdirc8-prog/riverkolpapartments/pages` → `status: built`,
+`source.branch: main`). Posnetek MP4 torej **ne more** manjkati za delovanje strani —
+njena vsebina je vsa v tem drevesu.
+
+Merjeno z žive strani (`curl`, ista ura): `/` in `/index.html` → **200**, `/zgodba.html` →
+**200**; sedem virov, ki jih `index.html` sklicuje s relativnimi potmi (`styles.css`,
+`fonts.css`, `app.js`, `assets/poster.webp`, `assets/kolpa-ozadje.mp4` in dva `woff2` v
+`fonts/`), je odgovorilo z **200**. Nič ni odvisno od domene, zato relativne poti pod
+projektnim naslovom delujejo.
+
+**Zakaj so metapodatki vseeno v stanju *z osnovo*.** Tri sklicane poti so bile korensko
+relativne (`og:image`, `twitter:image`, JSON-LD `image`), Pages pa streže pod podpotjo
+`/riverkolpapartments/`. Merjeno: `…/riverkolpapartments/assets/deljena-1200x630.jpg` →
+**200**, `…github.io/assets/deljena-1200x630.jpg` (kar razreši korenska pot) → **404**.
+V brskalniku je to nevidno — stran se odpre in izgleda popolnoma, delitvena kartica pa
+ostane brez slike. Zato je bil javni naslov vpisan z `rka-postavi-osnovo.cjs` na
+**devetih mestih v dveh datotekah** in obe stanji sta pred tem dokazani s **22 + 27 =
+49/49** ujetimi mutacijami. `canonical`, `og:url` in JSON-LD `url` so s tem dobili
+vrednost; `og:url` in canonical na naslovni strani sta koren (`…/riverkolpapartments/`),
+na filmski pa `…/zgodba.html` — prav to razlikovanje drži vrata do ujeta.
+
 ## Odprte odločitve
 
-Te so lastnikove, ne tehnične. V kodi so zato vidno **odprte**, ne rešene na pamet:
+Te so lastnikove, ne tehnične. V kodi so zato vidno **odprte**, ne rešene na pamet. Prva je
+medtem zaprta z njegovo odločitvijo in je zapisana skupaj z dokazom, da se ob menjavi
+naslova ne posega ročno:
 
-1. **Javni naslov strani (osnovni URL).** Mehanizem je zgrajen in dokazan (22 + 27
-   mutacij); manjka samo vrednost:
-   ```bash
-   node orodja/rka-postavi-osnovo.cjs --base=https://… --zapisi
-   python orodja/rka-deljena-preveri.py
-   ```
-   Ukaz brez `--zapisi` je suhi zagon in se datotek ne dotakne. Skripta sama pove, zakaj
-   obstaja: javni URL se spreminja na **devetih mestih v dveh datotekah** (`og:image`,
-   `twitter:image`, JSON-LD `image`, JSON-LD `url`, `og:url`, `canonical`) —
-   `rka-postavi-osnovo.cjs:3-8`.
+1. **Javni naslov strani (osnovni URL) — ZAPRTO 2026-10-27.** Vrednost je
+   `https://robertpezdirc8-prog.github.io/riverkolpapartments/`; napisana je na vseh devetih
+   mestih in stanje je overjeno z `rka-deljena-preveri.py` (49/49 mutacij je bilo ujetih,
+   preden je bila vrednost vpisana). Kaj je bilo meritve, zakaj relativne poti pod
+   projektnim naslovom nikoli ne morejo biti pravilne in kaj je mehanizem
+   (`rka-postavi-osnovo.cjs:3-8`, suhi zagon brez `--zapisi`) — piše v
+   [Javna postavitev](#javna-postavitev). Če naslov kdaj zamenja (lastniška domena), se
+   spremeni **samo** z isto skripto, nikoli ročno na treh mestih.
 2. **Pospešena utripna karta** (en vdih pred `k22`). Nikoli ni bila odobrena. Poseže v okna
    v `spot.json`, zato pomeni ponovno konformacijo, novo regeneracijo FX, nov zvok in ponoven
    `rka-bit-preveri.py`.
