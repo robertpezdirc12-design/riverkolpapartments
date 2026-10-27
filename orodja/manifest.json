@@ -174,8 +174,8 @@
       "vloga": "falsifikacija dokaza o klonu: ena razlika in izhod 1, nato obnovljeno"
     },
     "rka-klon-primerjava.cjs": {
-      "sha256": "a0ba18cd53f9fb77f7eda2e2870d45cc306c011e05b195be7dc8869b02132561",
-      "bajti": 1801,
+      "sha256": "90db9dd96593baff2e6119666167d39d2ef4a18e5dc3a5ef40a65c729546af95",
+      "bajti": 2434,
       "vloga": "dokaz: klon repozitorija je bajtsko enak disku"
     },
     "rka-mux.py": {

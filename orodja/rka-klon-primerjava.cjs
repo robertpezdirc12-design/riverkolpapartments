@@ -6,11 +6,20 @@ const KLON = process.env.TEMP + "/rka-klon";
 /* Klon je del dokaza, ne predpogoj, ki si ga mora kdo zapomniti: ce ga ni (Temp se
    pocisti), ga orodje naredi samo. Brez tega izpise "razlicnih: VSE" in pade na
    manjkajocem delovnem imeniku — kar izgleda kot okvara repozitorija, je samo
-   manjkajoc korak. */
+   manjkajoc korak.
+   Druga napaka istega izvora: obstojec klon je bil vedno premolcan. Po vsakem
+   commitu je primerjal disk s STARIM klonom in javlil razlike, ki jih v repozitoriju
+   ni — vrata, ki lazejo obcasno, so slabsa od vrat, ki padejo. Zato se klon pred
+   primerjavo vedno pripelje na HEAD vira. */
 if (!fs.existsSync(KLON + "/.git")) {
   fs.rmSync(KLON, { recursive: true, force: true });
   execFileSync("git", ["clone", "--quiet", "--no-hardlinks", REPO, KLON], { encoding: "utf8" });
   console.log("klon narejen: " + KLON);
+} else {
+  execFileSync("git", ["-C", KLON, "fetch", "--quiet", REPO, "HEAD"], { encoding: "utf8" });
+  execFileSync("git", ["-C", KLON, "reset", "--hard", "--quiet", "FETCH_HEAD"], { encoding: "utf8" });
+  execFileSync("git", ["-C", KLON, "clean", "--quiet", "-fd"], { encoding: "utf8" });
+  console.log("klon pripeljan na HEAD: " + KLON);
 }
 const seznam = execFileSync("git", ["ls-tree", "-r", "--name-only", "HEAD"],
   { cwd: REPO, encoding: "utf8" }).split("\n").filter(Boolean);
