@@ -114,7 +114,6 @@ ul{padding:0;list-style:none}
 .klapa-značka{width:20px;height:20px;color:var(--sand);flex:none}
 .klapa-značka svg{width:100%;height:100%}
 .klapa-t{color:var(--tx-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.klapa-t i{font-style:normal;color:var(--sand-hi)}
 .klapa-meta{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--tx-faint);white-space:nowrap}
 .klapa-meta b{color:var(--sand-hi);font-weight:700}
 .klapa-dom{border:1px solid var(--line);border-radius:99px;padding:6px 13px;color:var(--tx-dim);
@@ -196,6 +195,23 @@ body.podnapisi-on .napisi{bottom:calc(var(--rob-s) + var(--t-pod) * 2.3)}
   bottom:calc(clamp(9px,1.5svh,16px) * 2 + 42px);
   font-size:var(--t-ozn);letter-spacing:.12em;text-transform:uppercase;color:rgba(246,243,236,.42);
   pointer-events:none;text-align:right}
+
+/* ---------- SAMO_SKRIVANJE OPREME ----------
+   Med predvajanjem kader pripada reklami, ne predvajalniku. Transport in
+   tipkovna navodila zbledeta in zdrsnejo za 2,5 s mirovanja; vrnejo se ob
+   vsakem premiku miške, dotiku, kolescu, pritisku tipke in ob fokusu, pavza pa
+   jih pokaže vedno — isti vzorec imata YouTube in Vimeo. Zgornja klapa na strani
+   ostane, v masterjih pa je ni: izvoz teče pod body.render, ki skrije cel pas
+   (pravilo spodaj). */
+.transport,.tipka{transition:opacity .4s ease,transform .4s ease}
+body.oprema-skriti .transport,body.oprema-skriti .tipka{opacity:0;transform:translateY(16px)}
+body.oprema-skriti .transport{pointer-events:none}
+/* Gumb, ki je bil skrit, a dobi fokus, se mora takoj pokazati: sicer bi
+   tipkovnica odprla vrstico, ki je ni. Naslovna vrstica zraven spada — če je
+   transport viden zaradi fokusa, je viden tudi pas, ne samo polovica. */
+body.oprema-skriti .transport:focus-within{opacity:1;transform:none;pointer-events:auto}
+body.oprema-skriti .transport:focus-within ~ .tipka{opacity:1;transform:none}
+body.oprema-skriti{cursor:none}
 
 /* ---------- GUMBI (skupna oblika) ---------- */
 .gumb{display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -358,7 +374,7 @@ body.pokonci .n-naslov{max-width:14ch}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .tp,.gumb,.kader{transition-duration:.01ms !important}
+  .tp,.gumb,.kader,.transport,.tipka{transition-duration:.01ms !important}
   .zrno{display:none}
   .reznica{display:none}
 }

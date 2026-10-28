@@ -367,7 +367,29 @@ const SONDA = `(() => {
       `uporabljen bottom "${m.bottom}" · --rob-s "${m.vpeto}" · oprema ${m.transport}/${m.klapa}${narobe.length ? "  !!" : ""}`);
   }
 
-  console.log(`\n--- presoja: ${vzorcev} meritev na ${ZASLONI.length} zaslonih x 2 jezika + ${IZVOZ.length} izvoznih oknih ---`);
+  /* ZGORNJI PAS nosi samo znamko. Naslov reza iz spot.json je bil tehničen
+     podatek z delovne mize, na tridesetsekundnem rezu pa je celo napačno trdil
+     dolžino — Robert ga je 28. 10. 2026 ukazal izbrisati. Trditev je negativna,
+     zato preverja obe plati: kaj piše in da se element ni vrnil. */
+  await sess("Emulation.setDeviceMetricsOverride",
+    { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  await sess("Page.navigate", { url: NASLOV });
+  for (let k = 0; k < 120; k++) {
+    if (await ev("!!document.querySelector('.klapa-t')")) break;
+    await wait(120);
+  }
+  await wait(900);
+  const pas = await ev(`(() => { const t = document.querySelector('.klapa-t');
+    return { besedilo: t ? t.textContent.trim() : "(ni .klapa-t)",
+      delo: !!document.getElementById("klapa-delo") }; })()`);
+  const pasNarobe = [];
+  if (pas.besedilo !== "RKA") pasNarobe.push(`zgornji pas piše "${pas.besedilo}", dovoljen je samo "RKA"`);
+  if (pas.delo) pasNarobe.push("v pasu se je vrnil element #klapa-delo");
+  vzorcev++;
+  if (pasNarobe.length) { slabe.add("pas/znamka"); for (const x of pasNarobe) napake.push(`pas/znamka: ${x}`); }
+  console.log(`   pas/znamka: "${pas.besedilo}" · #klapa-delo ${pas.delo ? "DA" : "ne"}${pasNarobe.length ? "  !!" : ""}`);
+
+  console.log(`\n--- presoja: ${vzorcev} meritev na ${ZASLONI.length} zaslonih x 2 jezika + ${IZVOZ.length} izvoznih oknih + zgornji pas ---`);
   const poZaslonih = {};
   for (const k of slabe) { const z = k.split("/")[0]; poZaslonih[z] = (poZaslonih[z] || 0) + 1; }
   for (const z of ZASLONI) console.log(`  ${z.ime.padEnd(16)} ${String(poZaslonih[z.ime] || 0).padStart(3)} slabih meritev`);

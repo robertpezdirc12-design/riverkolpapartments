@@ -56,7 +56,7 @@ izračunajte znova, ne popravljajte iz spomina.
 | `(koren)` | 12 | `index.html`, `zgodba.html`, `deljena.html`, `app.js`, `zgodba.js`, `styles.css`, `zgodba.css`, `fonts.css`, `spot.json`, `README.md`, `.gitignore`, `.gitattributes` |
 | `assets/` | 53 | 46 fotografij in posnetkov (lastniški), `kolpa-ozadje.mp4`, 6 `woff2` pisav |
 | `zvok/` | 85 | 12 `master-*.m4a`, 4 `namera-*.json`, 64 posnetih govorov po kadrih, 4 `seznam.json`, `LICENCE.md` |
-| `orodja/` | 80 | 79 merilnih in gradbenih skript + `manifest.json` |
+| `orodja/` | 84 | 83 merilnih in gradbenih skript + `manifest.json` |
 | `fonts/` | 8 | 6 `woff2`, ki jih kliče `fonts.css` + 2 licenci OFL |
 | `podnapisi/` | 4 | `rka-{60,30}-{sl,en}-splet.vtt` |
 
@@ -145,6 +145,45 @@ preverjajo, da te odločitve držijo v izrisu, ne da bi bile estetsko pravilne.
 
 Podnapisi so pravi `<track kind="captions">` (`mode="hidden"`), vidno vrstico izriše
 `izris(t)`; pričakovana besedila vrata berejo iz `.vtt` na disku, ne iz kode strani.
+
+### Oprema predvajalnika zaspi med predvajanjem
+
+Med predvajanjem kader pripada reklami, ne predvajalniku. Spodnja kontrolna vrstica
+(`.transport`) in tipkovna navodila (`.tipka`) po **2,5 s mirovanja** zbledita in zdrsnejo
+za 16 px; vrnejo se ob premiku miške, dotiku, kolescu, pritisku tipke, fokusu in vedno ob
+pavzi — isti vzorec imata YouTube in Vimeo. Zgornja klapa (`.klapa`) **ostane**: v njej sta znamka
+in števec kadra. V masterju je ni — izvoznik teče pod `body.render`, ta pa s `zgodba.css:383`
+skrije cel pas. Merjeno, ne sklepano: izrez zgornjega roba iz gotovega posnetka
+`rka-60-sl-splet.mp4` pri 20 s nima nobenega besedila.
+
+Zgornji pas nosi **samo znamko** (`RKA`), ne naslova reza. Prej je `zgodba.js` vanj vpisoval
+`rez.naslov` iz `spot.json`, zato je bralec videl »ENOMINUTNA REKLAMA — FILMSKA ZGODBA«. Na
+tridesetsekundnem rezu je bila ta trditev napačna, na obeh rezih pa je šlo za tehničen podatek
+z delovne mize, ne za del oglasa. Odločitev lastnika strani, 28. 10. 2026: izbrisati. Naslov reza
+je ostal še v panelu Besedilo, kjer je v kontekstu.
+
+Istega dne je šel izbris še čez glavo dokumenta: `<title>`, `meta description`, `og:title` in
+`og:description` namesto »reklama« pišejo »filmska zgodba«. `rka-zgodba-sonda.cjs` je zaradi tega
+dobila 273. meritev, ki preverja obe plati — da pas piše točno `RKA` **in** da se `#klapa-delo` ni
+vrnil. Falsificirana je s poskusom, ne z domnevo: izvirnik je dal **273/273**, nato je v `zgodba.html`
+vrnjen `<i id="klapa-delo">enominutna reklama</i>` sondo prisilil v izhodno kodo 1 z natanko dvema
+dokazoma, `zgornji pas piše "RKA · enominutna reklama"` in `v pasu se je vrnil element
+#klapa-delo`. Ta mutacija zaenkrat **ni** zapisana v `rka-zgodba-mutacija.cjs` (tistih 13 ostaja
+13) — dokaz je v dnevniku verige, ne v avtomatskem falsifikatorju.
+
+| del | kje | zakaj |
+|---|---|---|
+| `OPREMA_MIR = 2500` in `budiOpremo()` | `zgodba.js` (spodnji rob) | po vsakem dogodku se števec ponastavi; nov časovnik se zastavi **samo, če predvajanje teče** |
+| `prikaziOpremo()` v `ustavi()` | `zgodba.js` | pavza je odločitev gledalca: takrat se oprema prikaže vedno, brez čakanja |
+| `if (document.body.classList.contains("render")) return;` | `zgodba.js` | izvoznik slika platno po okvirjih; že en sam odvečen razred bi mu premaknil kader |
+| `body.oprema-skriti .transport:focus-within ~ .tipka` | `zgodba.css` | tipkovnica ne sme odpreti nevidnega; če je zaradi fokusa viden transport, mora biti viden tudi pas nad njim, ne samo polovica |
+| `transition-duration:.01ms !important` v `prefers-reduced-motion` | `zgodba.css` | komu je zmanjšano gibanje vklopljeno, ta dobi takojšnjo izmenjavo, ne drsenja |
+
+To ni vprašanje okusa, ampak meritve: pred spremembo je `rka-oprema-sonda.cjs` po 20 s
+predvajanja na produkciji izmerila, da se spodnji pas **nikoli** ne skrije — 93 px v višino,
+8,6 % kadra. Vrata te lastnosti sta `rka-zaspan-sonda.cjs` (12 vzorcev) in
+`rka-zaspan-gibanje-sonda.cjs` (4 vzorci), njun skupni falsifikator pa ju prisili k padcu z
+vseh **8 mutacij** (A–H).
 
 ## `spot.json` — časovni list
 
@@ -297,12 +336,12 @@ Načelo: **vrata so verodostojna šele, ko smo videli, da padejo.** Vsaka vrata 
 falsifikator (`*mutacija.*`), ki namensko pokvari vir in zahteva, da pade **prav ta**
 trditev; nato mora biti vrnjen bajtsko enak izvirnik. Številke v stolpcu *dokaz* so iz
 tabel mutacij v samih skriptih, preštete strukturno (AST za Python, ujemanje oklepajev za
-JS), zadnjič 2026-10-27.
+JS), zadnjič 2026-10-28.
 
 | vrata | kaj trdijo | dokaz |
 |---|---|---|
 | `rka-drsenje-sonda.cjs` | matrika **5 zaslonov × 6 pregledov**, 4 trditve, dvojno vzorčena (30 kombinacij) | `rka-drsenje-mutacija.cjs` — 5 |
-| `rka-zgodba-sonda.cjs` | 7 trditev o `zgodba.html` po vseh zaslonih, jezikih in obeh izvoznih oknih; **272 meritev** (zadnja dva zagona oba »V REDU«) | `rka-zgodba-mutacija.cjs` — 13 in `rka-zgodba-sonda-mutacija.py` — 1 (padlo 1, **NEZAJETO 1**) |
+| `rka-zgodba-sonda.cjs` | 8 trditev o `zgodba.html` po vseh zaslonih, jezikih in obeh izvoznih oknih; **273 meritev** (2026-10-28: izvirnik 273/273, mutiran pas ujet z dvema ustrezna dokazoma) | `rka-zgodba-mutacija.cjs` — 13 in `rka-zgodba-sonda-mutacija.py` — 1 (padlo 1, **NEZAJETO 1**) |
 | `rka-gib-sonda.cjs` | **8 trditev** žive plasti: ROB, PORIV, PRESLIKAVA, KONC, UTRIP, DETERMINIZEM, ŽIVA STRAN, SMER | `rka-gib-mutacija.py` — 8 |
 | `rka-pokonci-preveri.cjs` | 7 trditev pokončnega reza (uvoz prek parametra, živa stran nespremenjena, pas konstanten, napis na temnem polju …) | `rka-pokonci-mutacija.py` — 7 |
 | `rka-izvoz-preveri.py` | vseh **14 izdelkov**: trajanje, 1920×1080 oziroma 1080×1920 @30, bt709 **in razpon `tv`, ne `pc`** (`rka-izvoz-preveri.py:156-162`), `moov` pred `mdat`, glasnost iz datoteke, črni okvirji sredi spota, da je dobavljen zvok bajtsko enak izmerjenemu mojstru (PCM md5) | `rka-izvoz-mutacija.py` — 6 |
@@ -313,6 +352,8 @@ JS), zadnjič 2026-10-27.
 | `rka-jezik-preveri.py` | jezikovna skladnost (sl/en) | `rka-jezik-mutacija.py` — 15 |
 | `rka-slikovni-ab.py` | da je živa plast prišla **do pikslov**: 8 platn × 12 časovnih točk (96 parov) `blend=difference → signalstats YAVG` proti varovani kopiji, plus identitetske kontrole istega platna | `rka-slikovni-ab-mutacija.py` — 4 |
 | `rka-ab-sonda.cjs` | 21 funkcionalnih prever slušalne A/B strani | `rka-ab-mutacija.py` — 7 |
+| `rka-zaspan-sonda.cjs` | **12 vzorcev** samodejnega skrivanja opreme: mirovanje 2,5 s, vrnitev ob premiku miške, pavzi in fokusu, izvozni način nedotaknjen | `rka-zaspan-mutacija.cjs` — 8 mutacij (A–H), od tega sedem pade na tej sondi |
+| `rka-zaspan-gibanje-sonda.cjs` | pri `prefers-reduced-motion` je efektivno trajanje prehoda **≤ 1 ms** (ne .4 s) in se oprema vrne ob pravem dogodku | `rka-zaspan-mutacija.cjs` — mutacija H pade samo tu; navadna sonda je ne vidi, ker meri šele po koncu prehoda |
 | `rka-klon-primerjava.cjs` | delovna kopija je bajtsko enaka HEADu (SHA256 po `git ls-tree -r HEAD`; klon se pred primerjavo resetne na HEAD vira) | `rka-klon-mutacija.cjs` — 7 pogojev: na čistem drevesu izhodišče 0 → mutacija **1** (prav `zvok/60-sl/seznam.json`, izhod 1) → obnova 0 in izvirnik bajtsko enak |
 | `rka-vednost-preveri.py` | nobena sled mutacij ne sme ostati v virih: izvirnik natanko enkrat, mutacija odsotna | — (to je **sama kontrola** falsifikatorjev) |
 | `rka-bit-preveri.py` | reži se ujemata z utripno mapo | **NEZAJETO** — falsifikator ne obstaja |
@@ -325,6 +366,8 @@ Ukazi za zagon (iz korena repozitorija):
 node orodja/rka-drsenje-sonda.cjs
 node orodja/rka-zgodba-sonda.cjs
 node orodja/rka-gib-sonda.cjs
+node orodja/rka-zaspan-sonda.cjs         # zahteva postreženo stran; falsifikator sam ne zaganja strežnika
+node orodja/rka-zaspan-gibanje-sonda.cjs
 python orodja/rka-izvoz-preveri.py          # RKA_IZVOZ=<mapa> preusmeri na drugo izvozno mapo
 python orodja/rka-vednost-preveri.py
 node orodja/rka-klon-primerjava.cjs
@@ -335,6 +378,15 @@ brezglavega Chrome na CDP vratih (**9411** izvoznik, **9451** gib-sonda). Med ve
 **ne zaganjajte drugega Chrome-a ali strežnika**: sonda išče prosta vrata 4194→4197 in jih
 ne dobi, zato vrne `NI V REDU` — kar podre celotno verigo. Vsak zagon za seboj pusti
 časovno označen `--user-data-dir`; zaklenjen profil da `EPERM` in tiho ne pove ničesar.
+
+Izmerjeno 2026-10-28 ob treh zaporednih zagonih na tem stroju: `rka-zgodba-sonda.cjs` je
+dvakrat padla z `SMRT: Chrome se ni zagnal` oziroma `končna plošča se ni prikazala`, nato
+pa je tretji zagon dal **272/272**. Ob padcih je teklo 29 procesov `chrome.exe` (v tem tudi
+lastnikovo okno) in bilo prostih 4,6 GB pomnilnika od 20 GB, CDP vrata
+94xx pa so bila prosta — torej zagon Chrome-a ni uspel v soninih 16 s čakanja, kar ni
+napaka vsebine. **Teh dveh padcev ne štejem kot dokaz o spremembi; štejem šele zeleni
+ponovitev.** Zato velja pravilo: ob `SMRT: Chrome se ni zagnal` najprej ponovi zagon, šele
+potem išči krivdo v viru.
 
 ## `orodja/` — posnetek instrumentov in njegove meje
 
@@ -518,6 +570,16 @@ Pošten seznam omejitev, da bralec ne računa na dokaz, ki ne obstaja:
 - **Brez falsifikatorja so tri vrata:** `rka-bit-preveri.py`, `rka-posnetki-proveri.py`,
   `rka-svetlost.py`. Njihove trditve so preverjene samo toliko, kolikor jih je preveril
   ročni pregled ob nastanku.
+- **Sondi `rka-zaspan-sonda.cjs` in `rka-zaspan-gibanje-sonda.cjs` sta bili sprva
+  napačno vklesani.** Merita sta zahtevali ročno postreženo stran na vratih 4198, ki jih
+  noben skript v repozitoriju ne zagne — sam zagon torej pade, in sicer ne zaradi vsebine.
+  Zdaj si oba sama zaženeta `rka-streznik.cjs` na 4194–4197, kot ga ostale sonde; popravilo
+  je bilo nujno, preden lahko trdim, da sta vrata. Falsifikator jima sonde išče ob sebi
+  (`__dirname`), ne v `%TEMP%`, da uvožena kopija ne kaže v začasni imenik.
+- **Ugasnjen kazalec miške med spanjem opreme ni ujet.** `zgodba.css` ob razredu
+  `body.oprema-skriti` nastavi `cursor:none` in `rka-zaspan-sonda.cjs` to tudi izpiše pri
+  vsakem vzorcu, a nobena trditev ne presoi vrednosti — mutacija, ki pravilo izbriše, zato
+  ne pade. **NEZAJETO.**
 - **Klon-dokaz pozna samo sledene datoteke.** `rka-klon-primerjava.cjs` primerja
   `git ls-tree -r HEAD` z delovno kopijo: datoteke, ki niso sledene, ne more videti (izpiše
   jih samo na število), seznam razlik pa je odrezan pri 12 — in takrat to tudi reče.

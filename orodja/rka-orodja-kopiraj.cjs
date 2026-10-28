@@ -5,6 +5,8 @@ const CILJ = "C:/Users/admin/Downloads/sssdf/rka-onepage/orodja";
 
 // Zavrženo izrecno: merila, ki lažejo, ali enkratni diagnostični posnetki.
 const IZVZETO = {
+  "rka-zaspan-rm2.cjs": "enkratna razjasnitev: v glavi brez pravega kadra se prehod začne šele ob kadru; zaključek je vprašanje trajanja prenesen v gibanje-sondo",
+  "rka-zaspan-fals.sh": "bash-verzija falsifikatorja: za tri mutacije je javila 'padlih = 0', ker ni ločila 'ni padlo' od 'ni teklo' — nadomeščena z rka-zaspan-mutacija.cjs",
   "rka-pregled.cjs": "nadomeščeno: samo trije pogledi namesto matrike 5×6",
   "rka-meri3.cjs": "nadomeščeno: šteje 'slabih pogledov: N/18' preozko",
   "rka-meritve.cjs": "ne za razsodbe: meri z --window-size, 1440×900 da viewport 805 px",
@@ -74,7 +76,7 @@ const VLOGA = {
   "rka-gib-mutacija.py": "falsifikacija gibčnih vrat: osem virovno vezanih mutacij",
   "rka-pilot-gib.py": "dvanajstsekundni pilot žive plasti",
   "rka-pilot-zvok.py": "zvočni pilot",
-  "rka-zgodba-sonda.cjs": "vrata strani zgodba.html: 272 meritev (pet zaslonov × dva jezika in dve izvozni okni)",
+  "rka-zgodba-sonda.cjs": "vrata strani zgodba.html: 273 meritve (pet zaslonov × dva jezika, dve izvozni okni in zgornji pas)",
   "rka-zgodba-mutacija.cjs": "falsifikacija vrat strani zgodba.html: trinajst mutacij",
   "rka-zgodba-sonda-mutacija.py": "falsifikacija trditve zavrtja do dna v pomirjeni postavitvi",
   "rka-drsenje-sonda.cjs": "vrata: matrika pet zaslonov × šest pregledov, dvojno vzorčena",
@@ -123,7 +125,11 @@ const VLOGA = {
   "rka-drsenje.cjs": "zgodnja mera drsenja; razsodbe nosi rka-drsenje-sonda.cjs",
   "rka-ozadje-casovnica.cjs": "časovnica ozadja v heroju (kdaj mora biti viden)",
   "rka-pokonci-preveri.cjs": "vrata pokončnega reza 9×16: sedem trditev, njihov dokaz je rka-pokonci-mutacija.py",
-  "rka-orodja-kopiraj.cjs": "uvoznik orodij iz %TEMP% v mapo orodja, s sha256 in manifestom"
+  "rka-orodja-kopiraj.cjs": "uvoznik orodij iz %TEMP% v mapo orodja, s sha256 in manifestom",
+  "rka-oprema-sonda.cjs": "izhodiščna mera žive produkcije: oprema med predvajanjem nikoli ne zbledi (93 px = 8,6 % kadra)",
+  "rka-zaspan-sonda.cjs": "vrata samodejnega skrivanja opreme: dvanajst vzorcev med predvajanjem, pavzo, fokusom in izvozom",
+  "rka-zaspan-gibanje-sonda.cjs": "mera zmanjšanega gibanja: efektivno trajanje prehoda <= 1 ms in vrnitev ob pravem dogodku",
+  "rka-zaspan-mutacija.cjs": "falsifikator obeh zaspalih sond: osem mutacij (A-H) in dva izhodiščna zagona, vsaka dokaže izvirnik, bajte, padec in byte-enako obnovo"
 };
 
 const seznam = fs.readdirSync(TEMP)

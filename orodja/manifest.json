@@ -2,8 +2,10 @@
   "ustvarjeno": "2026-10-27",
   "vir": "%TEMP%",
   "opomba": "Kopiji sta nespremenjeni; skripti imajo absolutne poti te stroja (rka-onepage, rka-reklama, %TEMP%).",
-  "kopiranih": 79,
+  "kopiranih": 83,
   "izvzeto": {
+    "rka-zaspan-rm2.cjs": "enkratna razjasnitev: v glavi brez pravega kadra se prehod začne šele ob kadru; zaključek je vprašanje trajanja prenesen v gibanje-sondo",
+    "rka-zaspan-fals.sh": "bash-verzija falsifikatorja: za tri mutacije je javila 'padlih = 0', ker ni ločila 'ni padlo' od 'ni teklo' — nadomeščena z rka-zaspan-mutacija.cjs",
     "rka-pregled.cjs": "nadomeščeno: samo trije pogledi namesto matrike 5×6",
     "rka-meri3.cjs": "nadomeščeno: šteje 'slabih pogledov: N/18' preozko",
     "rka-meritve.cjs": "ne za razsodbe: meri z --window-size, 1440×900 da viewport 805 px",
@@ -183,9 +185,14 @@
       "bajti": 5023,
       "vloga": "zloži izvožena platna z izmerjenimi zvočnimi masterji v 14 izdelkov"
     },
+    "rka-oprema-sonda.cjs": {
+      "sha256": "2ce9a8ecf2b5e7899f51531e99e12dd7f11cf14a6affbbf52d641ced4fed5db5",
+      "bajti": 6650,
+      "vloga": "izhodiščna mera žive produkcije: oprema med predvajanjem nikoli ne zbledi (93 px = 8,6 % kadra)"
+    },
     "rka-orodja-kopiraj.cjs": {
-      "sha256": "c35b0ebd7bc6092f974cb57ed1e0d7c7fcccd2ef2faca078d12b9795fda1dbd2",
-      "bajti": 10275,
+      "sha256": "6b9ce238a5d8e7dd598520c45423c96bae7ef976f5487dbb94f9a909bcbaacab",
+      "bajti": 11188,
       "vloga": "uvoznik orodij iz %TEMP% v mapo orodja, s sha256 in manifestom"
     },
     "rka-orodja-sintaksa.cjs": {
@@ -408,6 +415,21 @@
       "bajti": 1150,
       "vloga": "vrata: nobena sled mutacij ne sme ostati v virih (izvirnik natanko enkrat, mutacija odsotna)"
     },
+    "rka-zaspan-gibanje-sonda.cjs": {
+      "sha256": "166d1f77afc9a178499029aad07125ba963b2e521ff3ca93a753d8aa073bd078",
+      "bajti": 6396,
+      "vloga": "mera zmanjšanega gibanja: efektivno trajanje prehoda <= 1 ms in vrnitev ob pravem dogodku"
+    },
+    "rka-zaspan-mutacija.cjs": {
+      "sha256": "58561b0fbf495bd48140422b2cae6ea475787a113c601978e0b309d1f78bf15b",
+      "bajti": 6678,
+      "vloga": "falsifikator obeh zaspalih sond: osem mutacij (A-H) in dva izhodiščna zagona, vsaka dokaže izvirnik, bajte, padec in byte-enako obnovo"
+    },
+    "rka-zaspan-sonda.cjs": {
+      "sha256": "7ee5d037293e4eb454ee6e64be115965b0e84d0b049807fb46a7caf10178d83c",
+      "bajti": 11030,
+      "vloga": "vrata samodejnega skrivanja opreme: dvanajst vzorcev med predvajanjem, pavzo, fokusom in izvozom"
+    },
     "rka-zgodba-mutacija.cjs": {
       "sha256": "d39cd6a4af4411aa26f3368a566355bf844f4ddf6f264b077160cced6fc75b20",
       "bajti": 18522,
@@ -419,9 +441,9 @@
       "vloga": "falsifikacija trditve zavrtja do dna v pomirjeni postavitvi"
     },
     "rka-zgodba-sonda.cjs": {
-      "sha256": "b8f706d6f280a13999b5df5d0180c3e87201731a134993971f283a077c02be84",
-      "bajti": 22398,
-      "vloga": "vrata strani zgodba.html: 272 meritev (pet zaslonov × dva jezika in dve izvozni okni)"
+      "sha256": "abe661d398fe046cca299b6978689c67a806eec9fc1b9812750de3096c17daa5",
+      "bajti": 23706,
+      "vloga": "vrata strani zgodba.html: 273 meritve (pet zaslonov × dva jezika, dve izvozni okni in zgornji pas)"
     },
     "rka-zivjo-sliki.cjs": {
       "sha256": "755bd798ced87085e5430b229960ad15c2db1b8e1706de74af1265e5643263cb",

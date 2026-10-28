@@ -46,7 +46,7 @@ const DRZAVA = {
   platno: $("#platno"), napisi: $("#napisi"), reznica: $("#reznica"), crni: $("#crni"),
   varnost: $("#varnost"),
   kader: $("#klapa-kader"), stevec: $("#klapa-stevec"), pog: $("#klapa-pog"),
-  ura: $("#klapa-ura"), delo: $("#klapa-delo"),
+  ura: $("#klapa-ura"),
   trak: $("#trak"), zapolni: $("#trakZapolni"), kaza: $("#trakKaza"), zobi: $("#trakZobi"),
   transport: $("#transport"),
   cas: $("#tpCas"),
@@ -185,7 +185,6 @@ function zgradi() {
   });
 
   DRZAVA.stevec.textContent = "/" + seznam.length;
-  DRZAVA.delo.textContent = rez.naslov.toLowerCase();
   DRZAVA.trak.setAttribute("aria-valuemax", String(rez.dolzina));
   postaviMrezo();
   izris(cas);
@@ -382,6 +381,7 @@ function predvajaj(od = null) {
   }
   preoblikujGumb();
   requestAnimationFrame(tik);
+  budiOpremo();
 }
 
 function ustavi() {
@@ -389,6 +389,7 @@ function ustavi() {
   if (zvokElement) zvokElement.pause();
   preoblikujGumb();
   izris(cas);
+  prikaziOpremo();
 }
 
 function preklopi() { predvaja ? ustavi() : predvajaj(); }
@@ -451,7 +452,7 @@ function stikala() {
   DRZAVA.gumbJezik.textContent = stanje.jezik.toUpperCase();
   DRZAVA.kOne.textContent = SPOT.rezi[stanje.rez].dolzina === 30
     ? "Konec tridesetih sekund. Ostane številka."
-    : "Konec enominutne reklame. Ostane številka.";
+    : "Konec minute. Ostane številka.";
   oznaciZvok();
 }
 
@@ -691,3 +692,29 @@ function poravnajRob() {
 new ResizeObserver(poravnajRob).observe(DRZAVA.transport);
 ROB_POG.addEventListener("change", poravnajRob);
 poravnajRob();
+
+/* OPREMA, KI ZASPI MED PREDVAJANJEM. Kader je reklama, ne predvajalnik:
+   kontrolna vrstica in tipkovna navodila se po OPREMA_MIR umaknejo, vrne pa
+   ju katerikoli znak pozornosti (miška, dotik, tipka, fokus) ali pavza. V
+   izvoznem načinu se ne vpiše niti en razred — tam je opreme z `display:none`
+   že ni, izvoznik pa ne sme dobiti preklopa, ki bi lahko premaknil sliko. */
+const OPREMA_MIR = 2500;
+let oprema_ur = null;
+
+function prikaziOpremo() {
+  clearTimeout(oprema_ur);
+  oprema_ur = null;
+  document.body.classList.remove("oprema-skriti");
+}
+
+function budiOpremo() {
+  if (document.body.classList.contains("render")) return;
+  clearTimeout(oprema_ur);
+  document.body.classList.remove("oprema-skriti");
+  if (predvaja)
+    oprema_ur = setTimeout(() => document.body.classList.add("oprema-skriti"), OPREMA_MIR);
+}
+
+/* passive: med premikom miške smemo samo brati, drsenja ne preprečiti. */
+for (const dog of ["pointermove", "pointerdown", "keydown", "wheel", "touchstart", "focusin"])
+  window.addEventListener(dog, budiOpremo, { passive: true });
