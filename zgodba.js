@@ -122,7 +122,7 @@ function zgradi() {
   });
   if (Math.abs(tekoce - rez.dolzina) > 0.01) {
     napisiNapako(`Casovni list :${stanje.rez} ni konformiran — vsota oken je ` +
-                 `${tekoce.toFixed(2)} s, enota pa ${rez.dolzina} s.`);
+                 `${tekoce.toFixed(2)} s, celoten film pa ${rez.dolzina} s.`);
   }
 
   DRZAVA.platno.innerHTML = "";
@@ -498,7 +498,7 @@ function zgradiBesedilo() {
       </button>`;
   });
   html += `<div class="bes-noga">
-      <p><b>Zasedenost govora.</b> ${delezGovora().toFixed(1)} % enote je izgovorjenega —
+      <p><b>Zasedenost govora.</b> ${delezGovora().toFixed(1)} % celotnega trajanja je izgovorjenega —
       ostalo je zrak, da rez diha.</p>
       <p><b>Pripoved.</b> ${glas.glas} · ${glas.licenca}${glas.model ? " · " + glas.model : ""}.
       Glas je nevtronski model, treniran na posnetem govorcu, ne zvočni niz iz lazni.</p>

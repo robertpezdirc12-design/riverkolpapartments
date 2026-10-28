@@ -1,7 +1,7 @@
 {
  "oznaka": "rka-spot",
- "naslov": "River Kolpa Apartments — filmska zgodba in TV-reklama",
- "opomba": "Časovni list je edini vir resnice: stran ga predvaja, render ga izreže v MP4, sinteza pa iz njega bere pripoved. `kadri` je sklad vseh posnetkov; `rezi` so TV enote (:60 reklamna minuta in :30 reklama) iz istega sklada. Vsi podatki so resnični in prevzeti iz PODATKI/HISE v app.js; kjer podatka ni, list nič ne trdi.",
+ "naslov": "River Kolpa Apartments — filmska zgodba ob Kolpi (različici :60 in :30)",
+ "opomba": "Časovni list je edini vir resnice: stran ga predvaja, render ga izreže v MP4, sinteza pa iz njega bere pripoved. `kadri` je sklad vseh posnetkov; `rezi` sta dve predvajani različici (:60 enominutna in :30 tridesetsekundna) iz istega sklada. Vsi podatki so resnični in prevzeti iz PODATKI/HISE v app.js; kjer podatka ni, list nič ne trdi.",
  "sirina": 1920,
  "visina": 1080,
  "sricje": 30,
@@ -354,7 +354,7 @@
  ],
  "rezi": {
   "30": {
-   "naslov": "TV reklama — trideset sekund",
+   "naslov": "Tridesetsekundni film",
    "dolzina": 30,
    "niz": [
     [
@@ -434,7 +434,7 @@
    }
   },
   "60": {
-   "naslov": "Enominutna reklama — filmska zgodba",
+   "naslov": "Enominutni film",
    "dolzina": 60,
    "niz": [
     [

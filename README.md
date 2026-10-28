@@ -171,6 +171,17 @@ dokazoma, `zgornji pas piše "RKA · enominutna reklama"` in `v pasu se je vrnil
 #klapa-delo`. Ta mutacija zaenkrat **ni** zapisana v `rka-zgodba-mutacija.cjs` (tistih 13 ostaja
 13) — dokaz je v dnevniku verige, ne v avtomatskem falsifikatorju.
 
+Istega dne je ista odločitev šla čez vse uporabniške površine: »reklama« je delovni žargon,
+javni izdelek pa govori filmsko. Navigacija glavne strani se imenuje **Film**, naslovnica
+podstrani **Filmska zgodba ob Kolpi**, skupini izbir **Trajanje** in **Pripoved** z različicama
+**:60 Enominutna** in **:30 Tridesetsekundna**, glavni gumb **Predvajaj film**, `spot.json` pa
+nosi naslova **Enominutni film** in **Tridesetsekundni film**. Merjeno po spremembi:
+`rka-zgodba-sonda.cjs` 273/273 (vključno s `sirina-320`, kjer je »Tridesetsekundna« najdaljša
+beseda na vratih), `rka-drsenje-sonda.cjs` 30/30, `rka-zaspan-sonda.cjs` 12/12,
+`rka-deljena-mutacija.py` 49/49 v obeh stanjih osnove. Falsifikator deljenih podatkov je pri tem
+razkril napako prejšnjega dne: dve njegovi igli sta še kazali na star `og:title` z »Reklama«,
+zato mutaciji nista mogli spremeniti ničesar; s popravljenima iglama sta mutaciji spet ujeti.
+
 | del | kje | zakaj |
 |---|---|---|
 | `OPREMA_MIR = 2500` in `budiOpremo()` | `zgodba.js` (spodnji rob) | po vsakem dogodku se števec ponastavi; nov časovnik se zastavi **samo, če predvajanje teče** |

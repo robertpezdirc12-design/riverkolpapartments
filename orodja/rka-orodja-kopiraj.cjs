@@ -117,6 +117,7 @@ const VLOGA = {
   "rka-pred-objavo-scan.cjs": "pred objavo: iskanje žetonov in skrivnosti v drevesu, ki ga bo git oddal",
   "rka-ps1-preveri.ps1": "analiza vseh .ps1 prek PowerShell Parserja (samo branje)",
   "rka-320-slika.cjs": "zaslonske slike najhujših primerov gostote postavitve",
+  "rka-povrsina-slika.cjs": "zaslonske slike preimenovanih površin (vrata pri 1440 in 320 px, navigacija) z izmerjenim besedilom iz DOM-a",
   "rka-rezja-veriga.ps1": "veriga celotne rezje",
   "rka-rezja-zaganjalo.ps1": "zaganjalo rezje",
   "rka-ab-zaganjalo.ps1": "zaganjalo slušalne A/B verige",

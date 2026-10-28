@@ -355,8 +355,8 @@ const POGLEDI = {
 function oznaciNav(id) {
   elNav.innerHTML = NAV.map(([n, l]) =>
     `<a href="#${n}" data-go="${n}"${n === id ? ' aria-current="page"' : ""}>${l}</a>`).join("")
-    // Reklama je ločena stran, ne pogled — zato pravi href in ne data-go.
-    + `<a class="nav-film" href="zgodba.html">Reklama</a>`;
+    // Film je ločena stran, ne pogled — zato pravi href in ne data-go.
+    + `<a class="nav-film" href="zgodba.html">Film</a>`;
   elTrail.innerHTML = id === "domov"
     ? `<b>River Kolpa Apartments</b> · Griblje pri Gradcu · Bela krajina`
     : `Domov <b>› ${POGLEDI[id].label}</b>`;

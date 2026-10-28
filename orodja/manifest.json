@@ -2,7 +2,7 @@
   "ustvarjeno": "2026-10-27",
   "vir": "%TEMP%",
   "opomba": "Kopiji sta nespremenjeni; skripti imajo absolutne poti te stroja (rka-onepage, rka-reklama, %TEMP%).",
-  "kopiranih": 83,
+  "kopiranih": 84,
   "izvzeto": {
     "rka-zaspan-rm2.cjs": "enkratna razjasnitev: v glavi brez pravega kadra se prehod začne šele ob kadru; zaključek je vprašanje trajanja prenesen v gibanje-sondo",
     "rka-zaspan-fals.sh": "bash-verzija falsifikatorja: za tri mutacije je javila 'padlih = 0', ker ni ločila 'ni padlo' od 'ni teklo' — nadomeščena z rka-zaspan-mutacija.cjs",
@@ -91,8 +91,8 @@
       "vloga": "vrata: rez se ujema z utripno mapo"
     },
     "rka-deljena-mutacija.py": {
-      "sha256": "d1abfefc5a26c2bf6f1130626d9c6ac4e82ba1c93396d24302f052564161d505",
-      "bajti": 14054,
+      "sha256": "c1783058e13cb07972ffcb63de45eb50fb85842488379c710be757591311e16e",
+      "bajti": 14082,
       "vloga": "falsifikacija deljenih vrat: devetinštirideset mutacij"
     },
     "rka-deljena-preveri.py": {
@@ -191,8 +191,8 @@
       "vloga": "izhodiščna mera žive produkcije: oprema med predvajanjem nikoli ne zbledi (93 px = 8,6 % kadra)"
     },
     "rka-orodja-kopiraj.cjs": {
-      "sha256": "6b9ce238a5d8e7dd598520c45423c96bae7ef976f5487dbb94f9a909bcbaacab",
-      "bajti": 11188,
+      "sha256": "9a1f92a274364ad5b542173de00a47ed2736f3752431c8f933c9f9a21154d4e8",
+      "bajti": 11329,
       "vloga": "uvoznik orodij iz %TEMP% v mapo orodja, s sha256 in manifestom"
     },
     "rka-orodja-sintaksa.cjs": {
@@ -299,6 +299,11 @@
       "sha256": "5c34cf4de09fa6aa1b2ba387f371c55e3cc9cd8640ca58b7f4a8f076962e5455",
       "bajti": 553,
       "vloga": "byte-range pregledovalni strežnik 4185 za video in zvok"
+    },
+    "rka-povrsina-slika.cjs": {
+      "sha256": "07b07597c75fc5cd7bc7a525fec036cbbaaabdbb2e4ae736408e42d99108db48",
+      "bajti": 4838,
+      "vloga": "zaslonske slike preimenovanih površin (vrata pri 1440 in 320 px, navigacija) z izmerjenim besedilom iz DOM-a"
     },
     "rka-pred-objavo-scan.cjs": {
       "sha256": "f0a0db6fe5c98f1271eb49b597501cef52ddda3c50db04fca6a1914ae937bd0a",
