@@ -192,6 +192,9 @@ html.pripravljen .shell{opacity:1}
 
 /* ---------- POGLED LOKACIJE ---------- */
 .lok{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:calc(26px*var(--g));align-items:center}
+/* Ko hiša prikazuje dve enoti, levi stolpec zasede vso višino, da se bloka
+   ne prekrivata in oba naslova ostaneta vidna. */
+.lok:has(.enote-foto){align-items:stretch}
 .gal-loc{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:9px;min-height:0}
 .glavna-btn{position:relative;display:block;width:100%;height:100%;min-height:0;overflow:hidden;
   border-radius:calc(var(--r) + 4px);border:1px solid var(--line-soft);box-shadow:var(--shadow)}
@@ -202,6 +205,16 @@ html.pripravljen .shell{opacity:1}
   aspect-ratio:16/10;transition:border-color .2s,transform .2s}
 .smini button:hover{border-color:var(--sand);transform:translateY(-2px)}
 .smini img{width:100%;height:100%;object-fit:cover}
+/* Dve enoti v eni hiši: vsaka dobi svoj blok z glavno fotografijo in sličicami,
+   da gledalec ne zamenja stanovanja z drugim. Bloki se razdelijo višino stolpca,
+   sicer bi se vzporedni stanovanji prekrivala. */
+.enote-foto{display:grid;grid-template-rows:repeat(2,minmax(0,1fr));gap:calc(12px*var(--g));
+  min-height:0;height:100%;overflow:hidden}
+.enota-foto-blok{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:6px;min-height:0}
+.enota-foto-naslov{margin:0;font-size:.82em;font-weight:700;letter-spacing:.03em;
+  color:var(--sand);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.enota-foto-blok .glavna-btn{aspect-ratio:auto;height:100%;min-height:0}
+.enota-foto-blok .smini{grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:6px}
 .lok-info{display:grid;gap:calc(13px*var(--g));align-content:center;min-width:0}
 .naslov{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--tx-dim);font-size:.9em}
 .naslov svg{width:16px;height:16px;color:var(--sand);flex:none}
@@ -380,9 +393,19 @@ body[data-bg="mir"] .shell{background:
   .karta{padding:9px}
   .fakti{display:none}
   /* Hiša na telefonu: ena velika fotografija, naslov in dejstva. Sličice in
-     uvod izpustimo, ker ju pokaže že svetlobno okno in domači pogled. */
+     uvod izpustimo, ker ju pokaže že svetlobno okno in domači pogled.
+     Pri dveh enotah pokažemo obe glavni fotografiji, da sta različni. */
   .lok{grid-template-rows:minmax(0,26dvh) minmax(0,1fr)}
+  /* Z dveh enotama stolpec zgradbe ni dovolj visok za obe fotografiji, zato
+     dobita vsaka svojo vrstico in stolpec se raztegne. */
+  .lok:has(.enote-foto){grid-template-rows:auto minmax(0,1fr)}
   .smini{display:none}
+  /* Dve enoti se na telefonu zložita v en stolpec, vsaka z nizko fotografijo. */
+  .enote-foto{grid-template-rows:none;grid-template-columns:minmax(0,1fr);
+    grid-auto-rows:min-content;gap:10px;height:auto;overflow:visible}
+  .enota-foto-blok{grid-template-rows:auto auto;gap:5px}
+  .enota-foto-naslov{font-size:.76em}
+  .enota-foto-blok .glavna-btn{aspect-ratio:16/7;height:auto}
   .lok .eyebrow,.lok .lede{display:none}
   .lok .opombe li:nth-child(n+4){display:none}
   .lok .cta{gap:8px}
@@ -397,6 +420,7 @@ body[data-bg="mir"] .shell{background:
 @media (max-width:400px){
   .display{font-size:clamp(28px,9.4vw,44px)}
   .karta{grid-template-columns:clamp(62px,20vw,86px) minmax(0,1fr)}
+  .enota-foto-blok .glavna-btn{aspect-ratio:16/9}
   .pravila{grid-template-columns:minmax(0,1fr)}
   .pravila li:nth-child(n+3){display:none}
   .lb-nav.prev{left:2px}.lb-nav.next{right:2px}
