@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://robertpezdirc8-prog.github.io/riverkolpapartments/sitemap.xml

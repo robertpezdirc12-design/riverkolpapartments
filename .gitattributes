@@ -1,2 +1,13 @@
 # del meritev primerja bajtsko vsebino datotek — git ne sme spreminjati koncov vrstic
 * -text
+
+# eksplicitna pravila za besedilne tipe, da LF ostane LF ne glede na core.autocrlf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.vtt text eol=lf
+*.txt text eol=lf
+*.xml text eol=lf
+*.webmanifest text eol=lf
