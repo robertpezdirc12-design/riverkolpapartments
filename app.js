@@ -39,10 +39,10 @@ const F = {
   "noter-02":["Kutna zofa pod lesenimi gredami","noter"],
   "noter-03":["Opremljena kuhinja","noter"],
   "hodnik-kisa":["Kurilni kot s pečjo na drva in pogledom v sobo","noter"],
-  "noter-10":["Predel za sedenje z ravnim televizorjem","noter"],
+  "noter-10":["Predel za sedenje z ravnim televizorjem in pogradom","noter"],
   "soba-main":["Soba s tremi posteljami","noter"],
   "soba-otroci":["Soba z dvema nadstavnima postelama","noter"],
-  "soba-kisa":["Kot s štedilnikom na drva","noter"],
+  "soba-kisa":["Kaminski kot s pečjo na drva in jedilnico","noter"],
   "miza":["Pogrnjena miza pod leseno pergolo","izkus"],
   "izkus-01":["Domača pogača iz lastne peči","izkus"],
   "vrt-pregled":["Vrt s pergolo, jacuzzijem in dvema ležalnikoma","izkus"],
@@ -79,20 +79,21 @@ const HISE = {
     lede: "Prenovljena hiša z dvema samostojnima apartmajema. Skupen ograjen vrt s pergolo, " +
           "letno kuhinjo in jacuzzijem; do naravnega kopališča na Kolpi je deset minut hoje.",
     fakti: [["2", "samostojni enoti"], ["7 + 5", "oseb"], ["10 min", "hoje do reke"], ["10 / 10", "8 mnenj"]],
-    enoti: [["Apartma za 7 oseb — zgornji del", "7 ležišč v dveh spalnicah · kuhinja in kopalnica · lastna terasa"],
-            ["Studio za 5 oseb — spodnji del", "nadstavna postelja in raztegljiv kavč · primerni za štiri do pet oseb"]],
+    enoti: [["Apartma za 7 oseb — zgornji del", "7 ležišč v dveh spalnicah · dnevni del s kaminskim kotom · lastna terasa"],
+            ["Studio za 5 oseb — spodnji del", "raztegljiv kavč in pograd · opremljena kuhinja · primerni za štiri do pet oseb"]],
     opreme: ["Brezplačen WiFi", "Brezplačno parkirišče", "Klimatska naprava", "Štedilnik na drva",
              "Popolnoma opremljena kuhinja", "Jacuzzi na vrtu", "Ograjen vrt in travnik",
              "Ljubljenčki ob predhodni najavi"],
-    /* Zgornji del (7 oseb): odprt dnevni prostor s kuhinjo in dve spalnici —
-       vse pod črnimi gredami. Spodnji studio (5 oseb): kaminski kot z jedilnico
-       in raztegljiv kavč, brez gred. Fotografije se med enotama ne mešajo. */
-    velika: "noter-01",
-    smini: ["noter-01", "noter-02", "noter-03", "noter-10", "soba-main", "soba-otroci"],
-    enotaVelika: { "Apartma za 7 oseb — zgornji del": "noter-01",
-                   "Studio za 5 oseb — spodnji del": "soba-kisa" },
-    enotaSmini: { "Apartma za 7 oseb — zgornji del": ["noter-02","noter-03","noter-10","soba-main","soba-otroci"],
-                   "Studio za 5 oseb — spodnji del": ["hodnik-kisa","terasa-studio","letna-kuhinja","pergola-vrt","miza-pergola"] }
+    /* Fotografije so razdeljene po enotah tako, kot jih je potrdil lastnik:
+       ZGORNJI apartma (7 oseb) = dve spalnici in kaminski kot s pečjo na drva;
+       SPODNJI studio (5 oseb) = en odprt prostor z raztegljivim kavčem, pogradom
+       in kuhinjo. Nobena fotografija ne sme stati v obeh blokih. */
+    velika: "soba-kisa",
+    smini: ["soba-main", "soba-otroci", "hodnik-kisa"],
+    enotaVelika: { "Apartma za 7 oseb — zgornji del": "soba-kisa",
+                   "Studio za 5 oseb — spodnji del": "noter-10" },
+    enotaSmini: { "Apartma za 7 oseb — zgornji del": ["soba-main","soba-otroci","hodnik-kisa"],
+                   "Studio za 5 oseb — spodnji del": ["noter-01","noter-02","noter-03","terasa-studio"] }
   },
   "30b": {
     id: "30b", pogled: "h30b", naslov: "Griblje 30 b", naslovFull: "Griblje 30 b, SI-8332 Gradac",
@@ -186,10 +187,10 @@ function vDomov() {
     </section>
     <aside class="enote" aria-label="Apartmaji v dveh hišah">
       ${skupina(h70,
-        karta("noter-01", "Apartma za 7 oseb — zgornji del", "7 ležišč · dve spalnici · kuhinja in kopalnica",
-              "Odprt dnevni prostor s kuhinjo in jedilnico pod lesenimi gredami.", "h70") +
-        karta("soba-kisa", "Studio za 5 oseb — spodnji del", "štiri do pet oseb · nadstavna postelja",
-              "Kurilni kot s pečjo na drva in jedilni kotiček v spodnjem delu.", "h70"))}
+        karta("soba-kisa", "Apartma za 7 oseb — zgornji del", "7 ležišč · dve spalnici · dnevni del s pečjo",
+              "Dve spalnici in dnevni del s kaminskim kotom ter pečjo na drva.", "h70") +
+        karta("noter-10", "Studio za 5 oseb — spodnji del", "raztegljiv kavč in pograd · kuhinja",
+              "Odprt prostor z raztegljivim kavčem, pogradom in opremljeno kuhinjo.", "h70"))}
       ${skupina(h30,
         karta("zunanjost-30b", "Dva apartmaja", "nadstrešena terasa z jacuzzijem",
               "Kuhinja s pečico, kopalnica s pralnim strojem, travnik z nogometnimi vrati.", "h30b"))}
