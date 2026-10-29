@@ -196,7 +196,7 @@ function vHisa(kljuc) {
   <div class="view lok">
     <section class="gal-loc">
       <button class="glavna-btn" data-foto="${h.velika}" aria-label="Odpri fotografijo: ${alt(h.velika)}">
-        <img src="assets/${h.velika}.webp" alt="${alt(h.velika)}" decoding="async">
+        <img src="assets/${h.velika}.webp" alt="${alt(h.velika)}" decoding="async" fetchpriority="high">
       </button>
       <div class="smini">
         ${h.smini.map(s => `<button data-foto="${s}" aria-label="${alt(s)}">${img(s)}</button>`).join("")}
@@ -206,7 +206,7 @@ function vHisa(kljuc) {
       <p class="eyebrow">Nastanitev · Griblje, Bela krajina</p>
       <h2 class="h2">${h.naslov}</h2>
       <p class="naslov">${IK.pin}<span>${h.naslovFull}</span>
-        <a class="btn btn-ghost majhen" href="${h.map}" target="_blank" rel="noopener">Zemljevid</a></p>
+        <a class="btn btn-ghost majhen" href="${h.map}" target="_blank" rel="noopener noreferrer">Zemljevid</a></p>
       <p class="lede">${h.lede}</p>
       <div class="fakti">${h.fakti.map(f => `<div class="fakt"><b>${f[0]}</b><span>${f[1]}</span></div>`).join("")}</div>
       <div class="enote-info">${h.enoti.map(e => `<div class="enota"><b>${e[0]}</b><span>${e[1]}</span></div>`).join("")}</div>
@@ -230,7 +230,7 @@ function vReka() {
   return `
   <div class="view reka">
     <button class="stek" data-foto="reka-07" data-list="reka" aria-label="Odpri fotografije reke Kolpe">
-      <img src="assets/reka-07.webp" alt="${alt("reka-07")}" decoding="async">
+      <img src="assets/reka-07.webp" alt="${alt("reka-07")}" decoding="async" fetchpriority="high">
       <figcaption>${alt("reka-07")} — Kolpa v Gribljah</figcaption>
     </button>
     <section class="lok-info">
@@ -327,7 +327,7 @@ function vTermini() {
           <span class="stik-b"><i>Telefon</i><b>${PODATKI.telPrikaz}</b></span></a>
         <a class="stik-a" href="${mailto("povpraševanje po terminu")}"><span class="ico">${IK.pismo}</span>
           <span class="stik-b"><i>E-pošta</i><b>${PODATKI.mail}</b></span></a>
-        <a class="stik-a" href="${PODATKI.booking}" target="_blank" rel="noopener"><span class="ico">${IK.kljuc}</span>
+        <a class="stik-a" href="${PODATKI.booking}" target="_blank" rel="noopener noreferrer"><span class="ico">${IK.kljuc}</span>
           <span class="stik-b"><i>Ali rezervirajte na Bookingu</i><b>Griblje 70 · apartma in studio</b></span></a>
       </div>
       <div class="cta">

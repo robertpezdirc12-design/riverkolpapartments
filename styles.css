@@ -116,7 +116,7 @@ html.pripravljen .shell{opacity:1}
 .back svg{width:17px;height:17px}
 
 /* ---------- oder ---------- */
-.stage{min-height:0;overflow:hidden;display:grid}
+.stage{min-height:0;overflow:hidden;display:grid;contain:layout style}
 .view{min-height:0;display:grid;overflow:clip;animation:vstop .5s cubic-bezier(.2,.8,.3,1) both}
 @keyframes vstop{from{opacity:0;transform:translateY(calc(14px*var(--g)))}to{opacity:1;transform:none}}
 
@@ -332,6 +332,13 @@ body[data-bg="mir"] .shell{background:
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
   /* Brez gibanja ne pomeni brez svetlobe: mirni kader je enako svetel kot zanka. */
   .bg.on{opacity:.88!important}
+}
+/* Prihranek podatkov: na omejenih povezavah ugasne zrnatost in zamegljenost,
+   ki ju generira CSS filter — oba sta dekoracija, ne vsebina. */
+@media (prefers-reduced-data:reduce){
+  .grain{display:none}
+  .bg,.bg-yt{filter:none}
+  .btn-ghost,.chip,.karta,.skup-h,.rl{backdrop-filter:none}
 }
 
 /* ---------- ozki zasloni ---------- */

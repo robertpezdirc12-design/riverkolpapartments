@@ -8,6 +8,8 @@
   "background_color": "#07160f",
   "theme_color": "#07160f",
   "lang": "sl",
+  "dir": "ltr",
+  "categories": ["travel", "accommodation"],
   "icons": [
     {
       "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%230f2a24'/%3E%3Cpath d='M24 120c24-24 36 12 60-12s36 12 60-12 24 12 24 0' stroke='%23e0b287' stroke-width='14' fill='none' stroke-linecap='round'/%3E%3Cpath d='M24 156c24-24 36 12 60-12s36 12 60-12 24 12 24 0' stroke='%237f9b85' stroke-width='14' fill='none' stroke-linecap='round'/%3E%3C/svg%3E",

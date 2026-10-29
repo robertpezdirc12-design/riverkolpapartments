@@ -45,7 +45,7 @@ ul{padding:0;list-style:none}
   background:var(--sand);color:#10241b;padding:10px 16px;border-radius:99px;font-weight:700}
 
 /* ---------- PLATNO ---------- */
-.platno{position:fixed;inset:0;background:#020805;overflow:hidden}
+.platno{position:fixed;inset:0;background:#020805;overflow:hidden;contain:strict}
 .kader{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 100% 0 0);
   transform:translateZ(0);will-change:clip-path;background:#020805}
 .kader.vidno{clip-path:inset(0 0 0 0)}
@@ -377,6 +377,11 @@ body.pokonci .n-naslov{max-width:14ch}
   .tp,.gumb,.kader,.transport,.tipka{transition-duration:.01ms !important}
   .zrno{display:none}
   .reznica{display:none}
+}
+/* Prihranek podatkov: zrnatost in zamegljenost sta dekoracija. */
+@media (prefers-reduced-data:reduce){
+  .zrno{display:none}
+  .k-v::after{display:none}
 }
 
 /* Izvozni pogled: samo platno, brez predvajalnikove opreme. */

@@ -39,7 +39,7 @@ dokaz ne obstaja, piše **NEZAJETO** in ne domneva.
 
 ## Kaj je v repozitoriju
 
-**242 sledenih datotek, 33,58 MB (32,0 MiB).** Številka datotek je iz `git ls-files`; velikost je iz
+**244 sledenih datotek, 33,46 MB (31,9 MiB).** Številka datotek je iz `git ls-files`; velikost je iz
 velikosti na disku. Točna vsota bajtov se spreminja skupaj s tem README-jem, zato je ni
 smisel navajati kot obljubo — ponovno jo izračunajte z:
 
@@ -47,14 +47,14 @@ smisel navajati kot obljubo — ponovno jo izračunajte z:
 git ls-files -z | xargs -0 stat -c %s | awk '{ s += $1 } END { print s }'
 ```
 
-Zadnji izračun 2026-10-27: **33 581 564 B**. Ta odstavek je sam del vsote, zato številka
+Zadnji izračun 2026-10-29: **33 455 803 B**. Ta odstavek je sam del vsote, zato številka
 po vsaki uredbi te datoteke za nekaj bajtov zaostane za resničnostjo — po uredbi jo
 izračunajte znova, ne popravljajte iz spomina.
 
 | mapa | datotek | kaj |
 |---|---|---|
-| `(koren)` | 12 | `index.html`, `zgodba.html`, `deljena.html`, `app.js`, `zgodba.js`, `styles.css`, `zgodba.css`, `fonts.css`, `spot.json`, `README.md`, `.gitignore`, `.gitattributes` |
-| `assets/` | 53 | 46 fotografij in posnetkov (lastniški), `kolpa-ozadje.mp4`, 6 `woff2` pisav |
+| `(koren)` | 15 | `index.html`, `zgodba.html`, `deljena.html`, `app.js`, `zgodba.js`, `styles.css`, `zgodba.css`, `fonts.css`, `spot.json`, `README.md`, `.gitignore`, `.gitattributes`, `robots.txt`, `sitemap.xml`, `manifest.webmanifest` |
+| `assets/` | 47 | 46 fotografij in posnetkov (lastniški), `kolpa-ozadje.mp4` |
 | `zvok/` | 85 | 12 `master-*.m4a`, 4 `namera-*.json`, 64 posnetih govorov po kadrih, 4 `seznam.json`, `LICENCE.md` |
 | `orodja/` | 84 | 83 merilnih in gradbenih skript + `manifest.json` |
 | `fonts/` | 8 | 6 `woff2`, ki jih kliče `fonts.css` + 2 licenci OFL |
@@ -63,10 +63,10 @@ izračunajte znova, ne popravljajte iz spomina.
 `zvok/` je razčlenjen tako: 22 posnetih govorov za rez :60 (`zvok/60-sl`, `zvok/60-en`),
 10 za rez :30 (`zvok/30-sl`, `zvok/30-en`), vsak imenik ima svoj `seznam.json`.
 
-**Neskladje, ki ga je našel ta pregled:** `assets/` vsebuje šest `woff2` datotek, ki jih
+**Neskladje, ki ga je našel ta pregled:** `assets/` je vseboval šest `woff2` datotek, ki jih
 noben HTML, CSS ali JS ne kliče — `fonts.css:1-6` in povezavi `rel=preload`
 (`index.html:64-65`, `zgodba.html:22-23`) kažejo na `fonts/`. Gre za ostanek pred
-prestavitvijo, ne za vir. To je treba urediti (izbris ali uradna raba), ne prezreti.
+prestavitvijo. **Odstranjeno** — pisave so samo v `fonts/`.
 
 ## Poslovni podatki, ki so fiksni
 
