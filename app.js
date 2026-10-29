@@ -84,14 +84,15 @@ const HISE = {
     opreme: ["Brezplačen WiFi", "Brezplačno parkirišče", "Klimatska naprava", "Štedilnik na drva",
              "Popolnoma opremljena kuhinja", "Jacuzzi na vrtu", "Ograjen vrt in travnik",
              "Ljubljenčki ob predhodni najavi"],
-    /* Zgornji del (7 oseb): odprt dnevni prostor s kuhinjo in dve spalnici.
-       Spodnji studio (5 oseb): kaminski kot z jedilnico in raztegljiv kavč. */
+    /* Zgornji del (7 oseb): odprt dnevni prostor s kuhinjo in dve spalnici —
+       vse pod črnimi gredami. Spodnji studio (5 oseb): kaminski kot z jedilnico
+       in raztegljiv kavč, brez gred. Fotografije se med enotama ne mešajo. */
     velika: "noter-01",
     smini: ["noter-01", "noter-02", "noter-03", "noter-10", "soba-main", "soba-otroci"],
     enotaVelika: { "Apartma za 7 oseb — zgornji del": "noter-01",
                    "Studio za 5 oseb — spodnji del": "soba-kisa" },
-    enotaSmini: { "Apartma za 7 oseb — zgornji del": ["noter-02","noter-03","noter-10","soba-main","soba-otroci","hodnik-kisa"],
-                   "Studio za 5 oseb — spodnji del": ["soba-kisa","terasa-studio","hodnik-kisa","pergola-vrt","letna-kuhinja","miza-pergola"] }
+    enotaSmini: { "Apartma za 7 oseb — zgornji del": ["noter-02","noter-03","noter-10","soba-main","soba-otroci"],
+                   "Studio za 5 oseb — spodnji del": ["hodnik-kisa","terasa-studio","letna-kuhinja","pergola-vrt","miza-pergola"] }
   },
   "30b": {
     id: "30b", pogled: "h30b", naslov: "Griblje 30 b", naslovFull: "Griblje 30 b, SI-8332 Gradac",
