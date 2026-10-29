@@ -43,6 +43,7 @@ const F = {
   "soba-main":["Soba s tremi posteljami","noter"],
   "soba-otroci":["Soba z dvema nadstavnima postelama","noter"],
   "soba-kisa":["Kaminski kot s pečjo na drva in jedilnico","noter"],
+  "kopalnica-70":["Kopalnica s tušem, umivalnikom in lesenim ogledalom","noter"],
   "miza":["Pogrnjena miza pod leseno pergolo","izkus"],
   "izkus-01":["Domača pogača iz lastne peči","izkus"],
   "vrt-pregled":["Vrt s pergolo, jacuzzijem in dvema ležalnikoma","izkus"],
@@ -79,7 +80,7 @@ const HISE = {
     lede: "Prenovljena hiša z dvema samostojnima apartmajema. Skupen ograjen vrt s pergolo, " +
           "letno kuhinjo in jacuzzijem; do naravnega kopališča na Kolpi je deset minut hoje.",
     fakti: [["2", "samostojni enoti"], ["7 + 5", "oseb"], ["10 min", "hoje do reke"], ["10 / 10", "8 mnenj"]],
-    enoti: [["Apartma za 7 oseb — zgornji del", "7 ležišč v dveh spalnicah · dnevni del s kaminskim kotom · lastna terasa"],
+    enoti: [["Apartma za 7 oseb — zgornji del", "7 ležišč v dveh spalnicah · dnevni del s kaminskim kotom · kopalnica · lastna terasa"],
             ["Studio za 5 oseb — spodnji del", "raztegljiv kavč in pograd · opremljena kuhinja · primerni za štiri do pet oseb"]],
     opreme: ["Brezplačen WiFi", "Brezplačno parkirišče", "Klimatska naprava", "Štedilnik na drva",
              "Popolnoma opremljena kuhinja", "Jacuzzi na vrtu", "Ograjen vrt in travnik",
@@ -92,7 +93,7 @@ const HISE = {
     smini: ["soba-main", "soba-otroci", "hodnik-kisa"],
     enotaVelika: { "Apartma za 7 oseb — zgornji del": "soba-kisa",
                    "Studio za 5 oseb — spodnji del": "noter-10" },
-    enotaSmini: { "Apartma za 7 oseb — zgornji del": ["soba-main","soba-otroci","hodnik-kisa"],
+    enotaSmini: { "Apartma za 7 oseb — zgornji del": ["soba-main","soba-otroci","hodnik-kisa","kopalnica-70"],
                    "Studio za 5 oseb — spodnji del": ["noter-01","noter-02","noter-03","terasa-studio"] }
   },
   "30b": {
@@ -187,7 +188,7 @@ function vDomov() {
     </section>
     <aside class="enote" aria-label="Apartmaji v dveh hišah">
       ${skupina(h70,
-        karta("soba-kisa", "Apartma za 7 oseb — zgornji del", "7 ležišč · dve spalnici · dnevni del s pečjo",
+        karta("soba-kisa", "Apartma za 7 oseb — zgornji del", "7 ležišč · dve spalnici · kopalnica",
               "Dve spalnici in dnevni del s kaminskim kotom ter pečjo na drva.", "h70") +
         karta("noter-10", "Studio za 5 oseb — spodnji del", "raztegljiv kavč in pograd · kuhinja",
               "Odprt prostor z raztegljivim kavčem, pogradom in opremljeno kuhinjo.", "h70"))}
