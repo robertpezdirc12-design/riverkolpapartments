@@ -79,12 +79,12 @@ const HISE = {
     lede: "Prenovljena hiša z dvema samostojnima apartmajema. Skupen ograjen vrt s pergolo, " +
           "letno kuhinjo in jacuzzijem; do naravnega kopališča na Kolpi je deset minut hoje.",
     fakti: [["2", "samostojni enoti"], ["7 + 5", "oseb"], ["10 min", "hoje do reke"], ["10 / 10", "8 mnenj"]],
-    enoti: [["Apartma za 7 oseb", "7 ležišč v dveh spalnicah · lastna terasa"],
-            ["Studio za 5 oseb", "nadstavna postelja in raztegljiv kavč · primerni za štiri do pet oseb"]],
+    enoti: [["Apartma za 7 oseb — zgornji del", "7 ležišč v dveh spalnicah · kuhinja in kopalnica · lastna terasa"],
+            ["Studio za 5 oseb — spodnji del", "nadstavna postelja in raztegljiv kavč · primerni za štiri do pet oseb"]],
     opreme: ["Brezplačen WiFi", "Brezplačno parkirišče", "Klimatska naprava", "Štedilnik na drva",
              "Popolnoma opremljena kuhinja", "Jacuzzi na vrtu", "Ograjen vrt in travnik",
              "Ljubljenčki ob predhodni najavi"],
-    velika: "noter-01", smini: ["soba-main", "soba-otroci", "hodnik-kisa", "pergola-vrt"]
+    velika: "noter-01", smini: ["soba-main", "soba-otroci", "noter-03", "noter-10", "hodnik-kisa", "soba-kisa"]
   },
   "30b": {
     id: "30b", pogled: "h30b", naslov: "Griblje 30 b", naslovFull: "Griblje 30 b, SI-8332 Gradac",
@@ -178,9 +178,9 @@ function vDomov() {
     </section>
     <aside class="enote" aria-label="Apartmaji v dveh hišah">
       ${skupina(h70,
-        karta("noter-01", "Apartma za 7 oseb", "7 ležišč · dve spalnici · lastna terasa",
+        karta("noter-01", "Apartma za 7 oseb — zgornji del", "7 ležišč · dve spalnici · kuhinja in kopalnica",
               "Odprt dnevni prostor s kuhinjo in kurilnim kotom s pečjo na drva.", "h70") +
-        karta("terasa-studio", "Studio za 5 oseb", "štiri do pet oseb · nadstavna postelja",
+        karta("terasa-studio", "Studio za 5 oseb — spodnji del", "štiri do pet oseb · nadstavna postelja",
               "Pokrita terasa z jedilno mizo in kotom za sprostitev.", "h70"))}
       ${skupina(h30,
         karta("zunanjost-30b", "Dva apartmaja", "nadstrešena terasa z jacuzzijem",
