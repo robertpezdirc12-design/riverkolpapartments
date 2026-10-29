@@ -43,7 +43,7 @@ const F = {
   "soba-main":["Soba s tremi posteljami","noter"],
   "soba-otroci":["Soba z dvema nadstavnima postelama","noter"],
   "soba-kisa":["Kaminski kot s pečjo na drva in jedilnico","noter"],
-  "kopalnica-70":["Kopalnica s tušem, umivalnikom in lesenim ogledalom","noter"],
+  "kopalnica-70":["Kopalnica z umivalnikom, zloženimi brisačami in leseno polico","noter"],
   "miza":["Pogrnjena miza pod leseno pergolo","izkus"],
   "izkus-01":["Domača pogača iz lastne peči","izkus"],
   "vrt-pregled":["Vrt s pergolo, jacuzzijem in dvema ležalnikoma","izkus"],
